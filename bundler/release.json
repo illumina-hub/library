@@ -1,0 +1,44 @@
+{
+    "generator": {
+        "name": "dense",
+        "column_span": 120
+    },
+    "rules": [
+        "convert_square_root_call",
+        "convert_index_to_field",
+        "compute_expression",
+        "group_local_assignment",
+        "filter_after_early_return",
+        "remove_comments",
+        "remove_empty_do",
+        "remove_floor_division",
+        "remove_function_call_parens",
+        "remove_interpolated_string",
+        "remove_nil_declaration",
+        "remove_spaces",
+        "remove_types",
+        "remove_unused_if_branch",
+        "remove_unused_variable",
+        "remove_unused_while",
+        {
+            "rule": "rename_variables",
+            "include_functions": true
+        }
+    ],
+    "bundle": {
+		"require_mode": {
+			"name": "luau",
+			"sources": {
+                "@src": "../src",
+                "@types": "../src/types",
+                "@utils": "../src/utils",
+                "@styles": "../src/styles",
+                "@events": "../src/events",
+                "@managers": "../src/managers",
+                "@components": "../src/components",
+                "@appearances": "../src/appearances",
+                "@controllers": "../src/controllers"
+			}
+		}
+	}
+}
