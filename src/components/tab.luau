@@ -2,6 +2,7 @@
 
 local buttonTypes = require("@types/button")
 local containerTypes = require("@types/container")
+local flagTypes = require("@types/flags")
 local switchTypes = require("@types/switch")
 local tabTypes = require("@types/tab")
 
@@ -16,12 +17,18 @@ local events = require("@events")
 local Tab = {}
 Tab.__index = Tab
 
-function Tab.new(config: tabTypes.Config, container: containerTypes.Container, tabs: { tabTypes.Tab }): tabTypes.Tab
+function Tab.new(
+	config: tabTypes.Config,
+	container: containerTypes.Container,
+	flags: flagTypes.Flags,
+	tabs: { tabTypes.Tab }
+): tabTypes.Tab
 	local self = setmetatable({}, Tab)
 	local group = container.appearance.group
 	self.appearance = appearances.tab(config, group.tabs)
 	self.controller = controllers.tab.new(self.appearance, tabs)
 	self.section = appearances.section(group.sections)
+	self.flags = flags
 
 	events.tab(self.appearance, self.controller)
 
@@ -41,7 +48,7 @@ function Tab.createButton(self: tabTypes.Tab, config: buttonTypes.Config)
 end
 
 function Tab.createSwitch(self: tabTypes.Tab, config: switchTypes.Config)
-	return Switch.new(config, self.section)
+	return Switch.new(config, self.section, self.flags)
 end
 
 return Tab

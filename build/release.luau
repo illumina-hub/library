@@ -2,13 +2,14 @@ local a={cache={}}do do local function b()return nil end function a.a()local c=a
 a=c end return c.c end end do local function b()return nil end function a.b()local c=a.cache.b if not c then c={c=b()}a.
 cache.b=c end return c.c end end do local function b()return nil end function a.c()local c=a.cache.c if not c then c={c=
 b()}a.cache.c=c end return c.c end end do local function b()return nil end function a.d()local c=a.cache.d if not c then
-c={c=b()}a.cache.d=c end return c.c end end do local function b()do a.b()a.c()a.d()end return nil end function a.e()
-local c=a.cache.e if not c then c={c=b()}a.cache.e=c end return c.c end end do local function b()do a.a()a.e()end return
-nil end function a.f()local c=a.cache.f if not c then c={c=b()}a.cache.f=c end return c.c end end do local function b()
-return function(c)local d=Instance.new'Frame'd.Name='Group'd.BackgroundColor3=Color3.fromRGB(255,255,255)d.
-BackgroundTransparency=1 d.BorderColor3=Color3.fromRGB(0,0,0)d.BorderSizePixel=0 d.LayoutOrder=2 d.Size=UDim2.new(1,0,1,
--51)local e=Instance.new'UIListLayout'e.Name='UIListLayout'e.FillDirection=Enum.FillDirection.Horizontal e.SortOrder=
-Enum.SortOrder.LayoutOrder e.VerticalAlignment=Enum.VerticalAlignment.Center e.Parent=d local f=Instance.new
+c={c=b()}a.cache.d=c end return c.c end end do local function b()a.b()return nil end function a.e()local c=a.cache.e if
+not c then c={c=b()}a.cache.e=c end return c.c end end do local function b()do a.c()a.b()a.d()a.e()end return nil end
+function a.f()local c=a.cache.f if not c then c={c=b()}a.cache.f=c end return c.c end end do local function b()do a.a()a
+.b()a.f()end return nil end function a.g()local c=a.cache.g if not c then c={c=b()}a.cache.g=c end return c.c end end do
+local function b()return function(c)local d=Instance.new'Frame'd.Name='Group'd.BackgroundColor3=Color3.fromRGB(255,255,
+255)d.BackgroundTransparency=1 d.BorderColor3=Color3.fromRGB(0,0,0)d.BorderSizePixel=0 d.LayoutOrder=2 d.Size=UDim2.new(
+1,0,1,-51)local e=Instance.new'UIListLayout'e.Name='UIListLayout'e.FillDirection=Enum.FillDirection.Horizontal e.
+SortOrder=Enum.SortOrder.LayoutOrder e.VerticalAlignment=Enum.VerticalAlignment.Center e.Parent=d local f=Instance.new
 'ScrollingFrame'f.Name='Tabs'f.Active=true f.AutomaticCanvasSize=Enum.AutomaticSize.Y f.BackgroundColor3=Color3.fromRGB(
 255,255,255)f.BackgroundTransparency=1 f.BorderColor3=Color3.fromRGB(0,0,0)f.BorderSizePixel=0 f.CanvasSize=UDim2.
 fromScale(0,0.5)f.ScrollBarImageColor3=Color3.fromRGB(0,0,0)f.ScrollBarImageTransparency=1 f.ScrollBarThickness=0 f.
@@ -19,8 +20,8 @@ LayoutOrder g.Parent=f local h=Instance.new'UIPadding'h.Name='UIPadding'h.Paddin
 Name='Divider'i.BackgroundColor3=Color3.fromRGB(47,47,47)i.BorderColor3=Color3.fromRGB(0,0,0)i.BorderSizePixel=0 i.
 LayoutOrder=1 i.Size=UDim2.new(0,1,1,0)i.Parent=d local j=Instance.new'Frame'j.Name='Sections'j.BackgroundColor3=Color3.
 fromRGB(255,255,255)j.BackgroundTransparency=1 j.BorderColor3=Color3.fromRGB(0,0,0)j.BorderSizePixel=0 j.LayoutOrder=2 j
-.Size=UDim2.new(1,-201,1,0)j.Parent=d d.Parent=c return{tabs=f,sections=j}end end function a.g()local c=a.cache.g if not
-c then c={c=b()}a.cache.g=c end return c.c end end do local function b()return function(c)local d=Instance.new'Frame'd.
+.Size=UDim2.new(1,-201,1,0)j.Parent=d d.Parent=c return{tabs=f,sections=j}end end function a.h()local c=a.cache.h if not
+c then c={c=b()}a.cache.h=c end return c.c end end do local function b()return function(c)local d=Instance.new'Frame'd.
 Name='Header'd.BackgroundColor3=Color3.fromRGB(255,255,255)d.BackgroundTransparency=1 d.BorderColor3=Color3.fromRGB(0,0,
 0)d.BorderSizePixel=0 d.Size=UDim2.new(1,0,0,50)local e=Instance.new'UIListLayout'e.Name='UIListLayout'e.FillDirection=
 Enum.FillDirection.Horizontal e.SortOrder=Enum.SortOrder.LayoutOrder e.VerticalAlignment=Enum.VerticalAlignment.Center e
@@ -49,8 +50,8 @@ local m=Instance.new'ImageLabel'm.Name='Icon'm.AnchorPoint=Vector2.new(0.5,0.5)m
 'rbxassetid://83770212086491'm.ImageColor3=Color3.fromRGB(207,207,207)m.Position=UDim2.fromScale(0.5,0.5)m.Size=UDim2.
 fromOffset(20,20)m.Parent=l l.Parent=d d.Parent=c local n=Instance.new'Frame'n.Name='Divider'n.BackgroundColor3=Color3.
 fromRGB(47,47,47)n.BorderColor3=Color3.fromRGB(0,0,0)n.BorderSizePixel=0 n.LayoutOrder=1 n.Size=UDim2.new(1,0,0,1)n.
-Parent=c return{header=d,minimize=l,fullscreen=j,close=h}end end function a.h()local c=a.cache.h if not c then c={c=b()}
-a.cache.h=c end return c.c end end do local function b()local c=gethui()or cloneref(game:GetService'CoreGui')return
+Parent=c return{header=d,minimize=l,fullscreen=j,close=h}end end function a.i()local c=a.cache.i if not c then c={c=b()}
+a.cache.i=c end return c.c end end do local function b()local c=gethui()or cloneref(game:GetService'CoreGui')return
 function()local d=c:FindFirstChild'Illumina'if d then d:Destroy()end local e=Instance.new'ScreenGui'e.Name='Illumina'e.
 ZIndexBehavior=Enum.ZIndexBehavior.Sibling local f=Instance.new'Frame'f.Name='Container'f.AnchorPoint=Vector2.new(0.5,
 0.5)f.BackgroundColor3=Color3.fromRGB(10,10,10)f.BorderColor3=Color3.fromRGB(0,0,0)f.BorderSizePixel=0 f.Position=UDim2.
@@ -58,10 +59,10 @@ fromScale(0.5,0.5)f.Size=UDim2.fromOffset(750,500)local g=Instance.new'UIStroke'
 ApplyStrokeMode.Border g.Color=Color3.fromRGB(47,47,47)g.Parent=f local h=Instance.new'UICorner'h.Name='UICorner'h.
 CornerRadius=UDim.new(0,10)h.Parent=f local i=Instance.new'UICorner'i.Name='UICorner'i.CornerRadius=UDim.new(0,10)i.
 Parent=f local j=Instance.new'UIListLayout'j.Name='UIListLayout'j.HorizontalAlignment=Enum.HorizontalAlignment.Center j.
-SortOrder=Enum.SortOrder.LayoutOrder j.Parent=f f.Parent=e e.Parent=c return{screen=e,container=f}end end function a.i()
-local c=a.cache.i if not c then c={c=b()}a.cache.i=c end return c.c end end do local function b()local c,d,e=a.g(),a.h()
-,a.i()return function()local f=e()local g,h=d(f.container),c(f.container)return{root=f,header=g,group=h}end end function
-a.j()local c=a.cache.j if not c then c={c=b()}a.cache.j=c end return c.c end end do local function b()local c,d=a.e(),
+SortOrder=Enum.SortOrder.LayoutOrder j.Parent=f f.Parent=e e.Parent=c return{screen=e,container=f}end end function a.j()
+local c=a.cache.j if not c then c={c=b()}a.cache.j=c end return c.c end end do local function b()local c,d,e=a.h(),a.i()
+,a.j()return function()local f=e()local g,h=d(f.container),c(f.container)return{root=f,header=g,group=h}end end function
+a.k()local c=a.cache.k if not c then c={c=b()}a.cache.k=c end return c.c end end do local function b()local c,d=a.f(),
 'rbxassetid://73851699179305'return function(e,f)local g=Instance.new'TextButton'g.Name='Tab'g.AutoButtonColor=false g.
 BackgroundColor3=Color3.fromRGB(16,16,16)g.BackgroundTransparency=1 g.BorderColor3=Color3.fromRGB(0,0,0)g.
 BorderSizePixel=0 g.Size=UDim2.new(1,0,0,50)g.Text=''g.TextColor3=Color3.fromRGB(0,0,0)g.TextSize=14 local h=Instance.
@@ -77,8 +78,8 @@ Enum.FillDirection.Horizontal l.Padding=UDim.new(0,10)l.SortOrder=Enum.SortOrder
 VerticalAlignment.Center l.Parent=g local m=Instance.new'ImageLabel'm.Name='Icon'm.AnchorPoint=Vector2.new(0.5,0.5)m.
 BackgroundColor3=Color3.fromRGB(255,255,255)m.BackgroundTransparency=1 m.BorderColor3=Color3.fromRGB(0,0,0)m.
 BorderSizePixel=0 m.Image=e.icon or d m.ImageColor3=Color3.fromRGB(89,89,89)m.Position=UDim2.fromScale(0.5,0.5)m.Size=
-UDim2.fromOffset(20,20)m.Parent=g g.Parent=f return{tab=g,stroke=i,title=j,icon=m}end end function a.k()local c=a.cache.
-k if not c then c={c=b()}a.cache.k=c end return c.c end end do local function b()return function(c)local d=Instance.new
+UDim2.fromOffset(20,20)m.Parent=g g.Parent=f return{tab=g,stroke=i,title=j,icon=m}end end function a.l()local c=a.cache.
+l if not c then c={c=b()}a.cache.l=c end return c.c end end do local function b()return function(c)local d=Instance.new
 'ScrollingFrame'd.Name='Section'd.Active=true d.AnchorPoint=Vector2.new(0.5,0.5)d.AutomaticCanvasSize=Enum.AutomaticSize
 .Y d.BackgroundColor3=Color3.fromRGB(255,255,255)d.BackgroundTransparency=1 d.BorderColor3=Color3.fromRGB(0,0,0)d.
 BorderSizePixel=0 d.CanvasSize=UDim2.fromScale(0,0.5)d.LayoutOrder=2 d.Position=UDim2.fromScale(0.5,0.5)d.
@@ -86,14 +87,14 @@ ScrollBarImageColor3=Color3.fromRGB(0,0,0)d.ScrollBarImageTransparency=1 d.Scrol
 Enum.ScrollingDirection.Y d.Size=UDim2.fromScale(1,1)d.Visible=false local e=Instance.new'UIListLayout'e.Name=
 'UIListLayout'e.HorizontalAlignment=Enum.HorizontalAlignment.Center e.Padding=UDim.new(0,10)e.SortOrder=Enum.SortOrder.
 LayoutOrder e.Parent=d local f=Instance.new'UIPadding'f.Name='UIPadding'f.PaddingBottom=UDim.new(0,15)f.PaddingLeft=UDim
-.new(0,15)f.PaddingRight=UDim.new(0,15)f.PaddingTop=UDim.new(0,15)f.Parent=d d.Parent=c return d end end function a.l()
-local c=a.cache.l if not c then c={c=b()}a.cache.l=c end return c.c end end do local function b()return function(c,d)
+.new(0,15)f.PaddingRight=UDim.new(0,15)f.PaddingTop=UDim.new(0,15)f.Parent=d d.Parent=c return d end end function a.m()
+local c=a.cache.m if not c then c={c=b()}a.cache.m=c end return c.c end end do local function b()return function(c,d)
 local e=Instance.new'TextLabel'e.Name='Label'e.BackgroundColor3=Color3.fromRGB(255,255,255)e.BackgroundTransparency=1 e.
 BorderColor3=Color3.fromRGB(0,0,0)e.BorderSizePixel=0 e.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',
 Enum.FontWeight.Medium,Enum.FontStyle.Normal)e.Size=UDim2.new(1,0,0,20)e.Text=c e.TextColor3=Color3.fromRGB(207,207,207)
 e.TextSize=16 e.TextTruncate=Enum.TextTruncate.SplitWord e.TextXAlignment=Enum.TextXAlignment.Left e.Parent=d return e
-end end function a.m()local c=a.cache.m if not c then c={c=b()}a.cache.m=c end return c.c end end do local function b()a
-.b()return function(c,d)local e=Instance.new'TextButton'e.Name='Button'e.AutoButtonColor=false e.BackgroundColor3=Color3
+end end function a.n()local c=a.cache.n if not c then c={c=b()}a.cache.n=c end return c.c end end do local function b()a
+.c()return function(c,d)local e=Instance.new'TextButton'e.Name='Button'e.AutoButtonColor=false e.BackgroundColor3=Color3
 .fromRGB(16,16,16)e.BorderColor3=Color3.fromRGB(0,0,0)e.BorderSizePixel=0 e.Size=UDim2.new(1,0,0,113)e.Text=''e.
 TextColor3=Color3.fromRGB(0,0,0)e.TextSize=14 local f=Instance.new'UICorner'f.Name='UICorner'f.CornerRadius=UDim.new(0,5
 )f.Parent=e local g=Instance.new'Frame'g.Name='Content'g.BackgroundColor3=Color3.fromRGB(255,255,255)g.
@@ -120,8 +121,8 @@ local p=Instance.new'TextLabel'p.Name='Text'p.AnchorPoint=Vector2.new(0,0.5)p.Ba
 'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)p.Position=UDim2.fromScale(0,0.5
 )p.Size=UDim2.fromScale(1,1)p.Text=c.description p.TextColor3=Color3.fromRGB(89,89,89)p.TextSize=16 p.TextWrapped=true p
 .TextXAlignment=Enum.TextXAlignment.Left p.TextYAlignment=Enum.TextYAlignment.Top p.Parent=o o.Parent=e e.Parent=d
-return{button=e,title=j,description={frame=o,text=p}}end end function a.n()local c=a.cache.n if not c then c={c=b()}a.
-cache.n=c end return c.c end end do local function b()a.d()return function(c,d)local e=Instance.new'TextButton'e.Name=
+return{button=e,title=j,description={frame=o,text=p}}end end function a.o()local c=a.cache.o if not c then c={c=b()}a.
+cache.o=c end return c.c end end do local function b()a.e()return function(c,d)local e=Instance.new'TextButton'e.Name=
 'Switch'e.AutoButtonColor=false e.BackgroundColor3=Color3.fromRGB(16,16,16)e.BorderColor3=Color3.fromRGB(0,0,0)e.
 BorderSizePixel=0 e.Size=UDim2.new(1,0,0,113)e.Text=''e.TextColor3=Color3.fromRGB(0,0,0)e.TextSize=14 local f=Instance.
 new'UICorner'f.Name='UICorner'f.CornerRadius=UDim.new(0,5)f.Parent=e local g=Instance.new'Frame'g.Name='Content'g.
@@ -152,18 +153,18 @@ BackgroundTransparency=1 t.BorderColor3=Color3.fromRGB(0,0,0)t.BorderSizePixel=0
 'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)t.Position=UDim2.fromScale(0,0.5
 )t.Size=UDim2.fromScale(1,1)t.Text=c.description t.TextColor3=Color3.fromRGB(89,89,89)t.TextSize=16 t.TextWrapped=true t
 .TextXAlignment=Enum.TextXAlignment.Left t.TextYAlignment=Enum.TextYAlignment.Top t.Parent=s s.Parent=e e.Parent=d
-return{switch=e,title=i,thumb={frame=j,circle=l},description={frame=s,text=t}}end end function a.o()local c=a.cache.o if
-not c then c={c=b()}a.cache.o=c end return c.c end end do local function b()return{container=a.j(),tab=a.k(),section=a.
-l(),label=a.m(),button=a.n(),switch=a.o()}end function a.p()local c=a.cache.p if not c then c={c=b()}a.cache.p=c end
+return{switch=e,title=i,thumb={frame=j,circle=l},description={frame=s,text=t}}end end function a.p()local c=a.cache.p if
+not c then c={c=b()}a.cache.p=c end return c.c end end do local function b()return{container=a.k(),tab=a.l(),section=a.
+m(),label=a.n(),button=a.o(),switch=a.p()}end function a.q()local c=a.cache.q if not c then c={c=b()}a.cache.q=c end
 return c.c end end do local function b()local c,d=a.a(),{}d.__index=d function d.new(e)local f=setmetatable({},d)f.
 appearance=e return f end function d.minimize(e)local f=e.appearance.root.screen f.Enabled=not f.Enabled end function d.
-fullscreen(e)end function d.destroy(e)e.appearance.root.screen:Destroy()end return d end function a.q()local c=a.cache.q
-if not c then c={c=b()}a.cache.q=c end return c.c end end do local function b()return{PADDING=15,GAP=15,DAMPING_RATIO=1,
-FREQUENCY=6}end function a.r()local c=a.cache.r if not c then c={c=b()}a.cache.r=c end return c.c end end do
+fullscreen(e)end function d.destroy(e)e.appearance.root.screen:Destroy()end return d end function a.r()local c=a.cache.r
+if not c then c={c=b()}a.cache.r=c end return c.c end end do local function b()return{PADDING=15,GAP=15,DAMPING_RATIO=1,
+FREQUENCY=6}end function a.s()local c=a.cache.s if not c then c={c=b()}a.cache.s=c end return c.c end end do
 local function b()return{DEFAULT={TAB=1,STROKE=1,ICON=Color3.fromRGB(89,89,89),TITTLE=Color3.fromRGB(89,89,89)},HOVERED=
 {TAB=1,STROKE=1,ICON=Color3.fromRGB(157,157,157),TITTLE=Color3.fromRGB(157,157,157)},SELECTED={TAB=0,STROKE=0,ICON=
-Color3.fromRGB(207,207,207),TITTLE=Color3.fromRGB(207,207,207)}}end function a.s()local c=a.cache.s if not c then c={c=
-b()}a.cache.s=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r=true,
+Color3.fromRGB(207,207,207),TITTLE=Color3.fromRGB(207,207,207)}}end function a.t()local c=a.cache.t if not c then c={c=
+b()}a.cache.t=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r=true,
 6.781684027777778E-8,1E-4,math.rad(0.01),math.rad(0.1),1e-5,game:GetService'RunService',math.pi,math.exp,math.sin,math.
 cos,math.min,math.max,math.sqrt,math.atan2,math.round local function s(t)local u=0 for v,w in t do u+=w^2 end return u
 end local function t(u,v)local w=0 for x,y in u do w+=(v[x]-y)^2 end return w end local u={}do u.__index=u function u.
@@ -236,89 +237,89 @@ typeof(R)]if not U then error('unsupported type: '..typeof(R),2)end T=U.springTy
 setDampingRatio(L)T:setFrequency(M)end if not next(P)then O[K]=nil end end function J.stop(K,L)if c then I(1,'spr.stop',
 'Instance',K)I(2,'spr.stop','string|nil',L)end if L then local M=E[K]or F[K]if M then M[L]=nil end else E[K]=nil F[K]=
 nil end end function J.completed(K,L)if c then I(1,'spr.completed','Instance',K)I(2,'spr.completed','function',L)end
-local M=G[K]if M then table.insert(M,L)else G[K]={L}end end return table.freeze(J)end function a.t()local c=a.cache.t if
-not c then c={c=b()}a.cache.t=c end return c.c end end do local function b()local c,d,e,f,g=a.e(),a.r(),a.s(),a.t(),{}g.
+local M=G[K]if M then table.insert(M,L)else G[K]={L}end end return table.freeze(J)end function a.u()local c=a.cache.u if
+not c then c={c=b()}a.cache.u=c end return c.c end end do local function b()local c,d,e,f,g=a.f(),a.s(),a.t(),a.u(),{}g.
 __index=g function g.new(h,i)local j=setmetatable({},g)j.appearance=h j.tabs=i j.selected=false return j end function g.
 select(h)for i,j in h.tabs do local k=j.appearance==h.appearance local l=k and e.SELECTED or e.DEFAULT j.controller:
 applyStyle(l)j.controller.selected=k j.section.Visible=k end end function g.applyStyle(h,i)local j=h.appearance f.
 target(j.tab,d.DAMPING_RATIO,d.FREQUENCY,{BackgroundTransparency=i.TAB})f.target(j.stroke,d.DAMPING_RATIO,d.FREQUENCY,{
 Transparency=i.STROKE})f.target(j.icon,d.DAMPING_RATIO,d.FREQUENCY,{ImageColor3=i.ICON})f.target(j.title,d.DAMPING_RATIO
-,d.FREQUENCY,{TextColor3=i.TITTLE})end return g end function a.u()local c=a.cache.u if not c then c={c=b()}a.cache.u=c
+,d.FREQUENCY,{TextColor3=i.TITTLE})end return g end function a.v()local c=a.cache.v if not c then c={c=b()}a.cache.v=c
 end return c.c end end do local function b()local c,d,e=game:GetService'TextService',16,Enum.Font.GothamMedium
 local function f(g,h,i)local j=Vector2.new(h,i)local k=c:GetTextSize(g,d,e,j)return UDim2.fromOffset(k.X,k.Y)end
 local function g(h,i)if i=='X'then return h.X.Offset end return h.Y.Offset end local function h(i,j,k,l)local m,n=k*2,0
 for o,p in i:GetChildren()do if not p:IsA'GuiObject'then continue end m+=g(p.Size,j)n+=1 if n>1 then m+=l end end return
-m end return{getTextSize=f,getComponentSize=h}end function a.v()local c=a.cache.v if not c then c={c=b()}a.cache.v=c end
-return c.c end end do local function b()local c,d,e,f,g=a.b(),a.r(),a.v(),a.t(),{}g.__index=g function g.new(h,i)local j
+m end return{getTextSize=f,getComponentSize=h}end function a.w()local c=a.cache.w if not c then c={c=b()}a.cache.w=c end
+return c.c end end do local function b()local c,d,e,f,g=a.c(),a.s(),a.w(),a.u(),{}g.__index=g function g.new(h,i)local j
 =setmetatable({},g)j.appearance=h j.config=i return j end function g.activate(h)h.config.callback()end function g.
 applySize(h)local i=h.appearance.description local j=e.getTextSize(i.text.Text,i.frame.AbsoluteSize.X,math.huge)i.text.
 Size=j i.frame.Size=UDim2.new(1,0,0,j.Y.Offset)local k=e.getComponentSize(h.appearance.button,'Y',d.PADDING,d.GAP)h.
 appearance.button.Size=UDim2.new(1,0,0,k)end function g.applyStyle(h,i)f.target(h.appearance.button,d.DAMPING_RATIO,d.
-FREQUENCY,{BackgroundColor3=i.BUTTON})end return g end function a.w()local c=a.cache.w if not c then c={c=b()}a.cache.w=
+FREQUENCY,{BackgroundColor3=i.BUTTON})end return g end function a.x()local c=a.cache.x if not c then c={c=b()}a.cache.x=
 c end return c.c end end do local function b()return{DISABLED={THUMB=Color3.fromRGB(47,47,47),CIRCLE=Color3.fromRGB(126,
 126,126),POSITION=UDim2.fromScale(0,0.5),ANCHOR_POINT=Vector2.new(0,0.5)},ENABLED={THUMB=Color3.fromRGB(255,255,255),
-CIRCLE=Color3.fromRGB(34,34,34),POSITION=UDim2.fromScale(1,0.5),ANCHOR_POINT=Vector2.new(1,0.5)}}end function a.x()local
-c=a.cache.x if not c then c={c=b()}a.cache.x=c end return c.c end end do local function b()local c,d,e,f,g,h=a.d(),a.r()
-,a.x(),a.v(),a.t(),{}h.__index=h function h.new(i,j)local k=setmetatable({},h)k.appearance=i k.config=j k.enabled=false
-return k end function h.changeState(i,j)i.enabled=j or not i.enabled local k=i.enabled and e.ENABLED or e.DISABLED i:
-applyStyle(k)i.config.callback(i.enabled)end function h.applySize(i)local j=i.appearance.description local k=f.
-getTextSize(j.text.Text,j.frame.AbsoluteSize.X,math.huge)j.text.Size=k j.frame.Size=UDim2.new(1,0,0,k.Y.Offset)local l=f
-.getComponentSize(i.appearance.switch,'Y',d.PADDING,d.GAP)i.appearance.switch.Size=UDim2.new(1,0,0,l)end function h.
-applyStyle(i,j)local k=i.appearance.thumb g.target(k.frame,d.DAMPING_RATIO,d.FREQUENCY,{BackgroundColor3=j.THUMB})g.
-target(k.circle,d.DAMPING_RATIO,d.FREQUENCY,{AnchorPoint=j.ANCHOR_POINT,Position=j.POSITION,BackgroundColor3=j.CIRCLE})
-end return h end function a.y()local c=a.cache.y if not c then c={c=b()}a.cache.y=c end return c.c end end do
-local function b()return{container=a.q(),tab=a.u(),button=a.w(),switch=a.y()}end function a.z()local c=a.cache.z if not
-c then c={c=b()}a.cache.z=c end return c.c end end do local function b()return nil end function a.A()local c=a.cache.A
-if not c then c={c=b()}a.cache.A=c end return c.c end end do local function b()local c,d,e=a.A(),{},{}e.__index=e
-function e.new()local f=setmetatable({},e)f.connection=nil return f end function e.connect(f,g,h)if f.connection then
-return end local i=g:Connect(h)f.connection=i table.insert(d,i)end function e.disconnect(f)if not f.connection then
-return end local g=table.find(d,f.connection)if g then f.connection:Disconnect()f.connection=nil table.remove(d,g)end
-end function e.clear()for f,g in d do g:Disconnect()d[f]=nil end end return e end function a.B()local c=a.cache.B if not
-c then c={c=b()}a.cache.B=c end return c.c end end do local function b()local c,d=a.a(),a.B()return function(e,f,g)local
-h,i,j,k,l=e.header,d.new(),d.new(),d.new(),d.new()i:connect(h.minimize.MouseButton1Click,function()f:minimize()end)j:
-connect(h.fullscreen.MouseButton1Click,function()f:fullscreen()end)k:connect(h.close.MouseButton1Click,function()f:
-destroy()end)l:connect(e.root.screen.AncestryChanged,function()d.clear()if g then g()end end)end end function a.C()local
-c=a.cache.C if not c then c={c=b()}a.cache.C=c end return c.c end end do local function b()local c,d,e=a.s(),a.e(),a.B()
-return function(f,g)local h,i,j,k=f.tab,e.new(),e.new(),e.new()i:connect(h.MouseButton1Click,function()g:select()end)j:
-connect(h.MouseEnter,function()if not g.selected then g:applyStyle(c.HOVERED)end end)k:connect(h.MouseLeave,function()if
-not g.selected then g:applyStyle(c.DEFAULT)end end)end end function a.D()local c=a.cache.D if not c then c={c=b()}a.
-cache.D=c end return c.c end end do local function b()return{DEFAULT={BUTTON=Color3.fromRGB(16,16,16)},HOVERED={BUTTON=
-Color3.fromRGB(22,22,22)}}end function a.E()local c=a.cache.E if not c then c={c=b()}a.cache.E=c end return c.c end end
-do local function b()local c,d,e=a.E(),a.b(),a.B()return function(f,g)local h,i,j,k=f.button,e.new(),e.new(),e.new()i:
-connect(h.MouseButton1Click,function()g:activate()end)j:connect(h.MouseEnter,function()g:applyStyle(c.HOVERED)end)k:
-connect(h.MouseLeave,function()g:applyStyle(c.DEFAULT)end)end end function a.F()local c=a.cache.F if not c then c={c=b()
-}a.cache.F=c end return c.c end end do local function b()local c,d=a.d(),a.B()return function(e,f)local g=d.new()g:
-connect(e.switch.MouseButton1Click,function()f:changeState()end)end end function a.G()local c=a.cache.G if not c then c=
-{c=b()}a.cache.G=c end return c.c end end do local function b()return{container=a.C(),tab=a.D(),button=a.F(),switch=a.G(
-)}end function a.H()local c=a.cache.H if not c then c={c=b()}a.cache.H=c end return c.c end end do local function b()
-local c,d,e,f,g=a.a(),a.p(),a.z(),a.H(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.appearance=d.
-container()i.controller=e.container.new(i.appearance)f.container(i.appearance,i.controller,h)return i end return g end
-function a.I()local c=a.cache.I if not c then c={c=b()}a.cache.I=c end return c.c end end do local function b()local c,d
-,e,f,g=a.b(),a.p(),a.z(),a.H(),{}g.__index=g function g.new(h,i)local j=setmetatable({},g)j.appearance=d.button(h,i)j.
-controller=e.button.new(j.appearance,h)f.button(j.appearance,j.controller)j.controller:applySize()return j end return g
-end function a.J()local c=a.cache.J if not c then c={c=b()}a.cache.J=c end return c.c end end do local function b()local
-c,d,e=a.c(),a.p(),{}e.__index=e function e.new(f,g)local h=setmetatable({},e)h.appearance=d.label(f,g)return h end
-return e end function a.K()local c=a.cache.K if not c then c={c=b()}a.cache.K=c end return c.c end end do local function
-b()local c,d,e,f,g=a.d(),a.p(),a.z(),a.H(),{}g.__index=g function g.new(h,i)local j=setmetatable({},g)j.appearance=d.
-switch(h,i)j.controller=e.switch.new(j.appearance,h)f.switch(j.appearance,j.controller)j.controller:applySize()if h.
-enabled then j.controller:changeState(true)end return j end return g end function a.L()local c=a.cache.L if not c then c
-={c=b()}a.cache.L=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k,l,m=a.b(),a.a(),a.d(),a.e(),a.J(
-),a.K(),a.L(),a.p(),a.z(),a.H(),{}m.__index=m function m.new(n,o,p)local q,r=setmetatable({},m),o.appearance.group q.
-appearance=j.tab(n,r.tabs)q.controller=k.tab.new(q.appearance,p)q.section=j.section(r.sections)l.tab(q.appearance,q.
-controller)return q end function m.select(n)n.controller:select()end function m.createLabel(n,o)return h.new(o,n.section
-)end function m.createButton(n,o)return g.new(o,n.section)end function m.createSwitch(n,o)return i.new(o,n.section)end
-return m end function a.M()local c=a.cache.M if not c then c={c=b()}a.cache.M=c end return c.c end end end local b,c,d,e
-,f=a.f(),a.e(),a.I(),a.M(),{}f.__index=f function f.new(g)local h=setmetatable({},f)h.container=d.new(g.onDestroyed)h.
-tabs={}return h end function f.createTab(g,h)local i=e.new(h,g.container,g.tabs)table.insert(g.tabs,i)if#g.tabs==1 then
-i:select()end return i end local g=f.new{product='library',onDestroyed=function()print'library has been destroyed'end}
-local h=g:createTab{title='Preview'}h:createLabel'Button'h:createButton{title='Share across devices',description=
-[[Focus is shared across devices, and turns off when you leave the app.]],callback=function()print
-'button has been pressed'end}h:createButton{title='Local state persistence',description=
-[[Your settings and data are stored locally on the device, allowing the application to restore its state instantly without relying on external services or network connectivity.]]
-,callback=function()print'button has been pressed'end}h:createLabel'Switch'h:createSwitch{flag='switch-1',title=
-'Share across devices',description=[[Focus is shared across devices, and turns off when you leave the app.]],enabled=
-false,callback=function(i)print(string.format('switch-1: %s',tostring(i)))end}h:createSwitch{flag='switch-2',title=
-'Local state persistence',description=
-[[Your settings and data are stored locally on the device, allowing the application to restore its state instantly without relying on external services or network connectivity.]]
-,enabled=true,callback=function(i)print(string.format('switch-2: %s',tostring(i)))end}g:createTab{title='Preview'}return
-f
+CIRCLE=Color3.fromRGB(34,34,34),POSITION=UDim2.fromScale(1,0.5),ANCHOR_POINT=Vector2.new(1,0.5)}}end function a.y()local
+c=a.cache.y if not c then c={c=b()}a.cache.y=c end return c.c end end do local function b()local c,d,e,f,g,h,i=a.b(),a.
+e(),a.s(),a.y(),a.w(),a.u(),{}i.__index=i function i.new(j,k,l)local m=setmetatable({},i)m.appearance=j m.config=k m.
+flags=l m.enabled=false return m end function i.changeState(j,k)j.enabled=k or not j.enabled local l=j.enabled and f.
+ENABLED or f.DISABLED j:applyStyle(l)j.config.callback(j.enabled)j.flags:setFlag(j.config.flag,j.enabled)end function i.
+applySize(j)local k=j.appearance.description local l=g.getTextSize(k.text.Text,k.frame.AbsoluteSize.X,math.huge)k.text.
+Size=l k.frame.Size=UDim2.new(1,0,0,l.Y.Offset)local m=g.getComponentSize(j.appearance.switch,'Y',e.PADDING,e.GAP)j.
+appearance.switch.Size=UDim2.new(1,0,0,m)end function i.applyStyle(j,k)local l=j.appearance.thumb h.target(l.frame,e.
+DAMPING_RATIO,e.FREQUENCY,{BackgroundColor3=k.THUMB})h.target(l.circle,e.DAMPING_RATIO,e.FREQUENCY,{AnchorPoint=k.
+ANCHOR_POINT,Position=k.POSITION,BackgroundColor3=k.CIRCLE})end return i end function a.z()local c=a.cache.z if not c
+then c={c=b()}a.cache.z=c end return c.c end end do local function b()return{container=a.r(),tab=a.v(),button=a.x(),
+switch=a.z()}end function a.A()local c=a.cache.A if not c then c={c=b()}a.cache.A=c end return c.c end end do
+local function b()return nil end function a.B()local c=a.cache.B if not c then c={c=b()}a.cache.B=c end return c.c end
+end do local function b()local c,d,e=a.B(),{},{}e.__index=e function e.new()local f=setmetatable({},e)f.connection=nil
+return f end function e.connect(f,g,h)if f.connection then return end local i=g:Connect(h)f.connection=i table.insert(d,
+i)end function e.disconnect(f)if not f.connection then return end local g=table.find(d,f.connection)if g then f.
+connection:Disconnect()f.connection=nil table.remove(d,g)end end function e.clear()for f,g in d do g:Disconnect()d[f]=
+nil end end return e end function a.C()local c=a.cache.C if not c then c={c=b()}a.cache.C=c end return c.c end end do
+local function b()local c,d=a.a(),a.C()return function(e,f,g)local h,i,j,k,l=e.header,d.new(),d.new(),d.new(),d.new()i:
+connect(h.minimize.MouseButton1Click,function()f:minimize()end)j:connect(h.fullscreen.MouseButton1Click,function()f:
+fullscreen()end)k:connect(h.close.MouseButton1Click,function()f:destroy()end)l:connect(e.root.screen.AncestryChanged,
+function()d.clear()if g then g()end end)end end function a.D()local c=a.cache.D if not c then c={c=b()}a.cache.D=c end
+return c.c end end do local function b()local c,d,e=a.t(),a.f(),a.C()return function(f,g)local h,i,j,k=f.tab,e.new(),e.
+new(),e.new()i:connect(h.MouseButton1Click,function()g:select()end)j:connect(h.MouseEnter,function()if not g.selected
+then g:applyStyle(c.HOVERED)end end)k:connect(h.MouseLeave,function()if not g.selected then g:applyStyle(c.DEFAULT)end
+end)end end function a.E()local c=a.cache.E if not c then c={c=b()}a.cache.E=c end return c.c end end do local function
+b()return{DEFAULT={BUTTON=Color3.fromRGB(16,16,16)},HOVERED={BUTTON=Color3.fromRGB(22,22,22)}}end function a.F()local c=
+a.cache.F if not c then c={c=b()}a.cache.F=c end return c.c end end do local function b()local c,d,e=a.F(),a.c(),a.C()
+return function(f,g)local h,i,j,k=f.button,e.new(),e.new(),e.new()i:connect(h.MouseButton1Click,function()g:activate()
+end)j:connect(h.MouseEnter,function()g:applyStyle(c.HOVERED)end)k:connect(h.MouseLeave,function()g:applyStyle(c.DEFAULT)
+end)end end function a.G()local c=a.cache.G if not c then c={c=b()}a.cache.G=c end return c.c end end do local function
+b()local c,d=a.e(),a.C()return function(e,f)local g=d.new()g:connect(e.switch.MouseButton1Click,function()f:changeState(
+)end)end end function a.H()local c=a.cache.H if not c then c={c=b()}a.cache.H=c end return c.c end end do local function
+b()return{container=a.D(),tab=a.E(),button=a.G(),switch=a.H()}end function a.I()local c=a.cache.I if not c then c={c=b()
+}a.cache.I=c end return c.c end end do local function b()local c,d,e,f,g=a.a(),a.q(),a.A(),a.I(),{}g.__index=g function
+g.new(h)local i=setmetatable({},g)i.appearance=d.container()i.controller=e.container.new(i.appearance)f.container(i.
+appearance,i.controller,h)return i end return g end function a.J()local c=a.cache.J if not c then c={c=b()}a.cache.J=c
+end return c.c end end do local function b()local c,d,e,f,g=a.c(),a.q(),a.A(),a.I(),{}g.__index=g function g.new(h,i)
+local j=setmetatable({},g)j.appearance=d.button(h,i)j.controller=e.button.new(j.appearance,h)f.button(j.appearance,j.
+controller)j.controller:applySize()return j end return g end function a.K()local c=a.cache.K if not c then c={c=b()}a.
+cache.K=c end return c.c end end do local function b()local c,d,e=a.d(),a.q(),{}e.__index=e function e.new(f,g)local h=
+setmetatable({},e)h.appearance=d.label(f,g)return h end return e end function a.L()local c=a.cache.L if not c then c={c=
+b()}a.cache.L=c end return c.c end end do local function b()local c,d,e,f,g,h=a.b(),a.e(),a.q(),a.A(),a.I(),{}h.__index=
+h function h.new(i,j,k)local l=setmetatable({},h)l.appearance=e.switch(i,j)l.controller=f.switch.new(l.appearance,i,k)g.
+switch(l.appearance,l.controller)l.controller:applySize()local m=k:getFlag(i.flag,'boolean')local n=if m~=nil then m
+else i.enabled if n then l.controller:changeState(n)end return l end return h end function a.M()local c=a.cache.M if not
+c then c={c=b()}a.cache.M=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k,l,m,n=a.c(),a.a(),a.b(),
+a.e(),a.f(),a.K(),a.L(),a.M(),a.q(),a.A(),a.I(),{}n.__index=n function n.new(o,p,q,r)local s,t=setmetatable({},n),p.
+appearance.group s.appearance=k.tab(o,t.tabs)s.controller=l.tab.new(s.appearance,r)s.section=k.section(t.sections)s.
+flags=q m.tab(s.appearance,s.controller)return s end function n.select(o)o.controller:select()end function n.createLabel
+(o,p)return i.new(p,o.section)end function n.createButton(o,p)return h.new(p,o.section)end function n.createSwitch(o,p)
+return j.new(p,o.section,o.flags)end return n end function a.N()local c=a.cache.N if not c then c={c=b()}a.cache.N=c end
+return c.c end end do local function b()local c=game:GetService'HttpService'local function d(e)if not isfolder(e)then
+makefolder(e)end end function getFileContent(e)if not isfile(e)then return{}end local f=readfile(e)local g,h=pcall(
+function()return c:JSONDecode(f)end)if not g then return{}end return h end local function e(f,g)local h,i=pcall(function
+()return c:JSONEncode(g)end)if h then writefile(f,i)end end return{ensureFolderExists=d,getFileContent=getFileContent,
+writeFileData=e}end function a.O()local c=a.cache.O if not c then c={c=b()}a.cache.O=c end return c.c end end do
+local function b()local c,d,e=a.O(),a.b(),'illumina'local f,g,h=string.format('%s/products',tostring(e)),'json',{}h.
+__index=h function h.new(i)local j=string.format('%s/%s.%s',tostring(f),tostring(i),tostring(g))c.ensureFolderExists(e)
+local k=setmetatable({},h)k.path=j k.flags=c.getFileContent(j)return k end function h.getFlag(i,j,k)local l=i.flags[j]if
+l~=nil and typeof(l)==k or not k then return l end return nil end function h.setFlag(i,j,k)i.flags[j]=k c.writeFileData(
+i.path,i.flags)end return h end function a.P()local c=a.cache.P if not c then c={c=b()}a.cache.P=c end return c.c end
+end end local b,c,d,e,f,g=a.g(),a.f(),a.J(),a.N(),a.P(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.
+container=d.new(h.onDestroyed)i.flags=f.new(h.product)i.tabs={}return i end function g.createTab(h,i)local j=e.new(i,h.
+container,h.flags,h.tabs)table.insert(h.tabs,j)if#h.tabs==1 then j:select()end return j end return g

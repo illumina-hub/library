@@ -1,5 +1,6 @@
 --!strict
 
+local flagTypes = require("@types/flags")
 local switchTypes = require("@types/switch")
 
 local componentStyle = require("@styles/component")
@@ -11,10 +12,15 @@ local spring = require("@utils/spring")
 local Switch = {}
 Switch.__index = Switch
 
-function Switch.new(appearance: switchTypes.Appearance, config: switchTypes.Config): switchTypes.Controller
+function Switch.new(
+	appearance: switchTypes.Appearance,
+	config: switchTypes.Config,
+	flags: flagTypes.Flags
+): switchTypes.Controller
 	local self = setmetatable({}, Switch)
 	self.appearance = appearance
 	self.config = config
+	self.flags = flags
 	self.enabled = false
 
 	return self :: any
@@ -26,6 +32,7 @@ function Switch.changeState(self: switchTypes.Controller, state: boolean?)
 	local style = self.enabled and switchStyle.ENABLED or switchStyle.DISABLED
 	self:applyStyle(style)
 	self.config.callback(self.enabled)
+	self.flags:setFlag(self.config.flag, self.enabled)
 end
 
 -- i was so lazy to make abstract classes to avoid code duplication

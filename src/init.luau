@@ -6,19 +6,22 @@ local tabTypes = require("@types/tab")
 local Container = require("@components/container")
 local Tab = require("@components/tab")
 
+local Flags = require("@managers/flags")
+
 local Library = {}
 Library.__index = Library
 
 function Library.new(config: libraryTypes.Config): libraryTypes.Library
 	local self = setmetatable({}, Library)
 	self.container = Container.new(config.onDestroyed)
+	self.flags = Flags.new(config.product)
 	self.tabs = {}
 
 	return self :: any
 end
 
 function Library.createTab(self: libraryTypes.Library, config: tabTypes.Config)
-	local tab = Tab.new(config, self.container, self.tabs)
+	local tab = Tab.new(config, self.container, self.flags, self.tabs)
 	table.insert(self.tabs, tab)
 
 	if #self.tabs == 1 then

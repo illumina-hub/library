@@ -1,6 +1,7 @@
 --!strict
 
 local buttonTypes = require("@types/button")
+local flagTypes = require("@types/flags")
 local labelTypes = require("@types/label")
 local switchTypes = require("@types/switch")
 
@@ -35,6 +36,7 @@ export type Tab = {
 	appearance: Appearance,
 	controller: Controller,
 	section: ScrollingFrame,
+	flags: flagTypes.Flags,
 	select: (self: Tab) -> (),
 	createLabel: (self: Tab, title: string) -> labelTypes.Label,
 	createButton: (self: Tab, config: buttonTypes.Config) -> buttonTypes.Button,

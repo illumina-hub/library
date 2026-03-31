@@ -1,5 +1,7 @@
 --!strict
 
+local flagTypes = require("@types/flags")
+
 export type Config = {
 	flag: string,
 	title: string,
@@ -25,6 +27,7 @@ export type Style = {
 export type Controller = {
 	appearance: Appearance,
 	config: Config,
+	flags: flagTypes.Flags,
 	enabled: boolean,
 	changeState: (self: Controller, state: boolean?) -> (),
 	applySize: (self: Controller) -> (),
