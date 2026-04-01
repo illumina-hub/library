@@ -6,7 +6,6 @@ local switchTypes = require("@types/switch")
 local componentStyle = require("@styles/component")
 local switchStyle = require("@styles/switch")
 
-local scale = require("@utils/scale")
 local spring = require("@utils/spring")
 
 local Switch = {}
@@ -37,17 +36,6 @@ end
 
 -- i was so lazy to make abstract classes to avoid code duplication
 -- please forgive me and don't kill me 🙏🙏🙏
-
-function Switch.applySize(self: switchTypes.Controller)
-	local description = self.appearance.description
-	local textSize = scale.getTextSize(description.text.Text, description.frame.AbsoluteSize.X, math.huge)
-	description.text.Size = textSize
-	description.frame.Size = UDim2.new(1, 0, 0, textSize.Y.Offset)
-
-	local componentHeight =
-		scale.getComponentSize(self.appearance.switch, "Y", componentStyle.PADDING, componentStyle.GAP)
-	self.appearance.switch.Size = UDim2.new(1, 0, 0, componentHeight)
-end
 
 function Switch.applyStyle(self: switchTypes.Controller, style: switchTypes.Style)
 	local thumb = self.appearance.thumb

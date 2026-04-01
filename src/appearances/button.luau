@@ -125,7 +125,7 @@ return function(config: buttonTypes.Config, section: ScrollingFrame)
 	button.Parent = section
 
 	return {
-		button = button,
+		component = button,
 		title = title,
 		description = {
 			frame = description,

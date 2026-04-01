@@ -33,7 +33,7 @@ end
 function TabController.applyStyle(self: tabTypes.Controller, style: tabTypes.Style)
 	local appearance = self.appearance
 
-	spring.target(appearance.tab, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(appearance.component, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
 		BackgroundTransparency = style.TAB,
 	})
 

@@ -1,5 +1,6 @@
 --!strict
 
+local componentTypes = require("@types/component")
 local flagTypes = require("@types/flags")
 local signalTypes = require("@types/signal")
 
@@ -14,12 +15,10 @@ export type Config = {
 	callback: (value: number) -> (),
 }
 
-export type Appearance = {
-	slider: Frame,
-	title: TextLabel,
+export type Appearance = componentTypes.Appearance & {
+	component: Frame,
 	value: TextLabel,
 	track: { frame: Frame, fill: Frame, circle: Frame, hitbox: TextButton },
-	description: { frame: Frame, text: TextLabel },
 }
 
 export type Style = {}
@@ -35,11 +34,10 @@ export type Controller = {
 	changeValue: (self: Controller, value: number, difference: boolean) -> (),
 	resetState: (self: Controller) -> (),
 	onInputBegan: (self: Controller, input: InputObject) -> (),
-	onInputChange: (self: Controller, input: InputObject) -> (),
-	onInputEnd: (self: Controller, input: InputObject) -> (),
+	onInputChanged: (self: Controller, input: InputObject) -> (),
+	onInputEnded: (self: Controller, input: InputObject) -> (),
 	updateFromInput: (self: Controller, input: InputObject) -> (),
 	applyTrack: (self: Controller, percentage: number) -> (),
-	applySize: (self: Controller) -> (),
 }
 
 export type Slider = {

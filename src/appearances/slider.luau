@@ -183,7 +183,7 @@ return function(config: sliderTypes.Config, section: ScrollingFrame)
 	slider.Parent = section
 
 	return {
-		slider = slider,
+		component = slider,
 		title = title,
 		value = value,
 		track = {

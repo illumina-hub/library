@@ -1,15 +1,15 @@
 --!strict
 
+local componentTypes = require("@types/component")
+
 export type Config = {
 	title: string,
 	description: string,
 	callback: () -> (),
 }
 
-export type Appearance = {
-	button: TextButton,
-	title: TextLabel,
-	description: { frame: Frame, text: TextLabel },
+export type Appearance = componentTypes.Appearance & {
+	component: TextButton,
 }
 
 export type Style = {
@@ -20,7 +20,6 @@ export type Controller = {
 	appearance: Appearance,
 	config: Config,
 	activate: (self: Controller) -> (),
-	applySize: (self: Controller) -> (),
 	applyStyle: (self: Controller, style: Style) -> (),
 }
 

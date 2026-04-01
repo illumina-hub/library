@@ -77,7 +77,7 @@ return function(config: tabTypes.Config, tabs: ScrollingFrame)
 	tab.Parent = tabs
 
 	return {
-		tab = tab,
+		component = tab,
 		stroke = uIStroke,
 		title = title,
 		icon = icon,

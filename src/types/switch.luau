@@ -1,5 +1,6 @@
 --!strict
 
+local componentTypes = require("@types/component")
 local flagTypes = require("@types/flags")
 
 export type Config = {
@@ -10,11 +11,9 @@ export type Config = {
 	callback: (state: boolean) -> (),
 }
 
-export type Appearance = {
-	switch: TextButton,
-	title: TextLabel,
+export type Appearance = componentTypes.Appearance & {
+	component: TextButton,
 	thumb: { frame: Frame, circle: Frame },
-	description: { frame: Frame, text: TextLabel },
 }
 
 export type Style = {
@@ -30,7 +29,6 @@ export type Controller = {
 	flags: flagTypes.Flags,
 	enabled: boolean,
 	changeState: (self: Controller, state: boolean?) -> (),
-	applySize: (self: Controller) -> (),
 	applyStyle: (self: Controller, style: Style) -> (),
 }
 

@@ -6,6 +6,8 @@ local appearances = require("@appearances")
 local controllers = require("@controllers")
 local events = require("@events")
 
+local scale = require("@utils/scale")
+
 local Button = {}
 Button.__index = Button
 
@@ -15,7 +17,7 @@ function Button.new(config: buttonTypes.Config, section: ScrollingFrame): button
 	self.controller = controllers.button.new(self.appearance, config)
 
 	events.button(self.appearance, self.controller)
-	self.controller:applySize()
+	scale.scaleComponent(self.appearance)
 
 	return self :: any
 end

@@ -7,6 +7,8 @@ local appearances = require("@appearances")
 local controllers = require("@controllers")
 local events = require("@events")
 
+local scale = require("@utils/scale")
+
 local Slider = {}
 Slider.__index = Slider
 
@@ -16,7 +18,7 @@ function Slider.new(config: sliderTypes.Config, section: ScrollingFrame, flags: 
 	self.controller = controllers.slider.new(self.appearance, config, flags)
 
 	events.slider(self.appearance, self.controller)
-	self.controller:applySize()
+	scale.scaleComponent(self.appearance)
 
 	local flag = flags:getFlag(config.flag, "number")
 	local value = if flag ~= nil then flag else config.value

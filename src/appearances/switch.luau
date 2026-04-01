@@ -148,7 +148,7 @@ return function(config: switchTypes.Config, section: ScrollingFrame)
 	switch.Parent = section
 
 	return {
-		switch = switch,
+		component = switch,
 		title = title,
 		thumb = {
 			frame = thumb,

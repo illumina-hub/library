@@ -12,7 +12,7 @@ export type Config = {
 }
 
 export type Appearance = {
-	tab: TextButton,
+	component: TextButton,
 	stroke: UIStroke,
 	title: TextLabel,
 	icon: ImageLabel,

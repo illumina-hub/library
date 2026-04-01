@@ -6,8 +6,6 @@ local flagTypes = require("@types/flags")
 local sliderTypes = require("@types/slider")
 
 local Signal = require("@managers/signal")
-
-local componentStyle = require("@styles/component")
 local scale = require("@utils/scale")
 
 local END_INPUT = Enum.UserInputState.End
@@ -73,11 +71,11 @@ function Slider.onInputBegan(self: sliderTypes.Controller, input: InputObject)
 	self.startInput = input
 
 	self.inputChanged:connect(UserInputService.InputChanged, function(input: InputObject)
-		self:onInputChange(input)
+		self:onInputChanged(input)
 	end)
 end
 
-function Slider.onInputChange(self: sliderTypes.Controller, input: InputObject)
+function Slider.onInputChanged(self: sliderTypes.Controller, input: InputObject)
 	if not self.dragging or not self.startInput then
 		return
 	end
@@ -92,7 +90,7 @@ function Slider.onInputChange(self: sliderTypes.Controller, input: InputObject)
 	end
 end
 
-function Slider.onInputEnd(self: sliderTypes.Controller, input: InputObject)
+function Slider.onInputEnded(self: sliderTypes.Controller, input: InputObject)
 	if input.UserInputType == MOUSE_INPUT then
 		self:resetState()
 	end
@@ -115,17 +113,6 @@ function Slider.applyTrack(self: sliderTypes.Controller, percentage: number)
 	local trackWidth = circleSize / 2 - circleSize * percentage
 
 	self.appearance.track.fill.Size = UDim2.new(percentage, trackWidth, 1, 0)
-end
-
-function Slider.applySize(self: sliderTypes.Controller)
-	local description = self.appearance.description
-	local textSize = scale.getTextSize(description.text.Text, description.frame.AbsoluteSize.X, math.huge)
-	description.text.Size = textSize
-	description.frame.Size = UDim2.new(1, 0, 0, textSize.Y.Offset)
-
-	local componentHeight =
-		scale.getComponentSize(self.appearance.slider, "Y", componentStyle.PADDING, componentStyle.GAP)
-	self.appearance.slider.Size = UDim2.new(1, 0, 0, componentHeight)
 end
 
 return Slider

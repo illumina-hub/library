@@ -7,6 +7,8 @@ local appearances = require("@appearances")
 local controllers = require("@controllers")
 local events = require("@events")
 
+local scale = require("@utils/scale")
+
 local Switch = {}
 Switch.__index = Switch
 
@@ -16,7 +18,7 @@ function Switch.new(config: switchTypes.Config, section: ScrollingFrame, flags: 
 	self.controller = controllers.switch.new(self.appearance, config, flags)
 
 	events.switch(self.appearance, self.controller)
-	self.controller:applySize()
+	scale.scaleComponent(self.appearance)
 
 	local flag = flags:getFlag(config.flag, "boolean")
 	local state = if flag ~= nil then flag else config.enabled

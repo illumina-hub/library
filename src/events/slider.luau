@@ -4,14 +4,14 @@ local Signal = require("@managers/signal")
 local sliderTypes = require("@types/slider")
 
 return function(appearance: sliderTypes.Appearance, controller: sliderTypes.Controller)
-	local dragStart = Signal.new()
-	local dragEnd = Signal.new()
+	local inputBegan = Signal.new()
+	local inputEnded = Signal.new()
 
-	dragStart:connect(appearance.track.hitbox.InputBegan, function(input: InputObject)
+	inputBegan:connect(appearance.track.hitbox.InputBegan, function(input: InputObject)
 		controller:onInputBegan(input)
 	end)
 
-	dragEnd:connect(appearance.track.hitbox.InputEnded, function(input: InputObject)
-		controller:onInputEnd(input)
+	inputEnded:connect(appearance.track.hitbox.InputEnded, function(input: InputObject)
+		controller:onInputEnded(input)
 	end)
 end

@@ -6,23 +6,23 @@ local tabTypes = require("@types/tab")
 local Signal = require("@managers/signal")
 
 return function(appearance: tabTypes.Appearance, controller: tabTypes.Controller)
-	local tab = appearance.tab
+	local component = appearance.component
 
 	local click = Signal.new()
 	local mouseEnter = Signal.new()
 	local mouseLeave = Signal.new()
 
-	click:connect(tab.MouseButton1Click, function()
+	click:connect(component.MouseButton1Click, function()
 		controller:select()
 	end)
 
-	mouseEnter:connect(tab.MouseEnter, function()
+	mouseEnter:connect(component.MouseEnter, function()
 		if not controller.selected then
 			controller:applyStyle(tabStyle.HOVERED)
 		end
 	end)
 
-	mouseLeave:connect(tab.MouseLeave, function()
+	mouseLeave:connect(component.MouseLeave, function()
 		if not controller.selected then
 			controller:applyStyle(tabStyle.DEFAULT)
 		end
