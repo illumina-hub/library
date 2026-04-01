@@ -28,4 +28,8 @@ function Switch.new(config: switchTypes.Config, section: ScrollingFrame, flags: 
 	return self :: any
 end
 
+function Switch.changeState(self: switchTypes.Switch, state: boolean)
+	self.controller:changeState(state)
+end
+
 return Switch

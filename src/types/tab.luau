@@ -3,6 +3,7 @@
 local buttonTypes = require("@types/button")
 local flagTypes = require("@types/flags")
 local labelTypes = require("@types/label")
+local sliderTypes = require("@types/slider")
 local switchTypes = require("@types/switch")
 
 export type Config = {
@@ -41,6 +42,7 @@ export type Tab = {
 	createLabel: (self: Tab, title: string) -> labelTypes.Label,
 	createButton: (self: Tab, config: buttonTypes.Config) -> buttonTypes.Button,
 	createSwitch: (self: Tab, config: switchTypes.Config) -> switchTypes.Switch,
+	createSlider: (self: Tab, config: sliderTypes.Config) -> sliderTypes.Slider,
 }
 
 return nil

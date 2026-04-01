@@ -1,8 +1,7 @@
 --!strict
 
-local containerTypes = require("@types/container")
-
 local Signal = require("@managers/signal")
+local containerTypes = require("@types/container")
 
 return function(appearance: containerTypes.Appearance, controller: containerTypes.Controller, onDestroyed: (() -> ())?)
 	local header = appearance.header

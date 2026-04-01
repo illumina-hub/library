@@ -16,7 +16,7 @@ function Flags.new(product: string): flagsTypes.Flags
 
 	local self = setmetatable({}, Flags)
 	self.path = path
-	self.flags = file.getFileContent(path)
+	self.flags = file.getContent(path)
 
 	return self :: any
 end
@@ -33,7 +33,7 @@ end
 
 function Flags.setFlag(self: flagsTypes.Flags, name: string, value: string)
 	self.flags[name] = value
-	file.writeFileData(self.path, self.flags)
+	file.writeData(self.path, self.flags)
 end
 
 return Flags

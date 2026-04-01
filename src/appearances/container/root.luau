@@ -11,7 +11,9 @@ return function()
 
 	local illumina = Instance.new("ScreenGui")
 	illumina.Name = "Illumina"
-	illumina.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	illumina.IgnoreGuiInset = true
+	illumina.ResetOnSpawn = false
+	illumina.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
 
 	local container = Instance.new("Frame")
 	container.Name = "Container"

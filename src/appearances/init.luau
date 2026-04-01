@@ -7,4 +7,5 @@ return {
 	label = require("@self/label"),
 	button = require("@self/button"),
 	switch = require("@self/switch"),
+	slider = require("@self/slider"),
 }

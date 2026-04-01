@@ -8,7 +8,7 @@ local function ensureFolderExists(path: string)
 	end
 end
 
-function getFileContent(path: string): any
+function getContent(path: string): any
 	if not isfile(path) then
 		return {}
 	end
@@ -25,7 +25,7 @@ function getFileContent(path: string): any
 	return content
 end
 
-local function writeFileData(path: string, data: any)
+local function writeData(path: string, data: any)
 	local success, content = pcall(function()
 		return HttpService:JSONEncode(data)
 	end)
@@ -37,6 +37,6 @@ end
 
 return {
 	ensureFolderExists = ensureFolderExists,
-	getFileContent = getFileContent,
-	writeFileData = writeFileData,
+	getContent = getContent,
+	writeData = writeData,
 }

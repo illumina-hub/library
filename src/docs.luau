@@ -53,6 +53,34 @@ preview:createSwitch({
 	end,
 })
 
+preview:createLabel("Slider")
+
+preview:createSlider({
+	flag = "slider-1",
+	title = "Share across devices",
+	description = "Focus is shared across devices, and turns off when you leave the app.",
+	division = 1,
+	value = 75,
+	min = 0,
+	max = 100,
+	callback = function(value: number)
+		print(`slider-1: {value}`)
+	end,
+})
+
+preview:createSlider({
+	flag = "slider-2",
+	title = "Local state persistence",
+	description = "Your settings and data are stored locally on the device, allowing the application to restore its state instantly without relying on external services or network connectivity.",
+	division = 10,
+	value = 25,
+	min = 0,
+	max = 100,
+	callback = function(value: number)
+		print(`slider-2: {value}`)
+	end,
+})
+
 library:createTab({
 	title = "Preview",
 })

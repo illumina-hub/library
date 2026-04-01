@@ -37,6 +37,7 @@ export type Controller = {
 export type Switch = {
 	appearance: Appearance,
 	controller: Controller,
+	changeState: (self: Switch, state: boolean) -> (),
 }
 
 return nil

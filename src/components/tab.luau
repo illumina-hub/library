@@ -3,11 +3,13 @@
 local buttonTypes = require("@types/button")
 local containerTypes = require("@types/container")
 local flagTypes = require("@types/flags")
+local sliderTypes = require("@types/slider")
 local switchTypes = require("@types/switch")
 local tabTypes = require("@types/tab")
 
 local Button = require("@components/button")
 local Label = require("@components/label")
+local Slider = require("@components/slider")
 local Switch = require("@components/switch")
 
 local appearances = require("@appearances")
@@ -49,6 +51,10 @@ end
 
 function Tab.createSwitch(self: tabTypes.Tab, config: switchTypes.Config)
 	return Switch.new(config, self.section, self.flags)
+end
+
+function Tab.createSlider(self: tabTypes.Tab, config: sliderTypes.Config)
+	return Slider.new(config, self.section, self.flags)
 end
 
 return Tab
