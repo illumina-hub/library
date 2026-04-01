@@ -3,13 +3,13 @@
 local TextService = game:GetService("TextService")
 
 local componentStyle = require("@styles/component")
+local componentTypes = require("@types/component")
 
 local FONT_SIZE = 16
 local FONT_ENUM = Enum.Font.GothamMedium
 
-type Appearance = {
+type Appearance = componentTypes.Appearance & {
 	component: Frame | TextButton,
-	description: { frame: Frame, text: TextLabel },
 	[any]: any,
 }
 

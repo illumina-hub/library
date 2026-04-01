@@ -34,7 +34,7 @@ type TypeMetadata__DARKLUA_TYPE_G<T> = {springType: (dampingRatio:number, freque
 type LinearSpring__DARKLUA_TYPE_H<T> = {d: number, f: number, g: {number}, p: {number}, v: {number}, typedat: TypeMetadata__DARKLUA_TYPE_G<T>, rawTarget: T, setGoal: (self:LinearSpring__DARKLUA_TYPE_H<T>, goal:T) -> (), setDampingRatio: (self:LinearSpring__DARKLUA_TYPE_H<T>, dampingRatio:number) -> (), setFrequency: (self:LinearSpring__DARKLUA_TYPE_H<T>, frequency:number) -> (), canSleep: (self:LinearSpring__DARKLUA_TYPE_H<T>) -> boolean, step: (self:LinearSpring__DARKLUA_TYPE_H<T>, dt:number) -> T}
 type RotationSpring__DARKLUA_TYPE_I = {d: number, f: number, g: CFrame, p: CFrame, v: Vector3, setGoal: (self:RotationSpring__DARKLUA_TYPE_I, value:CFrame) -> (), setDampingRatio: (self:RotationSpring__DARKLUA_TYPE_I, dampingRatio:number) -> (), setFrequency: (self:RotationSpring__DARKLUA_TYPE_I, frequency:number) -> (), step: (self:RotationSpring__DARKLUA_TYPE_I, dt:number) -> CFrame}
 type PropertyOverride__DARKLUA_TYPE_J = {[string]: {class: string, get: (any) -> (), set: (any, any) -> ()}}
-type Appearance__DARKLUA_TYPE_K = {component: Frame | TextButton, description: {frame: Frame, text: TextLabel}, [any]: any}
+type Appearance__DARKLUA_TYPE_K = Appearance__DARKLUA_TYPE_h&{component: Frame | TextButton, [any]: any}
 
 local __DARKLUA_BUNDLE_MODULES = {
     cache = {}::any,
@@ -2548,6 +2548,9 @@ do
         local function __modImpl()
             local TextService = game:GetService('TextService')
             local componentStyle = __DARKLUA_BUNDLE_MODULES.w()
+
+            __DARKLUA_BUNDLE_MODULES.c()
+
             local FONT_SIZE = 16
             local FONT_ENUM = Enum.Font.GothamMedium
 

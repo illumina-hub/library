@@ -308,84 +308,84 @@ end return f.connection.Connected end function e.connect(f,g,h)if f.connection t
 connection=i table.insert(d,i)end function e.disconnect(f)if not f.connection then return end local g=table.find(d,f.
 connection)if g then f.connection:Disconnect()f.connection=nil table.remove(d,g)end end function e.clear()for f,g in d
 do g:Disconnect()d[f]=nil end end return e end function a.D()local c=a.cache.D if not c then c={c=b()}a.cache.D=c end
-return c.c end end do local function b()local c,d,e,f=game:GetService'TextService',a.w(),16,Enum.Font.GothamMedium
-local function g(h,i,j)local k=Vector2.new(i,j)local l=c:GetTextSize(h,e,f,k)return UDim2.fromOffset(l.X,l.Y)end
-local function h(i,j)if j=='X'then return i.X.Offset end return i.Y.Offset end local function i(j,k,l,m)local n,o=l*2,0
-for p,q in j:GetChildren()do if not q:IsA'GuiObject'then continue end n+=h(q.Size,k)o+=1 if o>1 then n+=m end end return
-n end local function j(k)local l,m=k.component,k.description local n=g(m.text.Text,m.frame.AbsoluteSize.X,math.huge)m.
-text.Size=n m.frame.Size=UDim2.new(1,0,0,n.Y.Offset)local o=i(l,'Y',d.PADDING,d.GAP)l.Size=UDim2.new(1,0,0,o)end return{
-getTextSize=g,getComponentSize=i,scaleComponent=j}end function a.E()local c=a.cache.E if not c then c={c=b()}a.cache.E=c
-end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k=game:GetService'UserInputService',a.b(),a.g(),a.D(),
-a.E(),Enum.UserInputState.End,Enum.UserInputType.MouseButton1,Enum.UserInputType.MouseMovement,{}k.__index=k function k.
-new(l,m,n)local o=setmetatable({},k)o.appearance=l o.config=m o.flags=n o.value=0 o.dragging=false o.startInput=nil o.
-inputChanged=f.new()return o end function k.changeValue(l,m,n)local o,p=math.clamp(m,l.config.min,l.config.max),l.config
-.max-l.config.min local q=o-l.config.min local r=q/p if n and l.value==o then return end l.appearance.value.Text=
-tostring(o)l.value=o l:applyTrack(r)if l.config.callback then l.config.callback(o)end l.flags:setFlag(l.config.flag,o)
-end function k.resetState(l)l.dragging=false l.startInput=nil if l.inputChanged:isConnected()then l.inputChanged:
-disconnect()end end function k.onInputBegan(l,m)if m.UserInputType~=i then return end l.dragging=true l.startInput=m l.
-inputChanged:connect(c.InputChanged,function(n)l:onInputChanged(n)end)end function k.onInputChanged(l,m)if not l.
-dragging or not l.startInput then return end if m.UserInputState==h or l.startInput.UserInputState==h then l:resetState(
-)return end if m.UserInputType==j then l:updateFromInput(m)end end function k.onInputEnded(l,m)if m.UserInputType==i
-then l:resetState()end end function k.updateFromInput(l,m)local n=l.appearance.track local o=m.Position.X-n.frame.
-AbsolutePosition.X local p,q=math.clamp(o/n.frame.AbsoluteSize.X,0,1),l.config.max-l.config.min local r=l.config.min+p*q
-local s=math.round(r*l.config.division)/l.config.division l:changeValue(s,true)end function k.applyTrack(l,m)local n=l.
-appearance.track.circle.AbsoluteSize.X local o=n/2-n*m l.appearance.track.fill.Size=UDim2.new(m,o,1,0)end return k end
-function a.F()local c=a.cache.F if not c then c={c=b()}a.cache.F=c end return c.c end end do local function b()return{
-container=a.v(),tab=a.z(),button=a.A(),switch=a.C(),slider=a.F()}end function a.G()local c=a.cache.G if not c then c={c=
-b()}a.cache.G=c end return c.c end end do local function b()local c,d=a.D(),a.a()return function(e,f,g)local h,i,j,k,l=e
-.header,c.new(),c.new(),c.new(),c.new()i:connect(h.minimize.MouseButton1Click,function()f:minimize()end)j:connect(h.
-fullscreen.MouseButton1Click,function()f:fullscreen()end)k:connect(h.close.MouseButton1Click,function()f:destroy()end)l:
-connect(e.root.screen.AncestryChanged,function()c.clear()if g then g()end end)end end function a.H()local c=a.cache.H if
-not c then c={c=b()}a.cache.H=c end return c.c end end do local function b()local c,d,e=a.x(),a.i(),a.D()return function
-(f,g)local h,i,j,k=f.component,e.new(),e.new(),e.new()i:connect(h.MouseButton1Click,function()g:select()end)j:connect(h.
-MouseEnter,function()if not g.selected then g:applyStyle(c.HOVERED)end end)k:connect(h.MouseLeave,function()if not g.
-selected then g:applyStyle(c.DEFAULT)end end)end end function a.I()local c=a.cache.I if not c then c={c=b()}a.cache.I=c
-end return c.c end end do local function b()return{DEFAULT={BUTTON=Color3.fromRGB(16,16,16)},HOVERED={BUTTON=Color3.
-fromRGB(22,22,22)}}end function a.J()local c=a.cache.J if not c then c={c=b()}a.cache.J=c end return c.c end end do
-local function b()local c,d,e=a.J(),a.d(),a.D()return function(f,g)local h,i,j,k=f.component,e.new(),e.new(),e.new()i:
-connect(h.MouseButton1Click,function()g:activate()end)j:connect(h.MouseEnter,function()g:applyStyle(c.HOVERED)end)k:
-connect(h.MouseLeave,function()g:applyStyle(c.DEFAULT)end)end end function a.K()local c=a.cache.K if not c then c={c=b()
-}a.cache.K=c end return c.c end end do local function b()local c,d=a.D(),a.h()return function(e,f)local g=c.new()g:
-connect(e.component.MouseButton1Click,function()f:changeState()end)end end function a.L()local c=a.cache.L if not c then
-c={c=b()}a.cache.L=c end return c.c end end do local function b()local c,d=a.D(),a.g()return function(e,f)local g,h=c.
-new(),c.new()g:connect(e.track.hitbox.InputBegan,function(i)f:onInputBegan(i)end)h:connect(e.track.hitbox.InputEnded,
-function(i)f:onInputEnded(i)end)end end function a.M()local c=a.cache.M if not c then c={c=b()}a.cache.M=c end return c.
-c end end do local function b()return{container=a.H(),tab=a.I(),button=a.K(),switch=a.L(),slider=a.M()}end function a.N(
-)local c=a.cache.N if not c then c={c=b()}a.cache.N=c end return c.c end end do local function b()local c,d,e,f,g=a.a(),
-a.u(),a.G(),a.N(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.appearance=d.container()i.controller=e.
-container.new(i.appearance)f.container(i.appearance,i.controller,h)return i end return g end function a.O()local c=a.
-cache.O if not c then c={c=b()}a.cache.O=c end return c.c end end do local function b()local c,d,e,f,g,h=a.d(),a.u(),a.
-G(),a.N(),a.E(),{}h.__index=h function h.new(i,j)local k=setmetatable({},h)k.appearance=d.button(i,j)k.controller=e.
-button.new(k.appearance,i)f.button(k.appearance,k.controller)g.scaleComponent(k.appearance)return k end return h end
-function a.P()local c=a.cache.P if not c then c={c=b()}a.cache.P=c end return c.c end end do local function b()local c,d
-,e=a.e(),a.u(),{}e.__index=e function e.new(f,g)local h=setmetatable({},e)h.appearance=d.label(f,g)return h end return e
-end function a.Q()local c=a.cache.Q if not c then c={c=b()}a.cache.Q=c end return c.c end end do local function b()local
-c,d,e,f,g,h,i=a.b(),a.g(),a.u(),a.G(),a.N(),a.E(),{}i.__index=i function i.new(j,k,l)local m=setmetatable({},i)m.
-appearance=e.slider(j,k)m.controller=f.slider.new(m.appearance,j,l)g.slider(m.appearance,m.controller)h.scaleComponent(m
-.appearance)local n=l:getFlag(j.flag,'number')local o=if n~=nil then n else j.value m.controller:changeValue(o,false)
-return m end function i.changeValue(j,k)j.controller:changeValue(k,false)end return i end function a.R()local c=a.cache.
-R if not c then c={c=b()}a.cache.R=c end return c.c end end do local function b()local c,d,e,f,g,h,i=a.b(),a.h(),a.u(),a
-.G(),a.N(),a.E(),{}i.__index=i function i.new(j,k,l)local m=setmetatable({},i)m.appearance=e.switch(j,k)m.controller=f.
-switch.new(m.appearance,j,l)g.switch(m.appearance,m.controller)h.scaleComponent(m.appearance)local n=l:getFlag(j.flag,
-'boolean')local o=if n~=nil then n else j.enabled if o then m.controller:changeState(o)end return m end function i.
-changeState(j,k)j.controller:changeState(k)end return i end function a.S()local c=a.cache.S if not c then c={c=b()}a.
-cache.S=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k,l,m,n,o,p=a.d(),a.a(),a.b(),a.g(),a.h(),a.
-i(),a.P(),a.Q(),a.R(),a.S(),a.u(),a.G(),a.N(),{}p.__index=p function p.new(q,r,s,t)local u,v=setmetatable({},p),r.
-appearance.group u.appearance=m.tab(q,v.tabs)u.controller=n.tab.new(u.appearance,t)u.section=m.section(v.sections)u.
-flags=s o.tab(u.appearance,u.controller)return u end function p.select(q)q.controller:select()end function p.createLabel
-(q,r)return j.new(r,q.section)end function p.createButton(q,r)return i.new(r,q.section)end function p.createSwitch(q,r)
-return l.new(r,q.section,q.flags)end function p.createSlider(q,r)return k.new(r,q.section,q.flags)end return p end
-function a.T()local c=a.cache.T if not c then c={c=b()}a.cache.T=c end return c.c end end do local function b()local c=
-game:GetService'HttpService'local function d(e)if not isfolder(e)then makefolder(e)end end function getContent(e)if not
-isfile(e)then return{}end local f=readfile(e)local g,h=pcall(function()return c:JSONDecode(f)end)if not g then return{}
-end return h end local function e(f,g)local h,i=pcall(function()return c:JSONEncode(g)end)if h then writefile(f,i)end
-end return{ensureFolderExists=d,getContent=getContent,writeData=e}end function a.U()local c=a.cache.U if not c then c={c
-=b()}a.cache.U=c end return c.c end end do local function b()local c,d,e=a.U(),a.b(),'illumina'local f,g,h=string.
-format('%s/products',tostring(e)),'json',{}h.__index=h function h.new(i)local j=string.format('%s/%s.%s',tostring(f),
-tostring(i),tostring(g))c.ensureFolderExists(e)local k=setmetatable({},h)k.path=j k.flags=c.getContent(j)return k end
-function h.getFlag(i,j,k)local l=i.flags[j]if l~=nil and typeof(l)==k or not k then return l end return nil end function
-h.setFlag(i,j,k)i.flags[j]=k c.writeData(i.path,i.flags)end return h end function a.V()local c=a.cache.V if not c then c
-={c=b()}a.cache.V=c end return c.c end end end local b,c,d,e,f,g=a.j(),a.i(),a.O(),a.T(),a.V(),{}g.__index=g function g.
-new(h)local i=setmetatable({},g)i.container=d.new(h.onDestroyed)i.flags=f.new(h.product)i.tabs={}return i end function g
-.createTab(h,i)local j=e.new(i,h.container,h.flags,h.tabs)table.insert(h.tabs,j)if#h.tabs==1 then j:select()end return j
-end return g
+return c.c end end do local function b()local c,d,e,f,g=game:GetService'TextService',a.w(),a.c(),16,Enum.Font.
+GothamMedium local function h(i,j,k)local l=Vector2.new(j,k)local m=c:GetTextSize(i,f,g,l)return UDim2.fromOffset(m.X,m.
+Y)end local function i(j,k)if k=='X'then return j.X.Offset end return j.Y.Offset end local function j(k,l,m,n)local o,p=
+m*2,0 for q,r in k:GetChildren()do if not r:IsA'GuiObject'then continue end o+=i(r.Size,l)p+=1 if p>1 then o+=n end end
+return o end local function k(l)local m,n=l.component,l.description local o=h(n.text.Text,n.frame.AbsoluteSize.X,math.
+huge)n.text.Size=o n.frame.Size=UDim2.new(1,0,0,o.Y.Offset)local p=j(m,'Y',d.PADDING,d.GAP)m.Size=UDim2.new(1,0,0,p)end
+return{getTextSize=h,getComponentSize=j,scaleComponent=k}end function a.E()local c=a.cache.E if not c then c={c=b()}a.
+cache.E=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k=game:GetService'UserInputService',a.b(),a.
+g(),a.D(),a.E(),Enum.UserInputState.End,Enum.UserInputType.MouseButton1,Enum.UserInputType.MouseMovement,{}k.__index=k
+function k.new(l,m,n)local o=setmetatable({},k)o.appearance=l o.config=m o.flags=n o.value=0 o.dragging=false o.
+startInput=nil o.inputChanged=f.new()return o end function k.changeValue(l,m,n)local o,p=math.clamp(m,l.config.min,l.
+config.max),l.config.max-l.config.min local q=o-l.config.min local r=q/p if n and l.value==o then return end l.
+appearance.value.Text=tostring(o)l.value=o l:applyTrack(r)if l.config.callback then l.config.callback(o)end l.flags:
+setFlag(l.config.flag,o)end function k.resetState(l)l.dragging=false l.startInput=nil if l.inputChanged:isConnected()
+then l.inputChanged:disconnect()end end function k.onInputBegan(l,m)if m.UserInputType~=i then return end l.dragging=
+true l.startInput=m l.inputChanged:connect(c.InputChanged,function(n)l:onInputChanged(n)end)end function k.
+onInputChanged(l,m)if not l.dragging or not l.startInput then return end if m.UserInputState==h or l.startInput.
+UserInputState==h then l:resetState()return end if m.UserInputType==j then l:updateFromInput(m)end end function k.
+onInputEnded(l,m)if m.UserInputType==i then l:resetState()end end function k.updateFromInput(l,m)local n=l.appearance.
+track local o=m.Position.X-n.frame.AbsolutePosition.X local p,q=math.clamp(o/n.frame.AbsoluteSize.X,0,1),l.config.max-l.
+config.min local r=l.config.min+p*q local s=math.round(r*l.config.division)/l.config.division l:changeValue(s,true)end
+function k.applyTrack(l,m)local n=l.appearance.track.circle.AbsoluteSize.X local o=n/2-n*m l.appearance.track.fill.Size=
+UDim2.new(m,o,1,0)end return k end function a.F()local c=a.cache.F if not c then c={c=b()}a.cache.F=c end return c.c end
+end do local function b()return{container=a.v(),tab=a.z(),button=a.A(),switch=a.C(),slider=a.F()}end function a.G()local
+c=a.cache.G if not c then c={c=b()}a.cache.G=c end return c.c end end do local function b()local c,d=a.D(),a.a()return
+function(e,f,g)local h,i,j,k,l=e.header,c.new(),c.new(),c.new(),c.new()i:connect(h.minimize.MouseButton1Click,function()
+f:minimize()end)j:connect(h.fullscreen.MouseButton1Click,function()f:fullscreen()end)k:connect(h.close.MouseButton1Click
+,function()f:destroy()end)l:connect(e.root.screen.AncestryChanged,function()c.clear()if g then g()end end)end end
+function a.H()local c=a.cache.H if not c then c={c=b()}a.cache.H=c end return c.c end end do local function b()local c,d
+,e=a.x(),a.i(),a.D()return function(f,g)local h,i,j,k=f.component,e.new(),e.new(),e.new()i:connect(h.MouseButton1Click,
+function()g:select()end)j:connect(h.MouseEnter,function()if not g.selected then g:applyStyle(c.HOVERED)end end)k:
+connect(h.MouseLeave,function()if not g.selected then g:applyStyle(c.DEFAULT)end end)end end function a.I()local c=a.
+cache.I if not c then c={c=b()}a.cache.I=c end return c.c end end do local function b()return{DEFAULT={BUTTON=Color3.
+fromRGB(16,16,16)},HOVERED={BUTTON=Color3.fromRGB(22,22,22)}}end function a.J()local c=a.cache.J if not c then c={c=b()}
+a.cache.J=c end return c.c end end do local function b()local c,d,e=a.J(),a.d(),a.D()return function(f,g)local h,i,j,k=f
+.component,e.new(),e.new(),e.new()i:connect(h.MouseButton1Click,function()g:activate()end)j:connect(h.MouseEnter,
+function()g:applyStyle(c.HOVERED)end)k:connect(h.MouseLeave,function()g:applyStyle(c.DEFAULT)end)end end function a.K()
+local c=a.cache.K if not c then c={c=b()}a.cache.K=c end return c.c end end do local function b()local c,d=a.D(),a.h()
+return function(e,f)local g=c.new()g:connect(e.component.MouseButton1Click,function()f:changeState()end)end end function
+a.L()local c=a.cache.L if not c then c={c=b()}a.cache.L=c end return c.c end end do local function b()local c,d=a.D(),a.
+g()return function(e,f)local g,h=c.new(),c.new()g:connect(e.track.hitbox.InputBegan,function(i)f:onInputBegan(i)end)h:
+connect(e.track.hitbox.InputEnded,function(i)f:onInputEnded(i)end)end end function a.M()local c=a.cache.M if not c then
+c={c=b()}a.cache.M=c end return c.c end end do local function b()return{container=a.H(),tab=a.I(),button=a.K(),switch=a.
+L(),slider=a.M()}end function a.N()local c=a.cache.N if not c then c={c=b()}a.cache.N=c end return c.c end end do
+local function b()local c,d,e,f,g=a.a(),a.u(),a.G(),a.N(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.
+appearance=d.container()i.controller=e.container.new(i.appearance)f.container(i.appearance,i.controller,h)return i end
+return g end function a.O()local c=a.cache.O if not c then c={c=b()}a.cache.O=c end return c.c end end do local function
+b()local c,d,e,f,g,h=a.d(),a.u(),a.G(),a.N(),a.E(),{}h.__index=h function h.new(i,j)local k=setmetatable({},h)k.
+appearance=d.button(i,j)k.controller=e.button.new(k.appearance,i)f.button(k.appearance,k.controller)g.scaleComponent(k.
+appearance)return k end return h end function a.P()local c=a.cache.P if not c then c={c=b()}a.cache.P=c end return c.c
+end end do local function b()local c,d,e=a.e(),a.u(),{}e.__index=e function e.new(f,g)local h=setmetatable({},e)h.
+appearance=d.label(f,g)return h end return e end function a.Q()local c=a.cache.Q if not c then c={c=b()}a.cache.Q=c end
+return c.c end end do local function b()local c,d,e,f,g,h,i=a.b(),a.g(),a.u(),a.G(),a.N(),a.E(),{}i.__index=i function i
+.new(j,k,l)local m=setmetatable({},i)m.appearance=e.slider(j,k)m.controller=f.slider.new(m.appearance,j,l)g.slider(m.
+appearance,m.controller)h.scaleComponent(m.appearance)local n=l:getFlag(j.flag,'number')local o=if n~=nil then n else j.
+value m.controller:changeValue(o,false)return m end function i.changeValue(j,k)j.controller:changeValue(k,false)end
+return i end function a.R()local c=a.cache.R if not c then c={c=b()}a.cache.R=c end return c.c end end do local function
+b()local c,d,e,f,g,h,i=a.b(),a.h(),a.u(),a.G(),a.N(),a.E(),{}i.__index=i function i.new(j,k,l)local m=setmetatable({},i)
+m.appearance=e.switch(j,k)m.controller=f.switch.new(m.appearance,j,l)g.switch(m.appearance,m.controller)h.
+scaleComponent(m.appearance)local n=l:getFlag(j.flag,'boolean')local o=if n~=nil then n else j.enabled if o then m.
+controller:changeState(o)end return m end function i.changeState(j,k)j.controller:changeState(k)end return i end
+function a.S()local c=a.cache.S if not c then c={c=b()}a.cache.S=c end return c.c end end do local function b()local c,d
+,e,f,g,h,i,j,k,l,m,n,o,p=a.d(),a.a(),a.b(),a.g(),a.h(),a.i(),a.P(),a.Q(),a.R(),a.S(),a.u(),a.G(),a.N(),{}p.__index=p
+function p.new(q,r,s,t)local u,v=setmetatable({},p),r.appearance.group u.appearance=m.tab(q,v.tabs)u.controller=n.tab.
+new(u.appearance,t)u.section=m.section(v.sections)u.flags=s o.tab(u.appearance,u.controller)return u end function p.
+select(q)q.controller:select()end function p.createLabel(q,r)return j.new(r,q.section)end function p.createButton(q,r)
+return i.new(r,q.section)end function p.createSwitch(q,r)return l.new(r,q.section,q.flags)end function p.createSlider(q,
+r)return k.new(r,q.section,q.flags)end return p end function a.T()local c=a.cache.T if not c then c={c=b()}a.cache.T=c
+end return c.c end end do local function b()local c=game:GetService'HttpService'local function d(e)if not isfolder(e)
+then makefolder(e)end end function getContent(e)if not isfile(e)then return{}end local f=readfile(e)local g,h=pcall(
+function()return c:JSONDecode(f)end)if not g then return{}end return h end local function e(f,g)local h,i=pcall(function
+()return c:JSONEncode(g)end)if h then writefile(f,i)end end return{ensureFolderExists=d,getContent=getContent,writeData=
+e}end function a.U()local c=a.cache.U if not c then c={c=b()}a.cache.U=c end return c.c end end do local function b()
+local c,d,e=a.U(),a.b(),'illumina'local f,g,h=string.format('%s/products',tostring(e)),'json',{}h.__index=h function h.
+new(i)local j=string.format('%s/%s.%s',tostring(f),tostring(i),tostring(g))c.ensureFolderExists(e)local k=setmetatable({
+},h)k.path=j k.flags=c.getContent(j)return k end function h.getFlag(i,j,k)local l=i.flags[j]if l~=nil and typeof(l)==k
+or not k then return l end return nil end function h.setFlag(i,j,k)i.flags[j]=k c.writeData(i.path,i.flags)end return h
+end function a.V()local c=a.cache.V if not c then c={c=b()}a.cache.V=c end return c.c end end end local b,c,d,e,f,g=a.j(
+),a.i(),a.O(),a.T(),a.V(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.container=d.new(h.onDestroyed)i.
+flags=f.new(h.product)i.tabs={}return i end function g.createTab(h,i)local j=e.new(i,h.container,h.flags,h.tabs)table.
+insert(h.tabs,j)if#h.tabs==1 then j:select()end return j end return g

@@ -34,9 +34,6 @@ function Switch.changeState(self: switchTypes.Controller, state: boolean?)
 	self.flags:setFlag(self.config.flag, self.enabled)
 end
 
--- i was so lazy to make abstract classes to avoid code duplication
--- please forgive me and don't kill me 🙏🙏🙏
-
 function Switch.applyStyle(self: switchTypes.Controller, style: switchTypes.Style)
 	local thumb = self.appearance.thumb
 
