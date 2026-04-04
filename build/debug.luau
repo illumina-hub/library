@@ -3329,8 +3329,7 @@ do
                     makefolder(path)
                 end
             end
-
-            function getContent(path: string): any
+            local function getContent(path: string): any
                 if not isfile(path) then
                     return {}
                 end
@@ -3346,7 +3345,6 @@ do
 
                 return content
             end
-
             local function writeData(path: string, data: any)
                 local success, content = pcall(function()
                     return HttpService:JSONEncode(data)

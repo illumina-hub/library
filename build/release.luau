@@ -377,15 +377,15 @@ select(q)q.controller:select()end function p.createLabel(q,r)return j.new(r,q.se
 return i.new(r,q.section)end function p.createSwitch(q,r)return l.new(r,q.section,q.flags)end function p.createSlider(q,
 r)return k.new(r,q.section,q.flags)end return p end function a.T()local c=a.cache.T if not c then c={c=b()}a.cache.T=c
 end return c.c end end do local function b()local c=game:GetService'HttpService'local function d(e)if not isfolder(e)
-then makefolder(e)end end function getContent(e)if not isfile(e)then return{}end local f=readfile(e)local g,h=pcall(
-function()return c:JSONDecode(f)end)if not g then return{}end return h end local function e(f,g)local h,i=pcall(function
-()return c:JSONEncode(g)end)if h then writefile(f,i)end end return{ensureFolderExists=d,getContent=getContent,writeData=
-e}end function a.U()local c=a.cache.U if not c then c={c=b()}a.cache.U=c end return c.c end end do local function b()
-local c,d,e=a.U(),a.b(),'illumina'local f,g,h=string.format('%s/products',tostring(e)),'json',{}h.__index=h function h.
-new(i)local j=string.format('%s/%s.%s',tostring(f),tostring(i),tostring(g))c.ensureFolderExists(e)local k=setmetatable({
-},h)k.path=j k.flags=c.getContent(j)return k end function h.getFlag(i,j,k)local l=i.flags[j]if l~=nil and typeof(l)==k
-or not k then return l end return nil end function h.setFlag(i,j,k)i.flags[j]=k c.writeData(i.path,i.flags)end return h
-end function a.V()local c=a.cache.V if not c then c={c=b()}a.cache.V=c end return c.c end end end local b,c,d,e,f,g=a.j(
-),a.i(),a.O(),a.T(),a.V(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.container=d.new(h.onDestroyed)i.
-flags=f.new(h.product)i.tabs={}return i end function g.createTab(h,i)local j=e.new(i,h.container,h.flags,h.tabs)table.
-insert(h.tabs,j)if#h.tabs==1 then j:select()end return j end return g
+then makefolder(e)end end local function e(f)if not isfile(f)then return{}end local g=readfile(f)local h,i=pcall(
+function()return c:JSONDecode(g)end)if not h then return{}end return i end local function f(g,h)local i,j=pcall(function
+()return c:JSONEncode(h)end)if i then writefile(g,j)end end return{ensureFolderExists=d,getContent=e,writeData=f}end
+function a.U()local c=a.cache.U if not c then c={c=b()}a.cache.U=c end return c.c end end do local function b()local c,d
+,e=a.U(),a.b(),'illumina'local f,g,h=string.format('%s/products',tostring(e)),'json',{}h.__index=h function h.new(i)
+local j=string.format('%s/%s.%s',tostring(f),tostring(i),tostring(g))c.ensureFolderExists(e)local k=setmetatable({},h)k.
+path=j k.flags=c.getContent(j)return k end function h.getFlag(i,j,k)local l=i.flags[j]if l~=nil and typeof(l)==k or not
+k then return l end return nil end function h.setFlag(i,j,k)i.flags[j]=k c.writeData(i.path,i.flags)end return h end
+function a.V()local c=a.cache.V if not c then c={c=b()}a.cache.V=c end return c.c end end end local b,c,d,e,f,g=a.j(),a.
+i(),a.O(),a.T(),a.V(),{}g.__index=g function g.new(h)local i=setmetatable({},g)i.container=d.new(h.onDestroyed)i.flags=f
+.new(h.product)i.tabs={}return i end function g.createTab(h,i)local j=e.new(i,h.container,h.flags,h.tabs)table.insert(h.
+tabs,j)if#h.tabs==1 then j:select()end return j end return g

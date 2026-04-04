@@ -8,7 +8,7 @@ local function ensureFolderExists(path: string)
 	end
 end
 
-function getContent(path: string): any
+local function getContent(path: string): any
 	if not isfile(path) then
 		return {}
 	end

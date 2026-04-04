@@ -8,4 +8,3 @@ declare function writefile(path: string, data: string): ()
 
 declare function cloneref(object: Instance): Instance
 declare function gethui(): BasePlayerGui | Folder
-declare function loadstring(source: string, chunk: string?): (Function, string)
