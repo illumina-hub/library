@@ -6,4 +6,5 @@ return {
 	button = require("@self/button"),
 	switch = require("@self/switch"),
 	slider = require("@self/slider"),
+	drag = require("@self/drag"),
 }

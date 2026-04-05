@@ -6,11 +6,7 @@ local flagTypes = require("@types/flags")
 local sliderTypes = require("@types/slider")
 
 local Signal = require("@managers/signal")
-local scale = require("@utils/scale")
-
-local END_INPUT = Enum.UserInputState.End
-local MOUSE_INPUT = Enum.UserInputType.MouseButton1
-local MOVE_INPUT = Enum.UserInputType.MouseMovement
+local inputs = require("@enums/inputs")
 
 local Slider = {}
 Slider.__index = Slider
@@ -56,49 +52,46 @@ end
 function Slider.resetState(self: sliderTypes.Controller)
 	self.dragging = false
 	self.startInput = nil
-
-	if self.inputChanged:isConnected() then
-		self.inputChanged:disconnect()
-	end
+	self.inputChanged:disconnect()
 end
 
-function Slider.onInputBegan(self: sliderTypes.Controller, input: InputObject)
-	if input.UserInputType ~= MOUSE_INPUT then
+function Slider.onInputBegan(self: sliderTypes.Controller, inputObject: InputObject)
+	if inputObject.UserInputType ~= inputs.MOUSE_INPUT then
 		return
 	end
 
 	self.dragging = true
-	self.startInput = input
+	self.startInput = inputObject
 
-	self.inputChanged:connect(UserInputService.InputChanged, function(input: InputObject)
-		self:onInputChanged(input)
+	self.inputChanged:connect(UserInputService.InputChanged, function(inputObject: InputObject)
+		self:onInputChanged(inputObject)
 	end)
 end
 
-function Slider.onInputChanged(self: sliderTypes.Controller, input: InputObject)
+function Slider.onInputChanged(self: sliderTypes.Controller, inputObject: InputObject)
 	if not self.dragging or not self.startInput then
 		return
 	end
 
-	if input.UserInputState == END_INPUT or self.startInput.UserInputState == END_INPUT then
+	if inputObject.UserInputState == inputs.END_INPUT or self.startInput.UserInputState == inputs.END_INPUT then
 		self:resetState()
 		return
 	end
 
-	if input.UserInputType == MOVE_INPUT then
-		self:updateFromInput(input)
+	if inputObject.UserInputType == inputs.MOUSE_INPUT then
+		self:updateFromInput(inputObject)
 	end
 end
 
-function Slider.onInputEnded(self: sliderTypes.Controller, input: InputObject)
-	if input.UserInputType == MOUSE_INPUT then
+function Slider.onInputEnded(self: sliderTypes.Controller, inputObject: InputObject)
+	if inputObject.UserInputType == inputs.MOUSE_INPUT then
 		self:resetState()
 	end
 end
 
-function Slider.updateFromInput(self: sliderTypes.Controller, input: InputObject)
+function Slider.updateFromInput(self: sliderTypes.Controller, inputObject: InputObject)
 	local track = self.appearance.track
-	local relative = input.Position.X - track.frame.AbsolutePosition.X
+	local relative = inputObject.Position.X - track.frame.AbsolutePosition.X
 	local percentage = math.clamp(relative / track.frame.AbsoluteSize.X, 0, 1)
 
 	local range = self.config.max - self.config.min

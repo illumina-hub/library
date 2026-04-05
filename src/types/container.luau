@@ -1,12 +1,14 @@
 --!strict
 
+local dragTypes = require("@types/drag")
+
 type Root = {
 	screen: ScreenGui,
 	container: Frame,
 }
 
 type Header = {
-	header: Frame,
+	frame: Frame,
 	minimize: TextButton,
 	fullscreen: TextButton,
 	close: TextButton,
@@ -33,6 +35,7 @@ export type Controller = {
 export type Container = {
 	appearance: Appearance,
 	controller: Controller,
+	dragController: dragTypes.Controller,
 }
 
 return nil

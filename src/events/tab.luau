@@ -1,9 +1,8 @@
 --!strict
 
+local Signal = require("@managers/signal")
 local tabStyle = require("@styles/tab")
 local tabTypes = require("@types/tab")
-
-local Signal = require("@managers/signal")
 
 return function(appearance: tabTypes.Appearance, controller: tabTypes.Controller)
 	local component = appearance.component

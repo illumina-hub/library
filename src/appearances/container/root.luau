@@ -2,6 +2,8 @@
 
 local CoreGui = gethui() or cloneref(game:GetService("CoreGui"))
 
+local containerStyle = require("@styles/container")
+
 return function()
 	local oldIllumina = CoreGui:FindFirstChild("Illumina")
 
@@ -21,8 +23,8 @@ return function()
 	container.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 	container.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	container.BorderSizePixel = 0
-	container.Position = UDim2.fromScale(0.5, 0.5)
-	container.Size = UDim2.fromOffset(750, 500)
+	container.Position = containerStyle.DEF_POSITION
+	container.Size = containerStyle.DEF_SIZE
 
 	local uIStroke = Instance.new("UIStroke")
 	uIStroke.Name = "UIStroke"

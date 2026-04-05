@@ -7,11 +7,11 @@ return function(appearance: sliderTypes.Appearance, controller: sliderTypes.Cont
 	local inputBegan = Signal.new()
 	local inputEnded = Signal.new()
 
-	inputBegan:connect(appearance.track.hitbox.InputBegan, function(input: InputObject)
-		controller:onInputBegan(input)
+	inputBegan:connect(appearance.track.hitbox.InputBegan, function(inputObject: InputObject)
+		controller:onInputBegan(inputObject)
 	end)
 
-	inputEnded:connect(appearance.track.hitbox.InputEnded, function(input: InputObject)
-		controller:onInputEnded(input)
+	inputEnded:connect(appearance.track.hitbox.InputEnded, function(inputObject: InputObject)
+		controller:onInputEnded(inputObject)
 	end)
 end

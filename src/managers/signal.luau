@@ -14,14 +14,6 @@ function Signal.new(): signalTypes.Signal
 	return self :: any
 end
 
-function Signal.isConnected(self: signalTypes.Signal)
-	if not self.connection then
-		return false
-	end
-
-	return self.connection.Connected
-end
-
 function Signal.connect(self: signalTypes.Signal, signal: RBXScriptSignal, callback: (...any) -> ...any)
 	if self.connection then
 		return

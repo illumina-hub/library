@@ -13,7 +13,9 @@ function Container.new(onDestroyed: (() -> ())?): containerTypes.Container
 	local self = setmetatable({}, Container)
 	self.appearance = appearances.container()
 	self.controller = controllers.container.new(self.appearance)
+	self.dragController = controllers.drag.new()
 
+	events.drag(self.appearance.root.container, self.appearance.header.frame, self.dragController)
 	events.container(self.appearance, self.controller, onDestroyed)
 
 	return self :: any

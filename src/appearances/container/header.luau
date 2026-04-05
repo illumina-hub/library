@@ -133,7 +133,7 @@ return function(container: Frame)
 	divider.Parent = container
 
 	return {
-		header = header,
+		frame = header,
 		minimize = minimize,
 		fullscreen = fullscreen,
 		close = close,

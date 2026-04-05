@@ -1,8 +1,7 @@
 --!strict
 
-local labelTypes = require("@types/label")
-
 local appearances = require("@appearances")
+local labelTypes = require("@types/label")
 
 local Label = {}
 Label.__index = Label

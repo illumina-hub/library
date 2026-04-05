@@ -2,7 +2,6 @@
 
 local buttonTypes = require("@types/button")
 local componentStyle = require("@styles/component")
-
 local spring = require("@utils/spring")
 
 local Button = {}

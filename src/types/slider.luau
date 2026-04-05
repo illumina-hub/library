@@ -33,10 +33,10 @@ export type Controller = {
 	inputChanged: signalTypes.Signal,
 	changeValue: (self: Controller, value: number, difference: boolean) -> (),
 	resetState: (self: Controller) -> (),
-	onInputBegan: (self: Controller, input: InputObject) -> (),
-	onInputChanged: (self: Controller, input: InputObject) -> (),
-	onInputEnded: (self: Controller, input: InputObject) -> (),
-	updateFromInput: (self: Controller, input: InputObject) -> (),
+	onInputBegan: (self: Controller, inputObject: InputObject) -> (),
+	onInputChanged: (self: Controller, inputObject: InputObject) -> (),
+	onInputEnded: (self: Controller, inputObject: InputObject) -> (),
+	updateFromInput: (self: Controller, inputObject: InputObject) -> (),
 	applyTrack: (self: Controller, percentage: number) -> (),
 }
 

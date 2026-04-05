@@ -11,6 +11,7 @@
                 "@src": "../src",
                 "@types": "../src/types",
                 "@utils": "../src/utils",
+                "@enums": "../src/enums",
                 "@styles": "../src/styles",
                 "@events": "../src/events",
                 "@managers": "../src/managers",
