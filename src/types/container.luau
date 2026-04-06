@@ -5,6 +5,7 @@ local dragTypes = require("@types/drag")
 type Root = {
 	screen: ScreenGui,
 	container: Frame,
+	corner: UICorner,
 }
 
 type Header = {
@@ -27,6 +28,9 @@ export type Appearance = {
 
 export type Controller = {
 	appearance: Appearance,
+	drag: dragTypes.Controller,
+	fullscreened: boolean,
+	lastSize: UDim2,
 	minimize: (self: Controller) -> (),
 	fullscreen: (self: Controller) -> (),
 	destroy: (self: Controller) -> (),
@@ -35,7 +39,6 @@ export type Controller = {
 export type Container = {
 	appearance: Appearance,
 	controller: Controller,
-	dragController: dragTypes.Controller,
 }
 
 return nil

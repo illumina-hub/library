@@ -3,15 +3,10 @@
 local TextService = game:GetService("TextService")
 
 local componentStyle = require("@styles/component")
-local componentTypes = require("@types/component")
+local scaleTypes = require("@types/scale")
 
 local FONT_SIZE = 16
 local FONT_ENUM = Enum.Font.GothamMedium
-
-type Appearance = componentTypes.Appearance & {
-	component: Frame | TextButton,
-	[any]: any,
-}
 
 local function getTextSize(text: string, width: number, height: number)
 	local frameSize = Vector2.new(width, height)
@@ -48,7 +43,7 @@ local function getComponentSize(component: GuiObject, axis: "X" | "Y", padding: 
 	return componentSize
 end
 
-local function scaleComponent(appearance: Appearance)
+local function scaleComponent(appearance: scaleTypes.Appearance)
 	local component: GuiObject = appearance.component
 	local description = appearance.description
 

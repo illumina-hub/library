@@ -3,7 +3,7 @@
 local flagTypes = require("@types/flags")
 local switchTypes = require("@types/switch")
 
-local componentStyle = require("@styles/component")
+local springStyle = require("@styles/spring")
 local switchStyle = require("@styles/switch")
 
 local spring = require("@utils/spring")
@@ -37,11 +37,11 @@ end
 function Switch.applyStyle(self: switchTypes.Controller, style: switchTypes.Style)
 	local thumb = self.appearance.thumb
 
-	spring.target(thumb.frame, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(thumb.frame, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		BackgroundColor3 = style.THUMB,
 	})
 
-	spring.target(thumb.circle, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(thumb.circle, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		AnchorPoint = style.ANCHOR_POINT,
 		Position = style.POSITION,
 		BackgroundColor3 = style.CIRCLE,

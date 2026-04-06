@@ -5,7 +5,6 @@ local containerTypes = require("@types/container")
 
 return function(appearance: containerTypes.Appearance, controller: containerTypes.Controller, onDestroyed: (() -> ())?)
 	local header = appearance.header
-
 	local minimize = Signal.new()
 	local fullscreen = Signal.new()
 	local close = Signal.new()

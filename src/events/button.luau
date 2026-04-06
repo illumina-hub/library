@@ -7,10 +7,13 @@ local Signal = require("@managers/signal")
 
 return function(appearance: buttonTypes.Appearance, controller: buttonTypes.Controller)
 	local component = appearance.component
-
 	local click = Signal.new()
 	local mouseEnter = Signal.new()
 	local mouseLeave = Signal.new()
+
+	mouseLeave:connect(component.MouseLeave, function()
+		controller:applyStyle(buttonStyle.DEFAULT)
+	end)
 
 	click:connect(component.MouseButton1Click, function()
 		controller:activate()

@@ -21,8 +21,6 @@ export type Appearance = componentTypes.Appearance & {
 	track: { frame: Frame, fill: Frame, circle: Frame, hitbox: TextButton },
 }
 
-export type Style = {}
-
 export type Controller = {
 	appearance: Appearance,
 	config: Config,

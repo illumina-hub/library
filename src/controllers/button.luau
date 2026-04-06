@@ -1,8 +1,8 @@
 --!strict
 
 local buttonTypes = require("@types/button")
-local componentStyle = require("@styles/component")
 local spring = require("@utils/spring")
+local springStyle = require("@styles/spring")
 
 local Button = {}
 Button.__index = Button
@@ -20,7 +20,7 @@ function Button.activate(self: buttonTypes.Controller)
 end
 
 function Button.applyStyle(self: buttonTypes.Controller, style: buttonTypes.Style)
-	spring.target(self.appearance.component, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(self.appearance.component, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		BackgroundColor3 = style.BUTTON,
 	})
 end

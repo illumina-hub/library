@@ -13,6 +13,7 @@ return function()
 
 	local illumina = Instance.new("ScreenGui")
 	illumina.Name = "Illumina"
+	illumina.DisplayOrder = 6
 	illumina.IgnoreGuiInset = true
 	illumina.ResetOnSpawn = false
 	illumina.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
@@ -37,11 +38,6 @@ return function()
 	uICorner.CornerRadius = UDim.new(0, 10)
 	uICorner.Parent = container
 
-	local uICorner1 = Instance.new("UICorner")
-	uICorner1.Name = "UICorner"
-	uICorner1.CornerRadius = UDim.new(0, 10)
-	uICorner1.Parent = container
-
 	local uIListLayout = Instance.new("UIListLayout")
 	uIListLayout.Name = "UIListLayout"
 	uIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -54,5 +50,6 @@ return function()
 	return {
 		screen = illumina,
 		container = container,
+		corner = uICorner,
 	}
 end

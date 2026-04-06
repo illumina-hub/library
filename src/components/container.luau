@@ -11,11 +11,11 @@ Container.__index = Container
 
 function Container.new(onDestroyed: (() -> ())?): containerTypes.Container
 	local self = setmetatable({}, Container)
+	local drag = controllers.drag.new()
 	self.appearance = appearances.container()
-	self.controller = controllers.container.new(self.appearance)
-	self.dragController = controllers.drag.new()
+	self.controller = controllers.container.new(self.appearance, drag)
 
-	events.drag(self.appearance.root.container, self.appearance.header.frame, self.dragController)
+	events.drag(self.appearance.root.container, self.appearance.header.frame, drag)
 	events.container(self.appearance, self.controller, onDestroyed)
 
 	return self :: any

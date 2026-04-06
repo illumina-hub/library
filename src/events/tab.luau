@@ -6,7 +6,6 @@ local tabTypes = require("@types/tab")
 
 return function(appearance: tabTypes.Appearance, controller: tabTypes.Controller)
 	local component = appearance.component
-
 	local click = Signal.new()
 	local mouseEnter = Signal.new()
 	local mouseLeave = Signal.new()

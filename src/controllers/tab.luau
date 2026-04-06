@@ -2,7 +2,7 @@
 
 local tabTypes = require("@types/tab")
 
-local componentStyle = require("@styles/component")
+local springStyle = require("@styles/spring")
 local tabStyle = require("@styles/tab")
 
 local spring = require("@utils/spring")
@@ -33,19 +33,19 @@ end
 function TabController.applyStyle(self: tabTypes.Controller, style: tabTypes.Style)
 	local appearance = self.appearance
 
-	spring.target(appearance.component, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(appearance.component, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		BackgroundTransparency = style.TAB,
 	})
 
-	spring.target(appearance.stroke, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(appearance.stroke, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		Transparency = style.STROKE,
 	})
 
-	spring.target(appearance.icon, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(appearance.icon, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		ImageColor3 = style.ICON,
 	})
 
-	spring.target(appearance.title, componentStyle.DAMPING_RATIO, componentStyle.FREQUENCY, {
+	spring.target(appearance.title, springStyle.DAMPING_RATIO, springStyle.FREQUENCY, {
 		TextColor3 = style.TITTLE,
 	})
 end

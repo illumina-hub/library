@@ -18,6 +18,7 @@ function Slider.new(config: sliderTypes.Config, section: ScrollingFrame, flags: 
 	self.controller = controllers.slider.new(self.appearance, config, flags)
 
 	events.slider(self.appearance, self.controller)
+	events.scale(self.appearance)
 	scale.scaleComponent(self.appearance)
 
 	local flag = flags:getFlag(config.flag, "number")

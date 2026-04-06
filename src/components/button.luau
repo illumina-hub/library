@@ -17,6 +17,7 @@ function Button.new(config: buttonTypes.Config, section: ScrollingFrame): button
 	self.controller = controllers.button.new(self.appearance, config)
 
 	events.button(self.appearance, self.controller)
+	events.scale(self.appearance)
 	scale.scaleComponent(self.appearance)
 
 	return self :: any

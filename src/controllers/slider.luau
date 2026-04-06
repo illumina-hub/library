@@ -78,7 +78,7 @@ function Slider.onInputChanged(self: sliderTypes.Controller, inputObject: InputO
 		return
 	end
 
-	if inputObject.UserInputType == inputs.MOUSE_INPUT then
+	if inputObject.UserInputType == inputs.MOVE_INPUT then
 		self:updateFromInput(inputObject)
 	end
 end
