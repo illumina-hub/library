@@ -81,33 +81,18 @@ type TypeMetadata<T> = {
 -- Spring for an array of linear values
 local LinearSpring = {}
 
--- type LinearSpring<T> = typeof(setmetatable(
--- 	{} :: {
--- 		d: number,
--- 		f: number,
--- 		g: { number },
--- 		p: { number },
--- 		v: { number },
--- 		typedat: TypeMetadata<T>,
--- 		rawTarget: T,
--- 	},
--- 	LinearSpring
--- ))
-
-type LinearSpring<T> = {
-	d: number,
-	f: number,
-	g: { number },
-	p: { number },
-	v: { number },
-	typedat: TypeMetadata<T>,
-	rawTarget: T,
-	setGoal: (self: LinearSpring<T>, goal: T) -> (),
-	setDampingRatio: (self: LinearSpring<T>, dampingRatio: number) -> (),
-	setFrequency: (self: LinearSpring<T>, frequency: number) -> (),
-	canSleep: (self: LinearSpring<T>) -> boolean,
-	step: (self: LinearSpring<T>, dt: number) -> T,
-}
+type LinearSpring<T> = typeof(setmetatable(
+	{} :: {
+		d: number,
+		f: number,
+		g: { number },
+		p: { number },
+		v: { number },
+		typedat: TypeMetadata<T>,
+		rawTarget: T,
+	},
+	LinearSpring
+))
 
 do
 	LinearSpring.__index = LinearSpring
@@ -253,17 +238,16 @@ end
 
 local RotationSpring = {}
 
-type RotationSpring = {
-	d: number,
-	f: number,
-	g: CFrame,
-	p: CFrame,
-	v: Vector3,
-	setGoal: (self: RotationSpring, value: CFrame) -> (),
-	setDampingRatio: (self: RotationSpring, dampingRatio: number) -> (),
-	setFrequency: (self: RotationSpring, frequency: number) -> (),
-	step: (self: RotationSpring, dt: number) -> CFrame,
-}
+type RotationSpring = typeof(setmetatable(
+	{} :: {
+		d: number,
+		f: number,
+		g: CFrame,
+		p: CFrame,
+		v: Vector3,
+	},
+	RotationSpring
+))
 
 do
 	RotationSpring.__index = RotationSpring

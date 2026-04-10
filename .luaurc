@@ -1,14 +1,9 @@
 {
     "aliases": {
         "src": "./src",
-        "types": "./src/types",
         "utils": "./src/utils",
-        "enums": "./src/enums",
-        "styles": "./src/styles",
-        "events": "./src/events",
-        "managers": "./src/managers",
-        "components": "./src/components",
-        "appearances": "./src/appearances",
-        "controllers": "./src/controllers"
+        "types": "./src/types",
+        "shared": "./src/shared",
+        "components": "./src/components"
     }
 }

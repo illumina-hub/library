@@ -1,27 +1,30 @@
 --!strict
 
-local libraryTypes = require("@types/library")
+local rootTypes = require("@types/root")
 local tabTypes = require("@types/tab")
 
-local Container = require("@components/container")
+local Root = require("@components/root")
 local Tab = require("@components/tab")
-
-local Flags = require("@managers/flags")
 
 local Library = {}
 Library.__index = Library
 
-function Library.new(config: libraryTypes.Config): libraryTypes.Library
-	local self = setmetatable({}, Library)
-	self.container = Container.new(config.onDestroyed)
-	self.flags = Flags.new(config.product)
-	self.tabs = {}
+type Library = setmetatable<{
+	root: Root.Root,
+	tabs: { Tab.Tab },
+}, typeof(Library)>
 
-	return self :: any
+function Library.new(props: rootTypes.Props): Library
+	local self = {
+		root = Root.new(props),
+		tabs = {},
+	} :: Library
+
+	return setmetatable(self, Library)
 end
 
-function Library.createTab(self: libraryTypes.Library, config: tabTypes.Config)
-	local tab = Tab.new(config, self.container, self.flags, self.tabs)
+function Library.createTab(self: Library, props: tabTypes.Props)
+	local tab = Tab.new(props, self.root.view, self.tabs)
 	table.insert(self.tabs, tab)
 
 	if #self.tabs == 1 then

@@ -1,0 +1,3 @@
+[tools]
+StyLua = "JohnnyMorganz/StyLua@2.4.1"
+darklua = "seaofvoices/darklua@0.18.0"

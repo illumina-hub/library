@@ -1,12 +1,4 @@
 {
     "luau-lsp.sourcemap.rojoProjectFile": "default.project.json",
     "luau-lsp.sourcemap.enabled": false,
-
-	"luau-lsp.types.definitionFiles": [
-		".vscode/globals.d.luau",
-	],
-
-	"luau-lsp.ignoreGlobs": [
-		"build/**",
-	]
 }

@@ -1,0 +1,22 @@
+--!strict
+
+return {
+	DEFAULT = {
+		TAB_TRANSPARENCY = 1,
+		STROKE_TRANSPARENCY = 1,
+		ICON_COLOR = Color3.fromRGB(89, 89, 89),
+		TEXT_COLOR = Color3.fromRGB(89, 89, 89),
+	},
+	HOVERED = {
+		TAB_TRANSPARENCY = 1,
+		STROKE_TRANSPARENCY = 1,
+		ICON_COLOR = Color3.fromRGB(157, 157, 157),
+		TEXT_COLOR = Color3.fromRGB(157, 157, 157),
+	},
+	SELECTED = {
+		TAB_TRANSPARENCY = 0,
+		STROKE_TRANSPARENCY = 0,
+		ICON_COLOR = Color3.fromRGB(207, 207, 207),
+		TEXT_COLOR = Color3.fromRGB(207, 207, 207),
+	},
+}
