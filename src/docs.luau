@@ -57,4 +57,6 @@ preview:createSwitch({
 
 preview:createLabel("Slider")
 
-library:createTab({ title = "Preview" })
+library:createTab({
+	title = "Preview",
+})

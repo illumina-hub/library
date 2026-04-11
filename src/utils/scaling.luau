@@ -2,12 +2,7 @@
 
 local TextService = game:GetService("TextService")
 
-local buttonTypes = require("@types/button")
--- local aTypes = require("@types/a")
-
 local spacing = require("@shared/spacing")
-
-type View = buttonTypes.View -- | aTypes.View
 
 local FONT_SIZE = 16
 local FONT_ENUM = Enum.Font.GothamMedium
