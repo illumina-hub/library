@@ -87,7 +87,7 @@ do
     end
     do
         local function __modImpl()
-            local CoreGui = game:GetService('CoreGui')
+            local CoreGui = gethui() or cloneref(game:GetService('CoreGui'))
             local rootStyles = __DARKLUA_BUNDLE_MODULES.c()
 
             __DARKLUA_BUNDLE_MODULES.a()

@@ -1,6 +1,6 @@
 --!strict
 
-local CoreGui = game:GetService("CoreGui")
+local CoreGui = gethui() or cloneref(game:GetService("CoreGui"))
 
 local rootStyles = require("@self/styles")
 local rootTypes = require("@types/root")

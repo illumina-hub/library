@@ -3,19 +3,19 @@ a=c end return c.c end end do local function b()return nil end function a.b()loc
 cache.b=c end return c.c end end do local function b()return{DEF_POSITION=UDim2.fromScale(0.5,0.5),DEF_SIZE=UDim2.
 fromOffset(750,500),MIN_SIZE=UDim2.fromOffset(300,255),MAX_SIZE=UDim2.fromScale(1,1),MIN_CORNER=UDim.new(0,0),MAX_CORNER
 =UDim.new(0,10)}end function a.c()local c=a.cache.c if not c then c={c=b()}a.cache.c=c end return c.c end end do
-local function b()local c,d,e=game:GetService'CoreGui',a.c(),a.a()return function(f)local g=c:FindFirstChild'Illumina'if
-g then g:Destroy()end local h=Instance.new'ScreenGui'h.Name='Illumina'h.DisplayOrder=6 h.IgnoreGuiInset=true h.
-ResetOnSpawn=false h.ScreenInsets=Enum.ScreenInsets.DeviceSafeInsets local i=Instance.new'Frame'i.Name='Container'i.
-AnchorPoint=Vector2.new(0.5,0.5)i.BackgroundColor3=Color3.fromRGB(10,10,10)i.BorderColor3=Color3.fromRGB(0,0,0)i.
-BorderSizePixel=0 i.Position=d.DEF_POSITION i.Size=d.DEF_SIZE local j=Instance.new'UIStroke'j.Name='UIStroke'j.
-ApplyStrokeMode=Enum.ApplyStrokeMode.Border j.Color=Color3.fromRGB(47,47,47)j.Parent=i local k=Instance.new'UICorner'k.
-Name='UICorner'k.CornerRadius=UDim.new(0,10)k.Parent=i local l=Instance.new'UIListLayout'l.Name='UIListLayout'l.
-HorizontalAlignment=Enum.HorizontalAlignment.Center l.SortOrder=Enum.SortOrder.LayoutOrder l.Parent=i local m=Instance.
-new'Frame'm.Name='Header'm.BackgroundColor3=Color3.fromRGB(255,255,255)m.BackgroundTransparency=1 m.BorderColor3=Color3.
-fromRGB(0,0,0)m.BorderSizePixel=0 m.Size=UDim2.new(1,0,0,50)local n=Instance.new'UIListLayout'n.Name='UIListLayout'n.
-FillDirection=Enum.FillDirection.Horizontal n.SortOrder=Enum.SortOrder.LayoutOrder n.VerticalAlignment=Enum.
-VerticalAlignment.Center n.Parent=m local o=Instance.new'UIPadding'o.Name='UIPadding'o.PaddingBottom=UDim.new(0,15)o.
-PaddingLeft=UDim.new(0,15)o.PaddingRight=UDim.new(0,15)o.PaddingTop=UDim.new(0,15)o.Parent=m local p=Instance.new
+local function b()local c,d,e=gethui()or cloneref(game:GetService'CoreGui'),a.c(),a.a()return function(f)local g=c:
+FindFirstChild'Illumina'if g then g:Destroy()end local h=Instance.new'ScreenGui'h.Name='Illumina'h.DisplayOrder=6 h.
+IgnoreGuiInset=true h.ResetOnSpawn=false h.ScreenInsets=Enum.ScreenInsets.DeviceSafeInsets local i=Instance.new'Frame'i.
+Name='Container'i.AnchorPoint=Vector2.new(0.5,0.5)i.BackgroundColor3=Color3.fromRGB(10,10,10)i.BorderColor3=Color3.
+fromRGB(0,0,0)i.BorderSizePixel=0 i.Position=d.DEF_POSITION i.Size=d.DEF_SIZE local j=Instance.new'UIStroke'j.Name=
+'UIStroke'j.ApplyStrokeMode=Enum.ApplyStrokeMode.Border j.Color=Color3.fromRGB(47,47,47)j.Parent=i local k=Instance.new
+'UICorner'k.Name='UICorner'k.CornerRadius=UDim.new(0,10)k.Parent=i local l=Instance.new'UIListLayout'l.Name=
+'UIListLayout'l.HorizontalAlignment=Enum.HorizontalAlignment.Center l.SortOrder=Enum.SortOrder.LayoutOrder l.Parent=i
+local m=Instance.new'Frame'm.Name='Header'm.BackgroundColor3=Color3.fromRGB(255,255,255)m.BackgroundTransparency=1 m.
+BorderColor3=Color3.fromRGB(0,0,0)m.BorderSizePixel=0 m.Size=UDim2.new(1,0,0,50)local n=Instance.new'UIListLayout'n.Name
+='UIListLayout'n.FillDirection=Enum.FillDirection.Horizontal n.SortOrder=Enum.SortOrder.LayoutOrder n.VerticalAlignment=
+Enum.VerticalAlignment.Center n.Parent=m local o=Instance.new'UIPadding'o.Name='UIPadding'o.PaddingBottom=UDim.new(0,15)
+o.PaddingLeft=UDim.new(0,15)o.PaddingRight=UDim.new(0,15)o.PaddingTop=UDim.new(0,15)o.Parent=m local p=Instance.new
 'TextLabel'p.Name='Title'p.BackgroundColor3=Color3.fromRGB(255,255,255)p.BackgroundTransparency=1 p.BorderColor3=Color3.
 fromRGB(0,0,0)p.BorderSizePixel=0 p.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,
 Enum.FontStyle.Normal)p.Size=UDim2.new(1,-110,1,0)p.Text='Illumina'p.TextColor3=Color3.fromRGB(207,207,207)p.TextSize=16
