@@ -12,6 +12,7 @@
                 "@utils": "../src/utils",
                 "@types": "../src/types",
                 "@shared": "../src/shared",
+                "@managers": "../src/managers",
                 "@components": "../src/components"
 			}
 		}

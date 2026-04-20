@@ -20,10 +20,10 @@ export type Button = setmetatable<{
 	view: buttonTypes.View,
 }, typeof(Button)>
 
-function Button.new(props: buttonTypes.Props, section: ScrollingFrame): Button
-	local self = {
+function Button.new(props: buttonTypes.Props, section: ScrollingFrame)
+	local self: Button = setmetatable({
 		view = buttonView(props, section),
-	} :: Button
+	}, Button)
 
 	signals.new(self.view.button.MouseButton1Click, function()
 		if props.activated then
@@ -45,7 +45,7 @@ function Button.new(props: buttonTypes.Props, section: ScrollingFrame): Button
 
 	scaling.scaleComponent(self.view.button, self.view.description)
 
-	return setmetatable(self, Button)
+	return self
 end
 
 function Button._applyStyle(self: Button, style: buttonTypes.Style)

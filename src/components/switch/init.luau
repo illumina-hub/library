@@ -1,5 +1,7 @@
 --!strict
 
+local Flags = require("@managers/flags")
+
 local switchStyles = require("@self/styles")
 local switchTypes = require("@types/switch")
 local switchView = require("@self/view")
@@ -18,16 +20,18 @@ Switch.__index = Switch
 
 export type Switch = setmetatable<{
 	props: switchTypes.Props,
+	flags: Flags.Flags,
 	view: switchTypes.View,
 	_enabled: boolean,
 }, typeof(Switch)>
 
-function Switch.new(props: switchTypes.Props, section: ScrollingFrame): Switch
-	local self = {
+function Switch.new(props: switchTypes.Props, flags: Flags.Flags, section: ScrollingFrame)
+	local self: Switch = setmetatable({
 		props = props,
+		flags = flags,
 		view = switchView(props, section),
 		_enabled = false,
-	} :: Switch
+	}, Switch)
 
 	signals.new(self.view.switch.MouseButton1Click, function()
 		self:changeState(not self._enabled)
@@ -39,18 +43,24 @@ function Switch.new(props: switchTypes.Props, section: ScrollingFrame): Switch
 
 	scaling.scaleComponent(self.view.switch, self.view.description)
 
-	return setmetatable(self, Switch)
+	local flag = flags:getFlag(props.flag, "boolean")
+	local state = if flag ~= nil then flag else props.enabled
+
+	if state then
+		self:changeState(state)
+	end
+
+	return self
 end
 
 function Switch.changeState(self: Switch, state: boolean)
 	self._enabled = state
+	self:_applyStyle(state and switchStyles.ENABLED or switchStyles.DISABLED)
+	self.flags:setFlag(self.props.flag, state)
 
 	if self.props.changed then
 		self.props.changed(state)
 	end
-
-	local style = state and switchStyles.ENABLED or switchStyles.DISABLED
-	self:_applyStyle(style)
 end
 
 function Switch._applyStyle(self: Switch, style: switchTypes.Style)

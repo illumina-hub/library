@@ -10,6 +10,8 @@ local Label = require("@components/label")
 local Section = require("@components/section")
 local Switch = require("@components/switch")
 
+local Flags = require("@managers/flags")
+
 local tabStyles = require("@self/styles")
 local tabView = require("@self/view")
 
@@ -25,19 +27,21 @@ local Tab = {}
 Tab.__index = Tab
 
 export type Tab = setmetatable<{
+	flags: Flags.Flags,
 	view: tabTypes.View,
 	_tabs: { Tab },
 	_selected: boolean,
 	_section: ScrollingFrame,
 }, typeof(Tab)>
 
-function Tab.new(props: tabTypes.Props, rootView: rootTypes.View, tabs: { Tab }): Tab
-	local self = {
+function Tab.new(props: tabTypes.Props, flags: Flags.Flags, rootView: rootTypes.View, tabs: { Tab })
+	local self: Tab = setmetatable({
+		flags = flags,
 		view = tabView(props, rootView.tabs),
 		_tabs = tabs,
 		_selected = false,
 		_section = Section(rootView.sections),
-	} :: Tab
+	}, Tab)
 
 	signals.new(self.view.tab.MouseButton1Click, function()
 		self:select()
@@ -55,7 +59,7 @@ function Tab.new(props: tabTypes.Props, rootView: rootTypes.View, tabs: { Tab })
 		end
 	end)
 
-	return setmetatable(self, Tab)
+	return self
 end
 
 function Tab.select(self: Tab)
@@ -78,7 +82,7 @@ function Tab.createButton(self: Tab, props: buttonTypes.Props)
 end
 
 function Tab.createSwitch(self: Tab, props: switchTypes.Props)
-	return Switch.new(props, self._section)
+	return Switch.new(props, self.flags, self._section)
 end
 
 function Tab._applyStyle(self: Tab, style: tabTypes.Style)

@@ -1,4 +1,7 @@
 {
     "luau-lsp.sourcemap.rojoProjectFile": "default.project.json",
     "luau-lsp.sourcemap.enabled": false,
+    "luau-lsp.types.definitionFiles": {
+        "types": ".vscode/types.d.luau",
+    },
 }

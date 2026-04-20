@@ -21,12 +21,12 @@ export type Root = setmetatable<{
 	_lastSize: UDim2,
 }, typeof(Root)>
 
-function Root.new(props: rootTypes.Props): Root
-	local self = {
+function Root.new(props: rootTypes.Props)
+	local self: Root = setmetatable({
 		view = rootView(props),
 		_expanded = false,
 		_lastSize = rootStyles.DEF_SIZE,
-	} :: Root
+	}, Root)
 
 	signals.new(self.view.minimize.MouseButton1Click, function()
 		self:_minimize()
@@ -47,7 +47,7 @@ function Root.new(props: rootTypes.Props): Root
 		end
 	end)
 
-	return setmetatable(self, Root)
+	return self
 end
 
 function Root._minimize(self: Root)
