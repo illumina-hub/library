@@ -3,58 +3,58 @@ a=c end return c.c end end do local function b()return nil end function a.b()loc
 cache.b=c end return c.c end end do local function b()return{DEF_POSITION=UDim2.fromScale(0.5,0.5),DEF_SIZE=UDim2.
 fromOffset(750,500),MIN_SIZE=UDim2.fromOffset(300,255),MAX_SIZE=UDim2.fromScale(1,1),MIN_CORNER=UDim.new(0,0),MAX_CORNER
 =UDim.new(0,10)}end function a.c()local c=a.cache.c if not c then c={c=b()}a.cache.c=c end return c.c end end do
-local function b()local c,d,e=game:GetService'Players',a.c(),a.a()local f=(c.LocalPlayer)local g=(f:
-FindFirstChildOfClass'PlayerGui')return function(h)local i=Instance.new'ScreenGui'i.Name='Illumina'i.DisplayOrder=6 i.
-IgnoreGuiInset=true i.ResetOnSpawn=false i.ScreenInsets=Enum.ScreenInsets.DeviceSafeInsets local j=Instance.new'Frame'j.
-Name='Container'j.AnchorPoint=Vector2.new(0.5,0.5)j.BackgroundColor3=Color3.fromRGB(10,10,10)j.BorderColor3=Color3.
-fromRGB(0,0,0)j.BorderSizePixel=0 j.Position=d.DEF_POSITION j.Size=d.DEF_SIZE local k=Instance.new'UIStroke'k.Name=
-'UIStroke'k.ApplyStrokeMode=Enum.ApplyStrokeMode.Border k.Color=Color3.fromRGB(47,47,47)k.Parent=j local l=Instance.new
-'UICorner'l.Name='UICorner'l.CornerRadius=UDim.new(0,10)l.Parent=j local m=Instance.new'UIListLayout'm.Name=
-'UIListLayout'm.HorizontalAlignment=Enum.HorizontalAlignment.Center m.SortOrder=Enum.SortOrder.LayoutOrder m.Parent=j
-local n=Instance.new'Frame'n.Name='Header'n.BackgroundColor3=Color3.fromRGB(255,255,255)n.BackgroundTransparency=1 n.
-BorderColor3=Color3.fromRGB(0,0,0)n.BorderSizePixel=0 n.Size=UDim2.new(1,0,0,50)local o=Instance.new'UIListLayout'o.Name
-='UIListLayout'o.FillDirection=Enum.FillDirection.Horizontal o.SortOrder=Enum.SortOrder.LayoutOrder o.VerticalAlignment=
-Enum.VerticalAlignment.Center o.Parent=n local p=Instance.new'UIPadding'p.Name='UIPadding'p.PaddingBottom=UDim.new(0,15)
-p.PaddingLeft=UDim.new(0,15)p.PaddingRight=UDim.new(0,15)p.PaddingTop=UDim.new(0,15)p.Parent=n local q=Instance.new
-'TextLabel'q.Name='Title'q.BackgroundColor3=Color3.fromRGB(255,255,255)q.BackgroundTransparency=1 q.BorderColor3=Color3.
-fromRGB(0,0,0)q.BorderSizePixel=0 q.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,
-Enum.FontStyle.Normal)q.Size=UDim2.new(1,-110,1,0)q.Text='Illumina'q.TextColor3=Color3.fromRGB(207,207,207)q.TextSize=16
-q.TextXAlignment=Enum.TextXAlignment.Left q.Parent=n local r=Instance.new'TextButton'r.Name='Close'r.AutoButtonColor=
-false r.BackgroundColor3=Color3.fromRGB(255,255,255)r.BackgroundTransparency=1 r.BorderColor3=Color3.fromRGB(0,0,0)r.
-BorderSizePixel=0 r.InputSink=Enum.InputSink.None r.LayoutOrder=3 r.Size=UDim2.fromOffset(40,40)r.Text=''r.TextColor3=
-Color3.fromRGB(0,0,0)r.TextSize=14 local s=Instance.new'ImageLabel's.Name='Icon's.AnchorPoint=Vector2.new(0.5,0.5)s.
-BackgroundColor3=Color3.fromRGB(255,255,255)s.BackgroundTransparency=1 s.BorderColor3=Color3.fromRGB(0,0,0)s.
-BorderSizePixel=0 s.Image='rbxassetid://74451597845240's.ImageColor3=Color3.fromRGB(207,207,207)s.Position=UDim2.
-fromScale(0.5,0.5)s.Size=UDim2.fromOffset(20,20)s.Parent=r r.Parent=n local t=Instance.new'TextButton't.Name='Expand't.
-AutoButtonColor=false t.BackgroundColor3=Color3.fromRGB(255,255,255)t.BackgroundTransparency=1 t.BorderColor3=Color3.
-fromRGB(0,0,0)t.BorderSizePixel=0 t.InputSink=Enum.InputSink.None t.LayoutOrder=2 t.Size=UDim2.fromOffset(40,40)t.Text=
-''t.TextColor3=Color3.fromRGB(0,0,0)t.TextSize=14 local u=Instance.new'ImageLabel'u.Name='Icon'u.AnchorPoint=Vector2.
-new(0.5,0.5)u.BackgroundColor3=Color3.fromRGB(255,255,255)u.BackgroundTransparency=1 u.BorderColor3=Color3.fromRGB(0,0,0
-)u.BorderSizePixel=0 u.Image='rbxassetid://92682004738840'u.ImageColor3=Color3.fromRGB(207,207,207)u.Position=UDim2.
-fromScale(0.5,0.5)u.Size=UDim2.fromOffset(20,20)u.Parent=t t.Parent=n local v=Instance.new'TextButton'v.Name='Minimize'v
-.AutoButtonColor=false v.BackgroundColor3=Color3.fromRGB(255,255,255)v.BackgroundTransparency=1 v.BorderColor3=Color3.
-fromRGB(0,0,0)v.BorderSizePixel=0 v.InputSink=Enum.InputSink.None v.LayoutOrder=1 v.Size=UDim2.fromOffset(40,40)v.Text=
-''v.TextColor3=Color3.fromRGB(0,0,0)v.TextSize=14 local w=Instance.new'ImageLabel'w.Name='Icon'w.AnchorPoint=Vector2.
-new(0.5,0.5)w.BackgroundColor3=Color3.fromRGB(255,255,255)w.BackgroundTransparency=1 w.BorderColor3=Color3.fromRGB(0,0,0
-)w.BorderSizePixel=0 w.Image='rbxassetid://83770212086491'w.ImageColor3=Color3.fromRGB(207,207,207)w.Position=UDim2.
-fromScale(0.5,0.5)w.Size=UDim2.fromOffset(20,20)w.Parent=v v.Parent=n n.Parent=j local x=Instance.new'Frame'x.Name=
-'Divider'x.BackgroundColor3=Color3.fromRGB(47,47,47)x.BorderColor3=Color3.fromRGB(0,0,0)x.BorderSizePixel=0 x.
-LayoutOrder=1 x.Size=UDim2.new(1,0,0,1)x.Parent=j local y=Instance.new'Frame'y.Name='Group'y.BackgroundColor3=Color3.
-fromRGB(255,255,255)y.BackgroundTransparency=1 y.BorderColor3=Color3.fromRGB(0,0,0)y.BorderSizePixel=0 y.LayoutOrder=2 y
-.Size=UDim2.new(1,0,1,-51)local z=Instance.new'UIListLayout'z.Name='UIListLayout'z.FillDirection=Enum.FillDirection.
-Horizontal z.SortOrder=Enum.SortOrder.LayoutOrder z.VerticalAlignment=Enum.VerticalAlignment.Center z.Parent=y local A=
-Instance.new'ScrollingFrame'A.Name='Tabs'A.Active=true A.AutomaticCanvasSize=Enum.AutomaticSize.Y A.BackgroundColor3=
-Color3.fromRGB(255,255,255)A.BackgroundTransparency=1 A.BorderColor3=Color3.fromRGB(0,0,0)A.BorderSizePixel=0 A.
-CanvasSize=UDim2.fromScale(0,0.5)A.ScrollBarImageColor3=Color3.fromRGB(0,0,0)A.ScrollBarImageTransparency=1 A.
-ScrollBarThickness=0 A.ScrollingDirection=Enum.ScrollingDirection.Y A.Size=UDim2.new(0,200,1,0)local B=Instance.new
-'UIListLayout'B.Name='UIListLayout'B.HorizontalAlignment=Enum.HorizontalAlignment.Center B.Padding=UDim.new(0,10)B.
-SortOrder=Enum.SortOrder.LayoutOrder B.Parent=A local C=Instance.new'UIPadding'C.Name='UIPadding'C.PaddingBottom=UDim.
-new(0,15)C.PaddingLeft=UDim.new(0,15)C.PaddingRight=UDim.new(0,15)C.PaddingTop=UDim.new(0,15)C.Parent=A A.Parent=y local
-D=Instance.new'Frame'D.Name='Divider'D.BackgroundColor3=Color3.fromRGB(47,47,47)D.BorderColor3=Color3.fromRGB(0,0,0)D.
-BorderSizePixel=0 D.LayoutOrder=1 D.Size=UDim2.new(0,1,1,0)D.Parent=y local E=Instance.new'Frame'E.Name='Sections'E.
-BackgroundColor3=Color3.fromRGB(255,255,255)E.BackgroundTransparency=1 E.BorderColor3=Color3.fromRGB(0,0,0)E.
-BorderSizePixel=0 E.LayoutOrder=2 E.Size=UDim2.new(1,-201,1,0)E.Parent=y y.Parent=j j.Parent=i i.Parent=g return{
-illumina=i,container=j,corner=l,header=n,minimize=v,expand=t,close=r,tabs=A,sections=E}end end function a.d()local c=a.
+local function b()local c,d,e=game:GetService'CoreGui',a.c(),a.a()return function(f)local g=c:FindFirstChild'Illumina'if
+g then g:Destroy()end local h=Instance.new'ScreenGui'h.Name='Illumina'h.DisplayOrder=6 h.IgnoreGuiInset=true h.
+ResetOnSpawn=false h.ScreenInsets=Enum.ScreenInsets.DeviceSafeInsets local i=Instance.new'Frame'i.Name='Container'i.
+AnchorPoint=Vector2.new(0.5,0.5)i.BackgroundColor3=Color3.fromRGB(10,10,10)i.BorderColor3=Color3.fromRGB(0,0,0)i.
+BorderSizePixel=0 i.Position=d.DEF_POSITION i.Size=d.DEF_SIZE local j=Instance.new'UIStroke'j.Name='UIStroke'j.
+ApplyStrokeMode=Enum.ApplyStrokeMode.Border j.Color=Color3.fromRGB(47,47,47)j.Parent=i local k=Instance.new'UICorner'k.
+Name='UICorner'k.CornerRadius=UDim.new(0,10)k.Parent=i local l=Instance.new'UIListLayout'l.Name='UIListLayout'l.
+HorizontalAlignment=Enum.HorizontalAlignment.Center l.SortOrder=Enum.SortOrder.LayoutOrder l.Parent=i local m=Instance.
+new'Frame'm.Name='Header'm.BackgroundColor3=Color3.fromRGB(255,255,255)m.BackgroundTransparency=1 m.BorderColor3=Color3.
+fromRGB(0,0,0)m.BorderSizePixel=0 m.Size=UDim2.new(1,0,0,50)local n=Instance.new'UIListLayout'n.Name='UIListLayout'n.
+FillDirection=Enum.FillDirection.Horizontal n.SortOrder=Enum.SortOrder.LayoutOrder n.VerticalAlignment=Enum.
+VerticalAlignment.Center n.Parent=m local o=Instance.new'UIPadding'o.Name='UIPadding'o.PaddingBottom=UDim.new(0,15)o.
+PaddingLeft=UDim.new(0,15)o.PaddingRight=UDim.new(0,15)o.PaddingTop=UDim.new(0,15)o.Parent=m local p=Instance.new
+'TextLabel'p.Name='Title'p.BackgroundColor3=Color3.fromRGB(255,255,255)p.BackgroundTransparency=1 p.BorderColor3=Color3.
+fromRGB(0,0,0)p.BorderSizePixel=0 p.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,
+Enum.FontStyle.Normal)p.Size=UDim2.new(1,-110,1,0)p.Text='Illumina'p.TextColor3=Color3.fromRGB(207,207,207)p.TextSize=16
+p.TextXAlignment=Enum.TextXAlignment.Left p.Parent=m local q=Instance.new'TextButton'q.Name='Close'q.AutoButtonColor=
+false q.BackgroundColor3=Color3.fromRGB(255,255,255)q.BackgroundTransparency=1 q.BorderColor3=Color3.fromRGB(0,0,0)q.
+BorderSizePixel=0 q.InputSink=Enum.InputSink.None q.LayoutOrder=3 q.Size=UDim2.fromOffset(40,40)q.Text=''q.TextColor3=
+Color3.fromRGB(0,0,0)q.TextSize=14 local r=Instance.new'ImageLabel'r.Name='Icon'r.AnchorPoint=Vector2.new(0.5,0.5)r.
+BackgroundColor3=Color3.fromRGB(255,255,255)r.BackgroundTransparency=1 r.BorderColor3=Color3.fromRGB(0,0,0)r.
+BorderSizePixel=0 r.Image='rbxassetid://74451597845240'r.ImageColor3=Color3.fromRGB(207,207,207)r.Position=UDim2.
+fromScale(0.5,0.5)r.Size=UDim2.fromOffset(20,20)r.Parent=q q.Parent=m local s=Instance.new'TextButton's.Name='Expand's.
+AutoButtonColor=false s.BackgroundColor3=Color3.fromRGB(255,255,255)s.BackgroundTransparency=1 s.BorderColor3=Color3.
+fromRGB(0,0,0)s.BorderSizePixel=0 s.InputSink=Enum.InputSink.None s.LayoutOrder=2 s.Size=UDim2.fromOffset(40,40)s.Text=
+''s.TextColor3=Color3.fromRGB(0,0,0)s.TextSize=14 local t=Instance.new'ImageLabel't.Name='Icon't.AnchorPoint=Vector2.
+new(0.5,0.5)t.BackgroundColor3=Color3.fromRGB(255,255,255)t.BackgroundTransparency=1 t.BorderColor3=Color3.fromRGB(0,0,0
+)t.BorderSizePixel=0 t.Image='rbxassetid://92682004738840't.ImageColor3=Color3.fromRGB(207,207,207)t.Position=UDim2.
+fromScale(0.5,0.5)t.Size=UDim2.fromOffset(20,20)t.Parent=s s.Parent=m local u=Instance.new'TextButton'u.Name='Minimize'u
+.AutoButtonColor=false u.BackgroundColor3=Color3.fromRGB(255,255,255)u.BackgroundTransparency=1 u.BorderColor3=Color3.
+fromRGB(0,0,0)u.BorderSizePixel=0 u.InputSink=Enum.InputSink.None u.LayoutOrder=1 u.Size=UDim2.fromOffset(40,40)u.Text=
+''u.TextColor3=Color3.fromRGB(0,0,0)u.TextSize=14 local v=Instance.new'ImageLabel'v.Name='Icon'v.AnchorPoint=Vector2.
+new(0.5,0.5)v.BackgroundColor3=Color3.fromRGB(255,255,255)v.BackgroundTransparency=1 v.BorderColor3=Color3.fromRGB(0,0,0
+)v.BorderSizePixel=0 v.Image='rbxassetid://83770212086491'v.ImageColor3=Color3.fromRGB(207,207,207)v.Position=UDim2.
+fromScale(0.5,0.5)v.Size=UDim2.fromOffset(20,20)v.Parent=u u.Parent=m m.Parent=i local w=Instance.new'Frame'w.Name=
+'Divider'w.BackgroundColor3=Color3.fromRGB(47,47,47)w.BorderColor3=Color3.fromRGB(0,0,0)w.BorderSizePixel=0 w.
+LayoutOrder=1 w.Size=UDim2.new(1,0,0,1)w.Parent=i local x=Instance.new'Frame'x.Name='Group'x.BackgroundColor3=Color3.
+fromRGB(255,255,255)x.BackgroundTransparency=1 x.BorderColor3=Color3.fromRGB(0,0,0)x.BorderSizePixel=0 x.LayoutOrder=2 x
+.Size=UDim2.new(1,0,1,-51)local y=Instance.new'UIListLayout'y.Name='UIListLayout'y.FillDirection=Enum.FillDirection.
+Horizontal y.SortOrder=Enum.SortOrder.LayoutOrder y.VerticalAlignment=Enum.VerticalAlignment.Center y.Parent=x local z=
+Instance.new'ScrollingFrame'z.Name='Tabs'z.Active=true z.AutomaticCanvasSize=Enum.AutomaticSize.Y z.BackgroundColor3=
+Color3.fromRGB(255,255,255)z.BackgroundTransparency=1 z.BorderColor3=Color3.fromRGB(0,0,0)z.BorderSizePixel=0 z.
+CanvasSize=UDim2.fromScale(0,0.5)z.ScrollBarImageColor3=Color3.fromRGB(0,0,0)z.ScrollBarImageTransparency=1 z.
+ScrollBarThickness=0 z.ScrollingDirection=Enum.ScrollingDirection.Y z.Size=UDim2.new(0,200,1,0)local A=Instance.new
+'UIListLayout'A.Name='UIListLayout'A.HorizontalAlignment=Enum.HorizontalAlignment.Center A.Padding=UDim.new(0,10)A.
+SortOrder=Enum.SortOrder.LayoutOrder A.Parent=z local B=Instance.new'UIPadding'B.Name='UIPadding'B.PaddingBottom=UDim.
+new(0,15)B.PaddingLeft=UDim.new(0,15)B.PaddingRight=UDim.new(0,15)B.PaddingTop=UDim.new(0,15)B.Parent=z z.Parent=x local
+C=Instance.new'Frame'C.Name='Divider'C.BackgroundColor3=Color3.fromRGB(47,47,47)C.BorderColor3=Color3.fromRGB(0,0,0)C.
+BorderSizePixel=0 C.LayoutOrder=1 C.Size=UDim2.new(0,1,1,0)C.Parent=x local D=Instance.new'Frame'D.Name='Sections'D.
+BackgroundColor3=Color3.fromRGB(255,255,255)D.BackgroundTransparency=1 D.BorderColor3=Color3.fromRGB(0,0,0)D.
+BorderSizePixel=0 D.LayoutOrder=2 D.Size=UDim2.new(1,-201,1,0)D.Parent=x x.Parent=i i.Parent=h h.Parent=c return{
+illumina=h,container=i,corner=k,header=m,minimize=u,expand=s,close=q,tabs=z,sections=D}end end function a.d()local c=a.
 cache.d if not c then c={c=b()}a.cache.d=c end return c.c end end do local function b()local c={}local function d()local
 e local function f()if not e then return end local g=table.find(c,e)if g then table.remove(c,g)end e:Disconnect()e=nil
 end local function g(h,i)if e then return nil end local j=h:Connect(i)e=j table.insert(c,j)return f end return{connect=g
@@ -133,113 +133,155 @@ setDampingRatio(L)T:setFrequency(M)end if not next(P)then O[K]=nil end end funct
 'Instance',K)I(2,'spr.stop','string|nil',L)end if L then local M=E[K]or F[K]if M then M[L]=nil end else E[K]=nil F[K]=
 nil end end function J.completed(K,L)if c then I(1,'spr.completed','Instance',K)I(2,'spr.completed','function',L)end
 local M=G[K]if M then table.insert(M,L)else G[K]={L}end end return table.freeze(J)end function a.f()local c=a.cache.f if
-not c then c={c=b()}a.cache.f=c end return c.c end end do local function b()local c={DAMPING_RATIO=1,FREQUENCY=7}return{
-ROOT=c,TAB=c}end function a.g()local c=a.cache.g if not c then c={c=b()}a.cache.g=c end return c.c end end do
-local function b()local c,d,e,f,g,h=a.c(),a.a(),a.d(),a.e(),a.f(),a.g()local i,j,k=h.ROOT.DAMPING_RATIO,h.ROOT.FREQUENCY
-,{}k.__index=k function k.new(l)local m={view=e(l),_expanded=false,_lastSize=c.DEF_SIZE}f.new().connect(m.view.minimize.
+not c then c={c=b()}a.cache.f=c end return c.c end end do local function b()return{DEFAULT={DAMPING_RATIO=1,FREQUENCY=7}
+}end function a.g()local c=a.cache.g if not c then c={c=b()}a.cache.g=c end return c.c end end do local function b()
+local c,d,e,f,g,h=a.c(),a.a(),a.d(),a.e(),a.f(),a.g()local i,j,k=h.DEFAULT.DAMPING_RATIO,h.DEFAULT.FREQUENCY,{}k.__index
+=k function k.new(l)local m={view=e(l),_expanded=false,_lastSize=c.DEF_SIZE}f.new().connect(m.view.minimize.
 MouseButton1Click,function()m:_minimize()end)f.new().connect(m.view.expand.MouseButton1Click,function()m:_expand()end)f.
-new().connect(m.view.close.MouseButton1Click,function()m:_destroy()end)f.new().connect(m.view.illumina.AncestryChanged,
-function()if not m.view.illumina.Parent then f.clear()l.destroyed()end end)return setmetatable(m,k)end function k.
-_minimize(l)l.view.illumina.Enabled=not l.view.illumina.Enabled end function k._expand(l,m)l._expanded=if m~=nil then m
-else not l._expanded local n,o,p=l._expanded and c.DEF_POSITION or c.DEF_POSITION,l._expanded and c.MAX_SIZE or l.
-_lastSize,l._expanded and c.MIN_CORNER or c.MAX_CORNER g.target(l.view.container,i,j,{Position=n,Size=o})g.target(l.view
-.corner,i,j,{CornerRadius=p})end function k._destroy(l)l.view.illumina:Destroy()end return k end function a.h()local c=a
-.cache.h if not c then c={c=b()}a.cache.h=c end return c.c end end do local function b()return nil end function a.i()
-local c=a.cache.i if not c then c={c=b()}a.cache.i=c end return c.c end end do local function b()return nil end function
-a.j()local c=a.cache.j if not c then c={c=b()}a.cache.j=c end return c.c end end do local function b()return{DEFAULT={
-BUTTON_COLOR=Color3.fromRGB(16,16,16)},HOVERED={BUTTON_COLOR=Color3.fromRGB(20,20,20)}}end function a.k()local c=a.cache
-.k if not c then c={c=b()}a.cache.k=c end return c.c end end do local function b()a.i()return function(c,d)local e=
-Instance.new'TextButton'e.Name='Button'e.AutoButtonColor=false e.BackgroundColor3=Color3.fromRGB(16,16,16)e.BorderColor3
+new().connect(m.view.close.MouseButton1Click,function()m.view.illumina:Destroy()end)f.new().connect(m.view.illumina.
+AncestryChanged,function()if not m.view.illumina.Parent then f.clear()l.destroyed()end end)return setmetatable(m,k)end
+function k._minimize(l)l.view.illumina.Enabled=not l.view.illumina.Enabled end function k._expand(l,m)l._expanded=if m~=
+nil then m else not l._expanded local n,o,p=l._expanded and c.DEF_POSITION or c.DEF_POSITION,l._expanded and c.MAX_SIZE
+or l._lastSize,l._expanded and c.MIN_CORNER or c.MAX_CORNER g.target(l.view.container,i,j,{Position=n,Size=o})g.target(l
+.view.corner,i,j,{CornerRadius=p})end return k end function a.h()local c=a.cache.h if not c then c={c=b()}a.cache.h=c
+end return c.c end end do local function b()return nil end function a.i()local c=a.cache.i if not c then c={c=b()}a.
+cache.i=c end return c.c end end do local function b()return nil end function a.j()local c=a.cache.j if not c then c={c=
+b()}a.cache.j=c end return c.c end end do local function b()return{DEFAULT={BUTTON_COLOR=Color3.fromRGB(16,16,16)},
+HOVERED={BUTTON_COLOR=Color3.fromRGB(20,20,20)}}end function a.k()local c=a.cache.k if not c then c={c=b()}a.cache.k=c
+end return c.c end end do local function b()a.i()return function(c,d)local e=Instance.new'TextButton'e.Name='Button'e.
+AutoButtonColor=false e.BackgroundColor3=Color3.fromRGB(16,16,16)e.BorderColor3=Color3.fromRGB(0,0,0)e.BorderSizePixel=0
+e.Size=UDim2.new(1,0,0,113)e.Text=''e.TextColor3=Color3.fromRGB(0,0,0)e.TextSize=14 local f=Instance.new'UICorner'f.Name
+='UICorner'f.CornerRadius=UDim.new(0,5)f.Parent=e local g=Instance.new'Frame'g.Name='Content'g.BackgroundColor3=Color3.
+fromRGB(255,255,255)g.BackgroundTransparency=1 g.BorderColor3=Color3.fromRGB(0,0,0)g.BorderSizePixel=0 g.Size=UDim2.new(
+1,0,0,20)local h=Instance.new'UIListLayout'h.Name='UIListLayout'h.FillDirection=Enum.FillDirection.Horizontal h.Padding=
+UDim.new(0,10)h.SortOrder=Enum.SortOrder.LayoutOrder h.VerticalAlignment=Enum.VerticalAlignment.Center h.Parent=g local
+i=Instance.new'ImageLabel'i.Name='Icon'i.AnchorPoint=Vector2.new(0.5,0.5)i.BackgroundColor3=Color3.fromRGB(255,255,255)i
+.BackgroundTransparency=1 i.BorderColor3=Color3.fromRGB(0,0,0)i.BorderSizePixel=0 i.Image='rbxassetid://118002645781070'
+i.ImageColor3=Color3.fromRGB(207,207,207)i.LayoutOrder=1 i.Position=UDim2.fromScale(0.5,0.5)i.Size=UDim2.fromOffset(20,
+20)i.Parent=g local j=Instance.new'TextLabel'j.Name='Title'j.BackgroundColor3=Color3.fromRGB(255,255,255)j.
+BackgroundTransparency=1 j.BorderColor3=Color3.fromRGB(0,0,0)j.BorderSizePixel=0 j.FontFace=Font.new(
+'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)j.Size=UDim2.new(1,-30,1,0)j.
+Text=c.title j.TextColor3=Color3.fromRGB(207,207,207)j.TextSize=16 j.TextTruncate=Enum.TextTruncate.SplitWord j.
+TextXAlignment=Enum.TextXAlignment.Left j.Parent=g g.Parent=e local k=Instance.new'UIListLayout'k.Name='UIListLayout'k.
+HorizontalAlignment=Enum.HorizontalAlignment.Center k.Padding=UDim.new(0,15)k.SortOrder=Enum.SortOrder.LayoutOrder k.
+Parent=e local l=Instance.new'UIPadding'l.Name='UIPadding'l.PaddingBottom=UDim.new(0,15)l.PaddingLeft=UDim.new(0,15)l.
+PaddingRight=UDim.new(0,15)l.PaddingTop=UDim.new(0,15)l.Parent=e local m=Instance.new'Frame'm.Name='Divider'm.
+BackgroundColor3=Color3.fromRGB(47,47,47)m.BorderColor3=Color3.fromRGB(0,0,0)m.BorderSizePixel=0 m.Size=UDim2.new(1,30,0
+,1)m.Parent=e local n=Instance.new'UIStroke'n.Name='UIStroke'n.ApplyStrokeMode=Enum.ApplyStrokeMode.Border n.Color=
+Color3.fromRGB(47,47,47)n.Parent=e local o=Instance.new'Frame'o.Name='Description'o.BackgroundColor3=Color3.fromRGB(255,
+255,255)o.BackgroundTransparency=1 o.BorderColor3=Color3.fromRGB(0,0,0)o.BorderSizePixel=0 o.Size=UDim2.new(1,0,0,32)
+local p=Instance.new'TextLabel'p.Name='Text'p.AnchorPoint=Vector2.new(0,0.5)p.BackgroundColor3=Color3.fromRGB(255,255,
+255)p.BackgroundTransparency=1 p.BorderColor3=Color3.fromRGB(0,0,0)p.BorderSizePixel=0 p.FontFace=Font.new(
+'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)p.Position=UDim2.fromScale(0,0.5
+)p.Size=UDim2.fromScale(1,1)p.Text=c.description p.TextColor3=Color3.fromRGB(89,89,89)p.TextSize=16 p.TextWrapped=true p
+.TextXAlignment=Enum.TextXAlignment.Left p.TextYAlignment=Enum.TextYAlignment.Top p.Parent=o o.Parent=e e.Parent=d
+return{button=e,title=j,description={frame=o,text=p}}end end function a.l()local c=a.cache.l if not c then c={c=b()}a.
+cache.l=c end return c.c end end do local function b()return{PADDING=15,GAP=15}end function a.m()local c=a.cache.m if
+not c then c={c=b()}a.cache.m=c end return c.c end end do local function b()local c,d,e,f=game:GetService'TextService',a
+.m(),16,Enum.Font.GothamMedium local function g(h,i,j)local k=Vector2.new(i,j)local l=c:GetTextSize(h,e,f,k)return UDim2
+.fromOffset(l.X,l.Y)end local function h(i,j)if j=='X'then return i.X.Offset end return i.Y.Offset end local function i(
+j,k,l,m)local n,o=l*2,0 for p,q in j:GetChildren()do if not q:IsA'GuiObject'then continue end n+=h(q.Size,k)o+=1 if o>1
+then n+=m end end return n end local function j(k,l)local m=g(l.text.Text,l.frame.AbsoluteSize.X,math.huge)l.text.Size=m
+l.frame.Size=UDim2.new(1,0,0,m.Y.Offset)local n=i(k,'Y',d.PADDING,d.GAP)k.Size=UDim2.new(1,0,0,n)end return{getTextSize=
+g,getComponentSize=i,scaleComponent=j}end function a.n()local c=a.cache.n if not c then c={c=b()}a.cache.n=c end return
+c.c end end do local function b()local c,d,e,f,g,h,i=a.k(),a.i(),a.l(),a.n(),a.e(),a.f(),a.g()local j,k,l=i.DEFAULT.
+DAMPING_RATIO,i.DEFAULT.FREQUENCY,{}l.__index=l function l.new(m,n)local o={view=e(m,n)}g.new().connect(o.view.button.
+MouseButton1Click,function()if m.activated then m.activated()end end)g.new().connect(o.view.button.MouseEnter,function()
+o:_applyStyle(c.HOVERED)end)g.new().connect(o.view.button.MouseLeave,function()o:_applyStyle(c.DEFAULT)end)g.new().
+connect(o.view.button:GetPropertyChangedSignal'AbsoluteSize',function()f.scaleComponent(o.view.button,o.view.description
+)end)f.scaleComponent(o.view.button,o.view.description)return setmetatable(o,l)end function l._applyStyle(m,n)h.target(m
+.view.button,j,k,{BackgroundColor3=n.BUTTON_COLOR})end return l end function a.o()local c=a.cache.o if not c then c={c=
+b()}a.cache.o=c end return c.c end end do local function b()return function(c,d)local e=Instance.new'TextLabel'e.Name=
+'Label'e.BackgroundColor3=Color3.fromRGB(255,255,255)e.BackgroundTransparency=1 e.BorderColor3=Color3.fromRGB(0,0,0)e.
+BorderSizePixel=0 e.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.
+Normal)e.Size=UDim2.new(1,0,0,20)e.Text=c e.TextColor3=Color3.fromRGB(207,207,207)e.TextSize=16 e.TextTruncate=Enum.
+TextTruncate.SplitWord e.TextXAlignment=Enum.TextXAlignment.Left e.Parent=d return e end end function a.p()local c=a.
+cache.p if not c then c={c=b()}a.cache.p=c end return c.c end end do local function b()return function(c)local d=
+Instance.new'ScrollingFrame'd.Name='Section'd.Active=true d.AnchorPoint=Vector2.new(0.5,0.5)d.AutomaticCanvasSize=Enum.
+AutomaticSize.Y d.BackgroundColor3=Color3.fromRGB(255,255,255)d.BackgroundTransparency=1 d.BorderColor3=Color3.fromRGB(0
+,0,0)d.BorderSizePixel=0 d.CanvasSize=UDim2.fromScale(0,0.5)d.LayoutOrder=2 d.Position=UDim2.fromScale(0.5,0.5)d.
+ScrollBarImageColor3=Color3.fromRGB(0,0,0)d.ScrollBarImageTransparency=1 d.ScrollBarThickness=0 d.ScrollingDirection=
+Enum.ScrollingDirection.Y d.Size=UDim2.fromScale(1,1)d.Visible=false local e=Instance.new'UIListLayout'e.Name=
+'UIListLayout'e.HorizontalAlignment=Enum.HorizontalAlignment.Center e.Padding=UDim.new(0,10)e.SortOrder=Enum.SortOrder.
+LayoutOrder e.Parent=d local f=Instance.new'UIPadding'f.Name='UIPadding'f.PaddingBottom=UDim.new(0,15)f.PaddingLeft=UDim
+.new(0,15)f.PaddingRight=UDim.new(0,15)f.PaddingTop=UDim.new(0,15)f.Parent=d d.Parent=c return d end end function a.q()
+local c=a.cache.q if not c then c={c=b()}a.cache.q=c end return c.c end end do local function b()return{DISABLED={
+THUMB_COLOR=Color3.fromRGB(47,47,47),CIRCLE_COLOR=Color3.fromRGB(126,126,126),CIRCLE_POSITION=UDim2.fromScale(0,0.5),
+CIRCLE_ANCHOR_POINT=Vector2.new(0,0.5)},ENABLED={THUMB_COLOR=Color3.fromRGB(255,255,255),CIRCLE_COLOR=Color3.fromRGB(34,
+34,34),CIRCLE_POSITION=UDim2.fromScale(1,0.5),CIRCLE_ANCHOR_POINT=Vector2.new(1,0.5)}}end function a.r()local c=a.cache.
+r if not c then c={c=b()}a.cache.r=c end return c.c end end do local function b()a.j()return function(c,d)local e=
+Instance.new'TextButton'e.Name='Switch'e.AutoButtonColor=false e.BackgroundColor3=Color3.fromRGB(16,16,16)e.BorderColor3
 =Color3.fromRGB(0,0,0)e.BorderSizePixel=0 e.Size=UDim2.new(1,0,0,113)e.Text=''e.TextColor3=Color3.fromRGB(0,0,0)e.
 TextSize=14 local f=Instance.new'UICorner'f.Name='UICorner'f.CornerRadius=UDim.new(0,5)f.Parent=e local g=Instance.new
 'Frame'g.Name='Content'g.BackgroundColor3=Color3.fromRGB(255,255,255)g.BackgroundTransparency=1 g.BorderColor3=Color3.
 fromRGB(0,0,0)g.BorderSizePixel=0 g.Size=UDim2.new(1,0,0,20)local h=Instance.new'UIListLayout'h.Name='UIListLayout'h.
 FillDirection=Enum.FillDirection.Horizontal h.Padding=UDim.new(0,10)h.SortOrder=Enum.SortOrder.LayoutOrder h.
-VerticalAlignment=Enum.VerticalAlignment.Center h.Parent=g local i=Instance.new'ImageLabel'i.Name='Icon'i.AnchorPoint=
-Vector2.new(0.5,0.5)i.BackgroundColor3=Color3.fromRGB(255,255,255)i.BackgroundTransparency=1 i.BorderColor3=Color3.
-fromRGB(0,0,0)i.BorderSizePixel=0 i.Image='rbxassetid://118002645781070'i.ImageColor3=Color3.fromRGB(207,207,207)i.
-LayoutOrder=1 i.Position=UDim2.fromScale(0.5,0.5)i.Size=UDim2.fromOffset(20,20)i.Parent=g local j=Instance.new
-'TextLabel'j.Name='Title'j.BackgroundColor3=Color3.fromRGB(255,255,255)j.BackgroundTransparency=1 j.BorderColor3=Color3.
-fromRGB(0,0,0)j.BorderSizePixel=0 j.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,
-Enum.FontStyle.Normal)j.Size=UDim2.new(1,-30,1,0)j.Text=c.title j.TextColor3=Color3.fromRGB(207,207,207)j.TextSize=16 j.
-TextTruncate=Enum.TextTruncate.SplitWord j.TextXAlignment=Enum.TextXAlignment.Left j.Parent=g g.Parent=e local k=
-Instance.new'UIListLayout'k.Name='UIListLayout'k.HorizontalAlignment=Enum.HorizontalAlignment.Center k.Padding=UDim.new(
-0,15)k.SortOrder=Enum.SortOrder.LayoutOrder k.Parent=e local l=Instance.new'UIPadding'l.Name='UIPadding'l.PaddingBottom=
-UDim.new(0,15)l.PaddingLeft=UDim.new(0,15)l.PaddingRight=UDim.new(0,15)l.PaddingTop=UDim.new(0,15)l.Parent=e local m=
-Instance.new'Frame'm.Name='Divider'm.BackgroundColor3=Color3.fromRGB(47,47,47)m.BorderColor3=Color3.fromRGB(0,0,0)m.
-BorderSizePixel=0 m.Size=UDim2.new(1,30,0,1)m.Parent=e local n=Instance.new'UIStroke'n.Name='UIStroke'n.ApplyStrokeMode=
-Enum.ApplyStrokeMode.Border n.Color=Color3.fromRGB(47,47,47)n.Parent=e local o=Instance.new'Frame'o.Name='Description'o.
-BackgroundColor3=Color3.fromRGB(255,255,255)o.BackgroundTransparency=1 o.BorderColor3=Color3.fromRGB(0,0,0)o.
-BorderSizePixel=0 o.Size=UDim2.new(1,0,0,32)local p=Instance.new'TextLabel'p.Name='Text'p.AnchorPoint=Vector2.new(0,0.5)
-p.BackgroundColor3=Color3.fromRGB(255,255,255)p.BackgroundTransparency=1 p.BorderColor3=Color3.fromRGB(0,0,0)p.
-BorderSizePixel=0 p.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.
-Normal)p.Position=UDim2.fromScale(0,0.5)p.Size=UDim2.fromScale(1,1)p.Text=c.description p.TextColor3=Color3.fromRGB(89,
-89,89)p.TextSize=16 p.TextWrapped=true p.TextXAlignment=Enum.TextXAlignment.Left p.TextYAlignment=Enum.TextYAlignment.
-Top p.Parent=o o.Parent=e e.Parent=d return{button=e,title=j,description={frame=o,text=p}}end end function a.l()local c=
-a.cache.l if not c then c={c=b()}a.cache.l=c end return c.c end end do local function b()return{PADDING=15,GAP=15}end
-function a.m()local c=a.cache.m if not c then c={c=b()}a.cache.m=c end return c.c end end do local function b()local c,d
-,e,f,g=game:GetService'TextService',a.i(),a.m(),16,Enum.Font.GothamMedium local function h(i,j,k)local l=Vector2.new(j,k
-)local m=c:GetTextSize(i,f,g,l)return UDim2.fromOffset(m.X,m.Y)end local function i(j,k)if k=='X'then return j.X.Offset
-end return j.Y.Offset end local function j(k,l,m,n)local o,p=m*2,0 for q,r in k:GetChildren()do if not r:IsA'GuiObject'
-then continue end o+=i(r.Size,l)p+=1 if p>1 then o+=n end end return o end local function k(l,m)local n=h(m.text.Text,m.
-frame.AbsoluteSize.X,math.huge)m.text.Size=n m.frame.Size=UDim2.new(1,0,0,n.Y.Offset)local o=j(l,'Y',e.PADDING,e.GAP)l.
-Size=UDim2.new(1,0,0,o)end return{getTextSize=h,getComponentSize=j,scaleComponent=k}end function a.n()local c=a.cache.n
-if not c then c={c=b()}a.cache.n=c end return c.c end end do local function b()local c,d,e,f,g,h,i=a.k(),a.i(),a.l(),a.
-n(),a.e(),a.f(),a.g()local j,k,l=i.TAB.DAMPING_RATIO,i.TAB.FREQUENCY,{}l.__index=l function l.new(m,n)local o={view=e(m,
-n)}g.new().connect(o.view.button.MouseButton1Click,function()if m.activated then m.activated()end end)g.new().connect(o.
-view.button.MouseEnter,function()o:applyStyle(c.HOVERED)end)g.new().connect(o.view.button.MouseLeave,function()o:
-applyStyle(c.DEFAULT)end)g.new().connect(o.view.button:GetPropertyChangedSignal'AbsoluteSize',function()f.
-scaleComponent(o.view.button,o.view.description)end)f.scaleComponent(o.view.button,o.view.description)return
-setmetatable(o,l)end function l.applyStyle(m,n)h.target(m.view.button,j,k,{BackgroundColor3=n.BUTTON_COLOR})end return l
-end function a.o()local c=a.cache.o if not c then c={c=b()}a.cache.o=c end return c.c end end do local function b()
-return function(c,d)local e=Instance.new'TextLabel'e.Name='Label'e.BackgroundColor3=Color3.fromRGB(255,255,255)e.
-BackgroundTransparency=1 e.BorderColor3=Color3.fromRGB(0,0,0)e.BorderSizePixel=0 e.FontFace=Font.new(
-'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)e.Size=UDim2.new(1,0,0,20)e.Text
-=c e.TextColor3=Color3.fromRGB(207,207,207)e.TextSize=16 e.TextTruncate=Enum.TextTruncate.SplitWord e.TextXAlignment=
-Enum.TextXAlignment.Left e.Parent=d return e end end function a.p()local c=a.cache.p if not c then c={c=b()}a.cache.p=c
-end return c.c end end do local function b()return function(c)local d=Instance.new'ScrollingFrame'd.Name='Section'd.
-Active=true d.AnchorPoint=Vector2.new(0.5,0.5)d.AutomaticCanvasSize=Enum.AutomaticSize.Y d.BackgroundColor3=Color3.
-fromRGB(255,255,255)d.BackgroundTransparency=1 d.BorderColor3=Color3.fromRGB(0,0,0)d.BorderSizePixel=0 d.CanvasSize=
-UDim2.fromScale(0,0.5)d.LayoutOrder=2 d.Position=UDim2.fromScale(0.5,0.5)d.ScrollBarImageColor3=Color3.fromRGB(0,0,0)d.
-ScrollBarImageTransparency=1 d.ScrollBarThickness=0 d.ScrollingDirection=Enum.ScrollingDirection.Y d.Size=UDim2.
-fromScale(1,1)d.Visible=false local e=Instance.new'UIListLayout'e.Name='UIListLayout'e.HorizontalAlignment=Enum.
-HorizontalAlignment.Center e.Padding=UDim.new(0,10)e.SortOrder=Enum.SortOrder.LayoutOrder e.Parent=d local f=Instance.
-new'UIPadding'f.Name='UIPadding'f.PaddingBottom=UDim.new(0,15)f.PaddingLeft=UDim.new(0,15)f.PaddingRight=UDim.new(0,15)f
-.PaddingTop=UDim.new(0,15)f.Parent=d d.Parent=c return d end end function a.q()local c=a.cache.q if not c then c={c=b()}
-a.cache.q=c end return c.c end end do local function b()local c,d=a.j(),{}d.__index=d function d.new(e,f)local g={view=
-nil}return setmetatable(g,d)end return d end function a.r()local c=a.cache.r if not c then c={c=b()}a.cache.r=c end
-return c.c end end do local function b()return{DEFAULT={TAB_TRANSPARENCY=1,STROKE_TRANSPARENCY=1,ICON_COLOR=Color3.
-fromRGB(89,89,89),TEXT_COLOR=Color3.fromRGB(89,89,89)},HOVERED={TAB_TRANSPARENCY=1,STROKE_TRANSPARENCY=1,ICON_COLOR=
-Color3.fromRGB(157,157,157),TEXT_COLOR=Color3.fromRGB(157,157,157)},SELECTED={TAB_TRANSPARENCY=0,STROKE_TRANSPARENCY=0,
-ICON_COLOR=Color3.fromRGB(207,207,207),TEXT_COLOR=Color3.fromRGB(207,207,207)}}end function a.s()local c=a.cache.s if
-not c then c={c=b()}a.cache.s=c end return c.c end end do local function b()local c,d=a.b(),
-'rbxassetid://73851699179305'return function(e,f)local g=Instance.new'TextButton'g.Name='Tab'g.AutoButtonColor=false g.
-BackgroundColor3=Color3.fromRGB(16,16,16)g.BackgroundTransparency=1 g.BorderColor3=Color3.fromRGB(0,0,0)g.
-BorderSizePixel=0 g.Size=UDim2.new(1,0,0,50)g.Text=''g.TextColor3=Color3.fromRGB(0,0,0)g.TextSize=14 local h=Instance.
-new'UICorner'h.Name='UICorner'h.CornerRadius=UDim.new(0,5)h.Parent=g local i=Instance.new'UIStroke'i.Name='UIStroke'i.
-ApplyStrokeMode=Enum.ApplyStrokeMode.Border i.Color=Color3.fromRGB(47,47,47)i.Transparency=1 i.Parent=g local j=Instance
-.new'TextLabel'j.Name='Title'j.BackgroundColor3=Color3.fromRGB(255,255,255)j.BackgroundTransparency=1 j.BorderColor3=
-Color3.fromRGB(0,0,0)j.BorderSizePixel=0 j.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.
-Medium,Enum.FontStyle.Normal)j.LayoutOrder=1 j.Size=UDim2.new(1,-30,1,0)j.Text=e.title j.TextColor3=Color3.fromRGB(89,89
-,89)j.TextSize=16 j.TextTruncate=Enum.TextTruncate.SplitWord j.TextXAlignment=Enum.TextXAlignment.Left j.Parent=g local
-k=Instance.new'UIPadding'k.Name='UIPadding'k.PaddingBottom=UDim.new(0,15)k.PaddingLeft=UDim.new(0,15)k.PaddingRight=UDim
-.new(0,15)k.PaddingTop=UDim.new(0,15)k.Parent=g local l=Instance.new'UIListLayout'l.Name='UIListLayout'l.FillDirection=
-Enum.FillDirection.Horizontal l.Padding=UDim.new(0,10)l.SortOrder=Enum.SortOrder.LayoutOrder l.VerticalAlignment=Enum.
-VerticalAlignment.Center l.Parent=g local m=Instance.new'ImageLabel'm.Name='Icon'm.AnchorPoint=Vector2.new(0.5,0.5)m.
-BackgroundColor3=Color3.fromRGB(255,255,255)m.BackgroundTransparency=1 m.BorderColor3=Color3.fromRGB(0,0,0)m.
-BorderSizePixel=0 m.Image=e.icon or d m.ImageColor3=Color3.fromRGB(89,89,89)m.Position=UDim2.fromScale(0.5,0.5)m.Size=
-UDim2.fromOffset(20,20)m.Parent=g g.Parent=f return{tab=g,stroke=i,title=j,icon=m}end end function a.t()local c=a.cache.
-t if not c then c={c=b()}a.cache.t=c end return c.c end end do local function b()local c,d,e,f,g,h,i,j,k,l,m,n,o=a.i(),a
-.a(),a.j(),a.b(),a.o(),a.p(),a.q(),a.r(),a.s(),a.t(),a.e(),a.f(),a.g()local p,q,r=o.TAB.DAMPING_RATIO,o.TAB.FREQUENCY,{}
-r.__index=r function r.new(s,t,u)local v={view=l(s,t.tabs),_tabs=u,_selected=false,_section=i(t.sections)}m.new().
-connect(v.view.tab.MouseButton1Click,function()v:select()end)m.new().connect(v.view.tab.MouseEnter,function()if not v.
-_selected then v:_applyStyle(k.HOVERED)end end)m.new().connect(v.view.tab.MouseLeave,function()if not v._selected then v
-:_applyStyle(k.DEFAULT)end end)return setmetatable(v,r)end function r.select(s)for t,u in s._tabs do local v=u.view==s.
-view local w=v and k.SELECTED or k.DEFAULT u:_applyStyle(w)u._selected=v u._section.Visible=v end end function r.
-createLabel(s,t)return h(t,s._section)end function r.createButton(s,t)return g.new(t,s._section)end function r.
-createSwitch(s,t)return j.new(t,s._section)end function r._applyStyle(s,t)n.target(s.view.tab,p,q,{
-BackgroundTransparency=t.TAB_TRANSPARENCY})n.target(s.view.stroke,p,q,{Transparency=t.STROKE_TRANSPARENCY})n.target(s.
-view.icon,p,q,{ImageColor3=t.ICON_COLOR})n.target(s.view.title,p,q,{TextColor3=t.TEXT_COLOR})end return r end function a
-.u()local c=a.cache.u if not c then c={c=b()}a.cache.u=c end return c.c end end end local b,c,d,e,f=a.a(),a.b(),a.h(),a.
-u(),{}f.__index=f function f.new(g)local h={root=d.new(g),tabs={}}return setmetatable(h,f)end function f.createTab(g,h)
-local i=e.new(h,g.root.view,g.tabs)table.insert(g.tabs,i)if#g.tabs==1 then i:select()end return i end return f
+VerticalAlignment=Enum.VerticalAlignment.Center h.Parent=g local i=Instance.new'TextLabel'i.Name='Title'i.
+BackgroundColor3=Color3.fromRGB(255,255,255)i.BackgroundTransparency=1 i.BorderColor3=Color3.fromRGB(0,0,0)i.
+BorderSizePixel=0 i.FontFace=Font.new('rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.
+Normal)i.Size=UDim2.new(1,-50,1,0)i.Text=c.title i.TextColor3=Color3.fromRGB(207,207,207)i.TextSize=16 i.TextTruncate=
+Enum.TextTruncate.SplitWord i.TextXAlignment=Enum.TextXAlignment.Left i.Parent=g local j=Instance.new'Frame'j.Name=
+'Thumb'j.BackgroundColor3=Color3.fromRGB(47,47,47)j.BorderColor3=Color3.fromRGB(0,0,0)j.BorderSizePixel=0 j.Size=UDim2.
+fromOffset(40,20)local k=Instance.new'UICorner'k.Name='UICorner'k.CornerRadius=UDim.new(1,0)k.Parent=j local l=Instance.
+new'Frame'l.Name='Circle'l.AnchorPoint=Vector2.new(0,0.5)l.BackgroundColor3=Color3.fromRGB(126,126,126)l.BorderColor3=
+Color3.fromRGB(0,0,0)l.BorderSizePixel=0 l.Position=UDim2.fromScale(0,0.5)l.Size=UDim2.fromOffset(16,16)local m=Instance
+.new'UICorner'm.Name='UICorner'm.CornerRadius=UDim.new(1,0)m.Parent=l l.Parent=j local n=Instance.new'UIPadding'n.Name=
+'UIPadding'n.PaddingBottom=UDim.new(0,2)n.PaddingLeft=UDim.new(0,2)n.PaddingRight=UDim.new(0,2)n.PaddingTop=UDim.new(0,2
+)n.Parent=j j.Parent=g g.Parent=e local o=Instance.new'UIListLayout'o.Name='UIListLayout'o.HorizontalAlignment=Enum.
+HorizontalAlignment.Center o.Padding=UDim.new(0,15)o.SortOrder=Enum.SortOrder.LayoutOrder o.Parent=e local p=Instance.
+new'UIPadding'p.Name='UIPadding'p.PaddingBottom=UDim.new(0,15)p.PaddingLeft=UDim.new(0,15)p.PaddingRight=UDim.new(0,15)p
+.PaddingTop=UDim.new(0,15)p.Parent=e local q=Instance.new'UIStroke'q.Name='UIStroke'q.ApplyStrokeMode=Enum.
+ApplyStrokeMode.Border q.Color=Color3.fromRGB(47,47,47)q.Parent=e local r=Instance.new'Frame'r.Name='Divider'r.
+BackgroundColor3=Color3.fromRGB(47,47,47)r.BorderColor3=Color3.fromRGB(0,0,0)r.BorderSizePixel=0 r.Size=UDim2.new(1,30,0
+,1)r.Parent=e local s=Instance.new'Frame's.Name='Description's.BackgroundColor3=Color3.fromRGB(255,255,255)s.
+BackgroundTransparency=1 s.BorderColor3=Color3.fromRGB(0,0,0)s.BorderSizePixel=0 s.Size=UDim2.new(1,0,0,32)local t=
+Instance.new'TextLabel't.Name='Text't.AnchorPoint=Vector2.new(0,0.5)t.BackgroundColor3=Color3.fromRGB(255,255,255)t.
+BackgroundTransparency=1 t.BorderColor3=Color3.fromRGB(0,0,0)t.BorderSizePixel=0 t.FontFace=Font.new(
+'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)t.Position=UDim2.fromScale(0,0.5
+)t.Size=UDim2.fromScale(1,1)t.Text=c.description t.TextColor3=Color3.fromRGB(89,89,89)t.TextSize=16 t.TextWrapped=true t
+.TextXAlignment=Enum.TextXAlignment.Left t.TextYAlignment=Enum.TextYAlignment.Top t.Parent=s s.Parent=e e.Parent=d
+return{switch=e,title=i,thumb={frame=j,circle=l},description={frame=s,text=t}}end end function a.s()local c=a.cache.s if
+not c then c={c=b()}a.cache.s=c end return c.c end end do local function b()local c,d,e,f,g,h,i=a.r(),a.j(),a.s(),a.n(),
+a.e(),a.f(),a.g()local j,k,l=i.DEFAULT.DAMPING_RATIO,i.DEFAULT.FREQUENCY,{}l.__index=l function l.new(m,n)local o={props
+=m,view=e(m,n),_enabled=false}g.new().connect(o.view.switch.MouseButton1Click,function()o:changeState(not o._enabled)end
+)g.new().connect(o.view.switch:GetPropertyChangedSignal'AbsoluteSize',function()f.scaleComponent(o.view.switch,o.view.
+description)end)f.scaleComponent(o.view.switch,o.view.description)return setmetatable(o,l)end function l.changeState(m,n
+)m._enabled=n if m.props.changed then m.props.changed(n)end local o=n and c.ENABLED or c.DISABLED m:_applyStyle(o)end
+function l._applyStyle(m,n)h.target(m.view.thumb.frame,j,k,{BackgroundColor3=n.THUMB_COLOR})h.target(m.view.thumb.circle
+,j,k,{AnchorPoint=n.CIRCLE_ANCHOR_POINT,BackgroundColor3=n.CIRCLE_COLOR,Position=n.CIRCLE_POSITION})end return l end
+function a.t()local c=a.cache.t if not c then c={c=b()}a.cache.t=c end return c.c end end do local function b()return{
+DEFAULT={TAB_TRANSPARENCY=1,STROKE_TRANSPARENCY=1,ICON_COLOR=Color3.fromRGB(89,89,89),TEXT_COLOR=Color3.fromRGB(89,89,89
+)},HOVERED={TAB_TRANSPARENCY=1,STROKE_TRANSPARENCY=1,ICON_COLOR=Color3.fromRGB(157,157,157),TEXT_COLOR=Color3.fromRGB(
+157,157,157)},SELECTED={TAB_TRANSPARENCY=0,STROKE_TRANSPARENCY=0,ICON_COLOR=Color3.fromRGB(207,207,207),TEXT_COLOR=
+Color3.fromRGB(207,207,207)}}end function a.u()local c=a.cache.u if not c then c={c=b()}a.cache.u=c end return c.c end
+end do local function b()local c,d=a.b(),'rbxassetid://73851699179305'return function(e,f)local g=Instance.new
+'TextButton'g.Name='Tab'g.AutoButtonColor=false g.BackgroundColor3=Color3.fromRGB(16,16,16)g.BackgroundTransparency=1 g.
+BorderColor3=Color3.fromRGB(0,0,0)g.BorderSizePixel=0 g.Size=UDim2.new(1,0,0,50)g.Text=''g.TextColor3=Color3.fromRGB(0,0
+,0)g.TextSize=14 local h=Instance.new'UICorner'h.Name='UICorner'h.CornerRadius=UDim.new(0,5)h.Parent=g local i=Instance.
+new'UIStroke'i.Name='UIStroke'i.ApplyStrokeMode=Enum.ApplyStrokeMode.Border i.Color=Color3.fromRGB(47,47,47)i.
+Transparency=1 i.Parent=g local j=Instance.new'TextLabel'j.Name='Title'j.BackgroundColor3=Color3.fromRGB(255,255,255)j.
+BackgroundTransparency=1 j.BorderColor3=Color3.fromRGB(0,0,0)j.BorderSizePixel=0 j.FontFace=Font.new(
+'rbxasset://fonts/families/GothamSSm.json',Enum.FontWeight.Medium,Enum.FontStyle.Normal)j.LayoutOrder=1 j.Size=UDim2.
+new(1,-30,1,0)j.Text=e.title j.TextColor3=Color3.fromRGB(89,89,89)j.TextSize=16 j.TextTruncate=Enum.TextTruncate.
+SplitWord j.TextXAlignment=Enum.TextXAlignment.Left j.Parent=g local k=Instance.new'UIPadding'k.Name='UIPadding'k.
+PaddingBottom=UDim.new(0,15)k.PaddingLeft=UDim.new(0,15)k.PaddingRight=UDim.new(0,15)k.PaddingTop=UDim.new(0,15)k.Parent
+=g local l=Instance.new'UIListLayout'l.Name='UIListLayout'l.FillDirection=Enum.FillDirection.Horizontal l.Padding=UDim.
+new(0,10)l.SortOrder=Enum.SortOrder.LayoutOrder l.VerticalAlignment=Enum.VerticalAlignment.Center l.Parent=g local m=
+Instance.new'ImageLabel'm.Name='Icon'm.AnchorPoint=Vector2.new(0.5,0.5)m.BackgroundColor3=Color3.fromRGB(255,255,255)m.
+BackgroundTransparency=1 m.BorderColor3=Color3.fromRGB(0,0,0)m.BorderSizePixel=0 m.Image=e.icon or d m.ImageColor3=
+Color3.fromRGB(89,89,89)m.Position=UDim2.fromScale(0.5,0.5)m.Size=UDim2.fromOffset(20,20)m.Parent=g g.Parent=f return{
+tab=g,stroke=i,title=j,icon=m}end end function a.v()local c=a.cache.v if not c then c={c=b()}a.cache.v=c end return c.c
+end end do local function b()local c,d,e,f,g,h,i,j,k,l,m,n,o=a.i(),a.a(),a.j(),a.b(),a.o(),a.p(),a.q(),a.t(),a.u(),a.v()
+,a.e(),a.f(),a.g()local p,q,r=o.DEFAULT.DAMPING_RATIO,o.DEFAULT.FREQUENCY,{}r.__index=r function r.new(s,t,u)local v={
+view=l(s,t.tabs),_tabs=u,_selected=false,_section=i(t.sections)}m.new().connect(v.view.tab.MouseButton1Click,function()v
+:select()end)m.new().connect(v.view.tab.MouseEnter,function()if not v._selected then v:_applyStyle(k.HOVERED)end end)m.
+new().connect(v.view.tab.MouseLeave,function()if not v._selected then v:_applyStyle(k.DEFAULT)end end)return
+setmetatable(v,r)end function r.select(s)for t,u in s._tabs do local v=u.view==s.view local w=v and k.SELECTED or k.
+DEFAULT u:_applyStyle(w)u._selected=v u._section.Visible=v end end function r.createLabel(s,t)return h(t,s._section)end
+function r.createButton(s,t)return g.new(t,s._section)end function r.createSwitch(s,t)return j.new(t,s._section)end
+function r._applyStyle(s,t)n.target(s.view.tab,p,q,{BackgroundTransparency=t.TAB_TRANSPARENCY})n.target(s.view.stroke,p,
+q,{Transparency=t.STROKE_TRANSPARENCY})n.target(s.view.icon,p,q,{ImageColor3=t.ICON_COLOR})n.target(s.view.title,p,q,{
+TextColor3=t.TEXT_COLOR})end return r end function a.w()local c=a.cache.w if not c then c={c=b()}a.cache.w=c end return
+c.c end end end local b,c,d,e,f=a.a(),a.b(),a.h(),a.w(),{}f.__index=f function f.new(g)local h={root=d.new(g),tabs={}}
+return setmetatable(h,f)end function f.createTab(g,h)local i=e.new(h,g.root.view,g.tabs)table.insert(g.tabs,i)if#g.tabs
+==1 then i:select()end return i end return f

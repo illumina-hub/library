@@ -11,13 +11,12 @@ type Root__DARKLUA_TYPE_j = setmetatable<{view: View__DARKLUA_TYPE_a, _expanded:
 type View__DARKLUA_TYPE_k = {button: TextButton, title: TextLabel, description: {frame: Frame, text: TextLabel}}
 type Style__DARKLUA_TYPE_l = {BUTTON_COLOR: Color3}
 type Props__DARKLUA_TYPE_m = {title: string, description: string, activated: (() -> ())?}
-type View__DARKLUA_TYPE_n = {switch: TextButton, title: TextLabel, description: {frame: Frame, text: TextLabel}}
+type View__DARKLUA_TYPE_n = {switch: TextButton, title: TextLabel, thumb: {frame: Frame, circle: Frame}, description: {frame: Frame, text: TextLabel}}
 type Style__DARKLUA_TYPE_o = {THUMB_COLOR: Color3, CIRCLE_COLOR: Color3, CIRCLE_POSITION: UDim2, CIRCLE_ANCHOR_POINT: Vector2}
 type Props__DARKLUA_TYPE_p = {flag: string, title: string, description: string, enabled: boolean?, changed: ((state:boolean) -> ())?}
-type View__DARKLUA_TYPE_q = View__DARKLUA_TYPE_k
-type Button__DARKLUA_TYPE_r = setmetatable<{view: View__DARKLUA_TYPE_k}, typeof(Button)>
-type Switch__DARKLUA_TYPE_s = setmetatable<{view: nil}, typeof(Switch)>
-type Tab__DARKLUA_TYPE_t = setmetatable<{view: View__DARKLUA_TYPE_c, _tabs: {Tab__DARKLUA_TYPE_t}, _selected: boolean, _section: ScrollingFrame}, typeof(Tab)>
+type Button__DARKLUA_TYPE_q = setmetatable<{view: View__DARKLUA_TYPE_k}, typeof(Button)>
+type Switch__DARKLUA_TYPE_r = setmetatable<{props: Props__DARKLUA_TYPE_p, view: View__DARKLUA_TYPE_n, _enabled: boolean}, typeof(Switch)>
+type Tab__DARKLUA_TYPE_s = setmetatable<{view: View__DARKLUA_TYPE_c, _tabs: {Tab__DARKLUA_TYPE_s}, _selected: boolean, _section: ScrollingFrame}, typeof(Tab)>
 
 local __DARKLUA_BUNDLE_MODULES = {
     cache = {}::any,
@@ -87,15 +86,18 @@ do
     end
     do
         local function __modImpl()
-            local Players = game:GetService('Players')
+            local CoreGui = game:GetService('CoreGui')
             local rootStyles = __DARKLUA_BUNDLE_MODULES.c()
 
             __DARKLUA_BUNDLE_MODULES.a()
 
-            local localPlayer = Players.LocalPlayer::Player
-            local playerGui = localPlayer:FindFirstChildOfClass('PlayerGui')::PlayerGui
-
             return function(props: Props__DARKLUA_TYPE_b): View__DARKLUA_TYPE_a
+                local oldIllumina = CoreGui:FindFirstChild('Illumina')
+
+                if oldIllumina then
+                    oldIllumina:Destroy()
+                end
+
                 local illumina = Instance.new('ScreenGui')
 
                 illumina.Name = 'Illumina'
@@ -350,7 +352,7 @@ do
                 sections.Parent = group
                 group.Parent = container
                 container.Parent = illumina
-                illumina.Parent = playerGui
+                illumina.Parent = CoreGui
 
                 return {
                     illumina = illumina,
@@ -1195,14 +1197,11 @@ do
     end
     do
         local function __modImpl()
-            local DEFAULT = {
-                DAMPING_RATIO = 1,
-                FREQUENCY = 7,
-            }
-
             return {
-                ROOT = DEFAULT,
-                TAB = DEFAULT,
+                DEFAULT = {
+                    DAMPING_RATIO = 1,
+                    FREQUENCY = 7,
+                },
             }
         end
 
@@ -1229,8 +1228,8 @@ do
             local signals = __DARKLUA_BUNDLE_MODULES.e()
             local spring = __DARKLUA_BUNDLE_MODULES.f()
             local motions = __DARKLUA_BUNDLE_MODULES.g()
-            local DAMPING_RATIO = motions.ROOT.DAMPING_RATIO
-            local FREQUENCY = motions.ROOT.FREQUENCY
+            local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
+            local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Root = {}
 
             Root.__index = Root
@@ -1252,7 +1251,7 @@ do
                 end)
                 signals.new().connect(self.view.close.MouseButton1Click, function(
                 )
-                    self:_destroy()
+                    self.view.illumina:Destroy()
                 end)
                 signals.new().connect(self.view.illumina.AncestryChanged, function(
                 )
@@ -1279,9 +1278,6 @@ do
                     Size = size,
                 })
                 spring.target(self.view.corner, DAMPING_RATIO, FREQUENCY, {CornerRadius = corner})
-            end
-            function Root._destroy(self: Root__DARKLUA_TYPE_j)
-                self.view.illumina:Destroy()
             end
 
             return Root
@@ -1545,9 +1541,6 @@ do
     do
         local function __modImpl()
             local TextService = game:GetService('TextService')
-
-            __DARKLUA_BUNDLE_MODULES.i()
-
             local spacing = __DARKLUA_BUNDLE_MODULES.m()
             local FONT_SIZE = 16
             local FONT_ENUM = Enum.Font.GothamMedium
@@ -1638,16 +1631,16 @@ do
             local signals = __DARKLUA_BUNDLE_MODULES.e()
             local spring = __DARKLUA_BUNDLE_MODULES.f()
             local motions = __DARKLUA_BUNDLE_MODULES.g()
-            local DAMPING_RATIO = motions.TAB.DAMPING_RATIO
-            local FREQUENCY = motions.TAB.FREQUENCY
+            local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
+            local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Button = {}
 
             Button.__index = Button
 
-            function Button.new(props: Props__DARKLUA_TYPE_m, section: ScrollingFrame): Button__DARKLUA_TYPE_r
+            function Button.new(props: Props__DARKLUA_TYPE_m, section: ScrollingFrame): Button__DARKLUA_TYPE_q
                 local self = {
                     view = buttonView(props, section),
-                }::Button__DARKLUA_TYPE_r
+                }::Button__DARKLUA_TYPE_q
 
                 signals.new().connect(self.view.button.MouseButton1Click, function(
                 )
@@ -1656,10 +1649,10 @@ do
                     end
                 end)
                 signals.new().connect(self.view.button.MouseEnter, function()
-                    self:applyStyle(buttonStyles.HOVERED)
+                    self:_applyStyle(buttonStyles.HOVERED)
                 end)
                 signals.new().connect(self.view.button.MouseLeave, function()
-                    self:applyStyle(buttonStyles.DEFAULT)
+                    self:_applyStyle(buttonStyles.DEFAULT)
                 end)
                 signals.new().connect(self.view.button:GetPropertyChangedSignal('AbsoluteSize'), function(
                 )
@@ -1669,7 +1662,7 @@ do
 
                 return setmetatable(self, Button)
             end
-            function Button.applyStyle(self: Button__DARKLUA_TYPE_r, style: Style__DARKLUA_TYPE_l)
+            function Button._applyStyle(self: Button__DARKLUA_TYPE_q, style: Style__DARKLUA_TYPE_l)
                 spring.target(self.view.button, DAMPING_RATIO, FREQUENCY, {
                     BackgroundColor3 = style.BUTTON_COLOR,
                 })
@@ -1787,19 +1780,20 @@ do
     end
     do
         local function __modImpl()
-            __DARKLUA_BUNDLE_MODULES.j()
-
-            local Switch = {}
-
-            Switch.__index = Switch
-
-            function Switch.new(props: Props__DARKLUA_TYPE_p, section: ScrollingFrame): Switch__DARKLUA_TYPE_s
-                local self = {view = nil}::Switch__DARKLUA_TYPE_s
-
-                return setmetatable(self, Switch)
-            end
-
-            return Switch
+            return {
+                DISABLED = {
+                    THUMB_COLOR = Color3.fromRGB(47, 47, 47),
+                    CIRCLE_COLOR = Color3.fromRGB(126, 126, 126),
+                    CIRCLE_POSITION = UDim2.fromScale(0, 0.5),
+                    CIRCLE_ANCHOR_POINT = Vector2.new(0, 0.5),
+                },
+                ENABLED = {
+                    THUMB_COLOR = Color3.fromRGB(255, 255, 255),
+                    CIRCLE_COLOR = Color3.fromRGB(34, 34, 34),
+                    CIRCLE_POSITION = UDim2.fromScale(1, 0.5),
+                    CIRCLE_ANCHOR_POINT = Vector2.new(1, 0.5),
+                },
+            }
         end
 
         function __DARKLUA_BUNDLE_MODULES.r(): typeof(__modImpl())
@@ -1810,6 +1804,270 @@ do
                     c = __modImpl(),
                 }
                 __DARKLUA_BUNDLE_MODULES.cache.r = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
+            __DARKLUA_BUNDLE_MODULES.j()
+
+            return function(props: Props__DARKLUA_TYPE_p, section: ScrollingFrame): View__DARKLUA_TYPE_n
+                local switch = Instance.new('TextButton')
+
+                switch.Name = 'Switch'
+                switch.AutoButtonColor = false
+                switch.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+                switch.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                switch.BorderSizePixel = 0
+                switch.Size = UDim2.new(1, 0, 0, 113)
+                switch.Text = ''
+                switch.TextColor3 = Color3.fromRGB(0, 0, 0)
+                switch.TextSize = 14
+
+                local uICorner = Instance.new('UICorner')
+
+                uICorner.Name = 'UICorner'
+                uICorner.CornerRadius = UDim.new(0, 5)
+                uICorner.Parent = switch
+
+                local content = Instance.new('Frame')
+
+                content.Name = 'Content'
+                content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                content.BackgroundTransparency = 1
+                content.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                content.BorderSizePixel = 0
+                content.Size = UDim2.new(1, 0, 0, 20)
+
+                local uIListLayout = Instance.new('UIListLayout')
+
+                uIListLayout.Name = 'UIListLayout'
+                uIListLayout.FillDirection = Enum.FillDirection.Horizontal
+                uIListLayout.Padding = UDim.new(0, 10)
+                uIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+                uIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+                uIListLayout.Parent = content
+
+                local title = Instance.new('TextLabel')
+
+                title.Name = 'Title'
+                title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                title.BackgroundTransparency = 1
+                title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                title.BorderSizePixel = 0
+                title.FontFace = Font.new('rbxasset://fonts/families/GothamSSm.json', Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+                title.Size = UDim2.new(1, -50, 1, 0)
+                title.Text = props.title
+                title.TextColor3 = Color3.fromRGB(207, 207, 207)
+                title.TextSize = 16
+                title.TextTruncate = Enum.TextTruncate.SplitWord
+                title.TextXAlignment = Enum.TextXAlignment.Left
+                title.Parent = content
+
+                local thumb = Instance.new('Frame')
+
+                thumb.Name = 'Thumb'
+                thumb.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+                thumb.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                thumb.BorderSizePixel = 0
+                thumb.Size = UDim2.fromOffset(40, 20)
+
+                local uICorner1 = Instance.new('UICorner')
+
+                uICorner1.Name = 'UICorner'
+                uICorner1.CornerRadius = UDim.new(1, 0)
+                uICorner1.Parent = thumb
+
+                local circle = Instance.new('Frame')
+
+                circle.Name = 'Circle'
+                circle.AnchorPoint = Vector2.new(0, 0.5)
+                circle.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+                circle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                circle.BorderSizePixel = 0
+                circle.Position = UDim2.fromScale(0, 0.5)
+                circle.Size = UDim2.fromOffset(16, 16)
+
+                local uICorner2 = Instance.new('UICorner')
+
+                uICorner2.Name = 'UICorner'
+                uICorner2.CornerRadius = UDim.new(1, 0)
+                uICorner2.Parent = circle
+                circle.Parent = thumb
+
+                local uIPadding = Instance.new('UIPadding')
+
+                uIPadding.Name = 'UIPadding'
+                uIPadding.PaddingBottom = UDim.new(0, 2)
+                uIPadding.PaddingLeft = UDim.new(0, 2)
+                uIPadding.PaddingRight = UDim.new(0, 2)
+                uIPadding.PaddingTop = UDim.new(0, 2)
+                uIPadding.Parent = thumb
+                thumb.Parent = content
+                content.Parent = switch
+
+                local uIListLayout1 = Instance.new('UIListLayout')
+
+                uIListLayout1.Name = 'UIListLayout'
+                uIListLayout1.HorizontalAlignment = Enum.HorizontalAlignment.Center
+                uIListLayout1.Padding = UDim.new(0, 15)
+                uIListLayout1.SortOrder = Enum.SortOrder.LayoutOrder
+                uIListLayout1.Parent = switch
+
+                local uIPadding1 = Instance.new('UIPadding')
+
+                uIPadding1.Name = 'UIPadding'
+                uIPadding1.PaddingBottom = UDim.new(0, 15)
+                uIPadding1.PaddingLeft = UDim.new(0, 15)
+                uIPadding1.PaddingRight = UDim.new(0, 15)
+                uIPadding1.PaddingTop = UDim.new(0, 15)
+                uIPadding1.Parent = switch
+
+                local uIStroke = Instance.new('UIStroke')
+
+                uIStroke.Name = 'UIStroke'
+                uIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+                uIStroke.Color = Color3.fromRGB(47, 47, 47)
+                uIStroke.Parent = switch
+
+                local divider = Instance.new('Frame')
+
+                divider.Name = 'Divider'
+                divider.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+                divider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                divider.BorderSizePixel = 0
+                divider.Size = UDim2.new(1, 30, 0, 1)
+                divider.Parent = switch
+
+                local description = Instance.new('Frame')
+
+                description.Name = 'Description'
+                description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                description.BackgroundTransparency = 1
+                description.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                description.BorderSizePixel = 0
+                description.Size = UDim2.new(1, 0, 0, 32)
+
+                local text = Instance.new('TextLabel')
+
+                text.Name = 'Text'
+                text.AnchorPoint = Vector2.new(0, 0.5)
+                text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                text.BackgroundTransparency = 1
+                text.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                text.BorderSizePixel = 0
+                text.FontFace = Font.new('rbxasset://fonts/families/GothamSSm.json', Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+                text.Position = UDim2.fromScale(0, 0.5)
+                text.Size = UDim2.fromScale(1, 1)
+                text.Text = props.description
+                text.TextColor3 = Color3.fromRGB(89, 89, 89)
+                text.TextSize = 16
+                text.TextWrapped = true
+                text.TextXAlignment = Enum.TextXAlignment.Left
+                text.TextYAlignment = Enum.TextYAlignment.Top
+                text.Parent = description
+                description.Parent = switch
+                switch.Parent = section
+
+                return {
+                    switch = switch,
+                    title = title,
+                    thumb = {
+                        frame = thumb,
+                        circle = circle,
+                    },
+                    description = {
+                        frame = description,
+                        text = text,
+                    },
+                }
+            end
+        end
+
+        function __DARKLUA_BUNDLE_MODULES.s(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.s
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.s = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
+            local switchStyles = __DARKLUA_BUNDLE_MODULES.r()
+
+            __DARKLUA_BUNDLE_MODULES.j()
+
+            local switchView = __DARKLUA_BUNDLE_MODULES.s()
+            local scaling = __DARKLUA_BUNDLE_MODULES.n()
+            local signals = __DARKLUA_BUNDLE_MODULES.e()
+            local spring = __DARKLUA_BUNDLE_MODULES.f()
+            local motions = __DARKLUA_BUNDLE_MODULES.g()
+            local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
+            local FREQUENCY = motions.DEFAULT.FREQUENCY
+            local Switch = {}
+
+            Switch.__index = Switch
+
+            function Switch.new(props: Props__DARKLUA_TYPE_p, section: ScrollingFrame): Switch__DARKLUA_TYPE_r
+                local self = {
+                    props = props,
+                    view = switchView(props, section),
+                    _enabled = false,
+                }::Switch__DARKLUA_TYPE_r
+
+                signals.new().connect(self.view.switch.MouseButton1Click, function(
+                )
+                    self:changeState(not self._enabled)
+                end)
+                signals.new().connect(self.view.switch:GetPropertyChangedSignal('AbsoluteSize'), function(
+                )
+                    scaling.scaleComponent(self.view.switch, self.view.description)
+                end)
+                scaling.scaleComponent(self.view.switch, self.view.description)
+
+                return setmetatable(self, Switch)
+            end
+            function Switch.changeState(self: Switch__DARKLUA_TYPE_r, state: boolean)
+                self._enabled = state
+
+                if self.props.changed then
+                    self.props.changed(state)
+                end
+
+                local style = state and switchStyles.ENABLED or switchStyles.DISABLED
+
+                self:_applyStyle(style)
+            end
+            function Switch._applyStyle(self: Switch__DARKLUA_TYPE_r, style: Style__DARKLUA_TYPE_o)
+                spring.target(self.view.thumb.frame, DAMPING_RATIO, FREQUENCY, {
+                    BackgroundColor3 = style.THUMB_COLOR,
+                })
+                spring.target(self.view.thumb.circle, DAMPING_RATIO, FREQUENCY, {
+                    AnchorPoint = style.CIRCLE_ANCHOR_POINT,
+                    BackgroundColor3 = style.CIRCLE_COLOR,
+                    Position = style.CIRCLE_POSITION,
+                })
+            end
+
+            return Switch
+        end
+
+        function __DARKLUA_BUNDLE_MODULES.t(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.t
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.t = v
             end
 
             return v.c
@@ -1839,14 +2097,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.s(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.s
+        function __DARKLUA_BUNDLE_MODULES.u(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.u
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.s = v
+                __DARKLUA_BUNDLE_MODULES.cache.u = v
             end
 
             return v.c
@@ -1945,14 +2203,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.t(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.t
+        function __DARKLUA_BUNDLE_MODULES.v(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.v
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.t = v
+                __DARKLUA_BUNDLE_MODULES.cache.v = v
             end
 
             return v.c
@@ -1968,14 +2226,14 @@ do
             local Button = __DARKLUA_BUNDLE_MODULES.o()
             local Label = __DARKLUA_BUNDLE_MODULES.p()
             local Section = __DARKLUA_BUNDLE_MODULES.q()
-            local Switch = __DARKLUA_BUNDLE_MODULES.r()
-            local tabStyles = __DARKLUA_BUNDLE_MODULES.s()
-            local tabView = __DARKLUA_BUNDLE_MODULES.t()
+            local Switch = __DARKLUA_BUNDLE_MODULES.t()
+            local tabStyles = __DARKLUA_BUNDLE_MODULES.u()
+            local tabView = __DARKLUA_BUNDLE_MODULES.v()
             local signals = __DARKLUA_BUNDLE_MODULES.e()
             local spring = __DARKLUA_BUNDLE_MODULES.f()
             local motions = __DARKLUA_BUNDLE_MODULES.g()
-            local DAMPING_RATIO = motions.TAB.DAMPING_RATIO
-            local FREQUENCY = motions.TAB.FREQUENCY
+            local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
+            local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Tab = {}
 
             Tab.__index = Tab
@@ -1983,14 +2241,14 @@ do
             function Tab.new(
                 props: Props__DARKLUA_TYPE_e,
                 rootView: View__DARKLUA_TYPE_a,
-                tabs: {Tab__DARKLUA_TYPE_t}
-            ): Tab__DARKLUA_TYPE_t
+                tabs: {Tab__DARKLUA_TYPE_s}
+            ): Tab__DARKLUA_TYPE_s
                 local self = {
                     view = tabView(props, rootView.tabs),
                     _tabs = tabs,
                     _selected = false,
                     _section = Section(rootView.sections),
-                }::Tab__DARKLUA_TYPE_t
+                }::Tab__DARKLUA_TYPE_s
 
                 signals.new().connect(self.view.tab.MouseButton1Click, function()
                     self:select()
@@ -2008,7 +2266,7 @@ do
 
                 return setmetatable(self, Tab)
             end
-            function Tab.select(self: Tab__DARKLUA_TYPE_t)
+            function Tab.select(self: Tab__DARKLUA_TYPE_s)
                 for _, tab in self._tabs do
                     local selected = tab.view == self.view
                     local style = selected and tabStyles.SELECTED or tabStyles.DEFAULT
@@ -2019,16 +2277,16 @@ do
                     tab._section.Visible = selected
                 end
             end
-            function Tab.createLabel(self: Tab__DARKLUA_TYPE_t, title: string)
+            function Tab.createLabel(self: Tab__DARKLUA_TYPE_s, title: string)
                 return Label(title, self._section)
             end
-            function Tab.createButton(self: Tab__DARKLUA_TYPE_t, props: Props__DARKLUA_TYPE_m)
+            function Tab.createButton(self: Tab__DARKLUA_TYPE_s, props: Props__DARKLUA_TYPE_m)
                 return Button.new(props, self._section)
             end
-            function Tab.createSwitch(self: Tab__DARKLUA_TYPE_t, props: Props__DARKLUA_TYPE_p)
+            function Tab.createSwitch(self: Tab__DARKLUA_TYPE_s, props: Props__DARKLUA_TYPE_p)
                 return Switch.new(props, self._section)
             end
-            function Tab._applyStyle(self: Tab__DARKLUA_TYPE_t, style: Style__DARKLUA_TYPE_d)
+            function Tab._applyStyle(self: Tab__DARKLUA_TYPE_s, style: Style__DARKLUA_TYPE_d)
                 spring.target(self.view.tab, DAMPING_RATIO, FREQUENCY, {
                     BackgroundTransparency = style.TAB_TRANSPARENCY,
                 })
@@ -2046,14 +2304,14 @@ do
             return Tab
         end
 
-        function __DARKLUA_BUNDLE_MODULES.u(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.u
+        function __DARKLUA_BUNDLE_MODULES.w(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.w
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.u = v
+                __DARKLUA_BUNDLE_MODULES.cache.w = v
             end
 
             return v.c
@@ -2065,12 +2323,12 @@ __DARKLUA_BUNDLE_MODULES.a()
 __DARKLUA_BUNDLE_MODULES.b()
 
 local Root = __DARKLUA_BUNDLE_MODULES.h()
-local Tab = __DARKLUA_BUNDLE_MODULES.u()
+local Tab = __DARKLUA_BUNDLE_MODULES.w()
 local Library = {}
 
 Library.__index = Library
 
-type Library = setmetatable<{root: Root__DARKLUA_TYPE_j, tabs: {Tab__DARKLUA_TYPE_t}}, typeof(Library)>
+type Library = setmetatable<{root: Root__DARKLUA_TYPE_j, tabs: {Tab__DARKLUA_TYPE_s}}, typeof(Library)>
 
 function Library.new(props: Props__DARKLUA_TYPE_b): Library
     local self = {

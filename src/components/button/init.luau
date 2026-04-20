@@ -10,8 +10,8 @@ local spring = require("@utils/spring")
 
 local motions = require("@shared/motions")
 
-local DAMPING_RATIO = motions.TAB.DAMPING_RATIO
-local FREQUENCY = motions.TAB.FREQUENCY
+local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
+local FREQUENCY = motions.DEFAULT.FREQUENCY
 
 local Button = {}
 Button.__index = Button
@@ -32,11 +32,11 @@ function Button.new(props: buttonTypes.Props, section: ScrollingFrame): Button
 	end)
 
 	signals.new().connect(self.view.button.MouseEnter, function()
-		self:applyStyle(buttonStyles.HOVERED)
+		self:_applyStyle(buttonStyles.HOVERED)
 	end)
 
 	signals.new().connect(self.view.button.MouseLeave, function()
-		self:applyStyle(buttonStyles.DEFAULT)
+		self:_applyStyle(buttonStyles.DEFAULT)
 	end)
 
 	signals.new().connect(self.view.button:GetPropertyChangedSignal("AbsoluteSize"), function()
@@ -48,7 +48,7 @@ function Button.new(props: buttonTypes.Props, section: ScrollingFrame): Button
 	return setmetatable(self, Button)
 end
 
-function Button.applyStyle(self: Button, style: buttonTypes.Style)
+function Button._applyStyle(self: Button, style: buttonTypes.Style)
 	spring.target(self.view.button, DAMPING_RATIO, FREQUENCY, {
 		BackgroundColor3 = style.BUTTON_COLOR,
 	})

@@ -1,14 +1,17 @@
 --!strict
 
-local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
 
 local rootStyles = require("@self/styles")
 local rootTypes = require("@types/root")
 
-local localPlayer = Players.LocalPlayer :: Player
-local playerGui = localPlayer:FindFirstChildOfClass("PlayerGui") :: PlayerGui
-
 return function(props: rootTypes.Props): rootTypes.View
+	local oldIllumina = CoreGui:FindFirstChild("Illumina")
+
+	if oldIllumina then
+		oldIllumina:Destroy()
+	end
+
 	local illumina = Instance.new("ScreenGui")
 	illumina.Name = "Illumina"
 	illumina.DisplayOrder = 6
@@ -245,7 +248,7 @@ return function(props: rootTypes.Props): rootTypes.View
 
 	group.Parent = container
 	container.Parent = illumina
-	illumina.Parent = playerGui
+	illumina.Parent = CoreGui
 
 	return {
 		illumina = illumina,

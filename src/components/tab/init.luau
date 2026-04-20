@@ -18,8 +18,8 @@ local spring = require("@utils/spring")
 
 local motions = require("@shared/motions")
 
-local DAMPING_RATIO = motions.TAB.DAMPING_RATIO
-local FREQUENCY = motions.TAB.FREQUENCY
+local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
+local FREQUENCY = motions.DEFAULT.FREQUENCY
 
 local Tab = {}
 Tab.__index = Tab

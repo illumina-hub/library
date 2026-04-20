@@ -3,6 +3,10 @@
 export type View = {
 	switch: TextButton,
 	title: TextLabel,
+	thumb: {
+		frame: Frame,
+		circle: Frame,
+	},
 	description: {
 		frame: Frame,
 		text: TextLabel,
