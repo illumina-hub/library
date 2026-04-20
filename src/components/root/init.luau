@@ -28,19 +28,19 @@ function Root.new(props: rootTypes.Props): Root
 		_lastSize = rootStyles.DEF_SIZE,
 	} :: Root
 
-	signals.new().connect(self.view.minimize.MouseButton1Click, function()
+	signals.new(self.view.minimize.MouseButton1Click, function()
 		self:_minimize()
 	end)
 
-	signals.new().connect(self.view.expand.MouseButton1Click, function()
+	signals.new(self.view.expand.MouseButton1Click, function()
 		self:_expand()
 	end)
 
-	signals.new().connect(self.view.close.MouseButton1Click, function()
+	signals.new(self.view.close.MouseButton1Click, function()
 		self.view.illumina:Destroy()
 	end)
 
-	signals.new().connect(self.view.illumina.AncestryChanged, function()
+	signals.new(self.view.illumina.AncestryChanged, function()
 		if not self.view.illumina.Parent then
 			signals.clear()
 			props.destroyed()

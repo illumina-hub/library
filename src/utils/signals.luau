@@ -2,38 +2,19 @@
 
 local connections: { RBXScriptConnection } = {}
 
-local function new()
-	local _connection: RBXScriptConnection? = nil
+local function new(signal: RBXScriptSignal, callback: (...any) -> ...any)
+	local connection = signal:Connect(callback)
+	table.insert(connections, connection)
 
-	local function disconnect()
-		if not _connection then
-			return
-		end
-
-		local index = table.find(connections, _connection)
+	return function()
+		local index = table.find(connections, connection)
 
 		if index then
 			table.remove(connections, index)
 		end
 
-		_connection:Disconnect()
-		_connection = nil
+		connection:Disconnect()
 	end
-
-	local function connect(signal: RBXScriptSignal, callback: (...any) -> ...any): (() -> ())?
-		if _connection then
-			return nil
-		end
-
-		local connection = signal:Connect(callback)
-		_connection = connection
-
-		table.insert(connections, connection)
-
-		return disconnect
-	end
-
-	return { connect = connect }
 end
 
 local function clear()

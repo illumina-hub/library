@@ -25,21 +25,21 @@ function Button.new(props: buttonTypes.Props, section: ScrollingFrame): Button
 		view = buttonView(props, section),
 	} :: Button
 
-	signals.new().connect(self.view.button.MouseButton1Click, function()
+	signals.new(self.view.button.MouseButton1Click, function()
 		if props.activated then
 			props.activated()
 		end
 	end)
 
-	signals.new().connect(self.view.button.MouseEnter, function()
+	signals.new(self.view.button.MouseEnter, function()
 		self:_applyStyle(buttonStyles.HOVERED)
 	end)
 
-	signals.new().connect(self.view.button.MouseLeave, function()
+	signals.new(self.view.button.MouseLeave, function()
 		self:_applyStyle(buttonStyles.DEFAULT)
 	end)
 
-	signals.new().connect(self.view.button:GetPropertyChangedSignal("AbsoluteSize"), function()
+	signals.new(self.view.button:GetPropertyChangedSignal("AbsoluteSize"), function()
 		scaling.scaleComponent(self.view.button, self.view.description)
 	end)
 

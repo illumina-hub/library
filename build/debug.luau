@@ -385,39 +385,20 @@ do
         local function __modImpl()
             local connections: {RBXScriptConnection} = {}
 
-            local function new()
-                local _connection: RBXScriptConnection? = nil
+            local function new(signal: RBXScriptSignal, callback: (...any) -> ...any)
+                local connection = signal:Connect(callback)
 
-                local function disconnect()
-                    if not _connection then
-                        return
-                    end
+                table.insert(connections, connection)
 
-                    local index = table.find(connections, _connection)
+                return function()
+                    local index = table.find(connections, connection)
 
                     if index then
                         table.remove(connections, index)
                     end
 
-                    _connection:Disconnect()
-
-                    _connection = nil
+                    connection:Disconnect()
                 end
-                local function connect(signal: RBXScriptSignal, callback: (...any) -> ...any): (() -> ())?
-                    if _connection then
-                        return nil
-                    end
-
-                    local connection = signal:Connect(callback)
-
-                    _connection = connection
-
-                    table.insert(connections, connection)
-
-                    return disconnect
-                end
-
-                return {connect = connect}
             end
             local function clear()
                 for _, connection in connections do
@@ -1241,20 +1222,16 @@ do
                     _lastSize = rootStyles.DEF_SIZE,
                 }::Root__DARKLUA_TYPE_j
 
-                signals.new().connect(self.view.minimize.MouseButton1Click, function(
-                )
+                signals.new(self.view.minimize.MouseButton1Click, function()
                     self:_minimize()
                 end)
-                signals.new().connect(self.view.expand.MouseButton1Click, function(
-                )
+                signals.new(self.view.expand.MouseButton1Click, function()
                     self:_expand()
                 end)
-                signals.new().connect(self.view.close.MouseButton1Click, function(
-                )
+                signals.new(self.view.close.MouseButton1Click, function()
                     self.view.illumina:Destroy()
                 end)
-                signals.new().connect(self.view.illumina.AncestryChanged, function(
-                )
+                signals.new(self.view.illumina.AncestryChanged, function()
                     if not self.view.illumina.Parent then
                         signals.clear()
                         props.destroyed()
@@ -1642,19 +1619,18 @@ do
                     view = buttonView(props, section),
                 }::Button__DARKLUA_TYPE_q
 
-                signals.new().connect(self.view.button.MouseButton1Click, function(
-                )
+                signals.new(self.view.button.MouseButton1Click, function()
                     if props.activated then
                         props.activated()
                     end
                 end)
-                signals.new().connect(self.view.button.MouseEnter, function()
+                signals.new(self.view.button.MouseEnter, function()
                     self:_applyStyle(buttonStyles.HOVERED)
                 end)
-                signals.new().connect(self.view.button.MouseLeave, function()
+                signals.new(self.view.button.MouseLeave, function()
                     self:_applyStyle(buttonStyles.DEFAULT)
                 end)
-                signals.new().connect(self.view.button:GetPropertyChangedSignal('AbsoluteSize'), function(
+                signals.new(self.view.button:GetPropertyChangedSignal('AbsoluteSize'), function(
                 )
                     scaling.scaleComponent(self.view.button, self.view.description)
                 end)
@@ -2023,11 +1999,10 @@ do
                     _enabled = false,
                 }::Switch__DARKLUA_TYPE_r
 
-                signals.new().connect(self.view.switch.MouseButton1Click, function(
-                )
+                signals.new(self.view.switch.MouseButton1Click, function()
                     self:changeState(not self._enabled)
                 end)
-                signals.new().connect(self.view.switch:GetPropertyChangedSignal('AbsoluteSize'), function(
+                signals.new(self.view.switch:GetPropertyChangedSignal('AbsoluteSize'), function(
                 )
                     scaling.scaleComponent(self.view.switch, self.view.description)
                 end)
@@ -2250,15 +2225,15 @@ do
                     _section = Section(rootView.sections),
                 }::Tab__DARKLUA_TYPE_s
 
-                signals.new().connect(self.view.tab.MouseButton1Click, function()
+                signals.new(self.view.tab.MouseButton1Click, function()
                     self:select()
                 end)
-                signals.new().connect(self.view.tab.MouseEnter, function()
+                signals.new(self.view.tab.MouseEnter, function()
                     if not self._selected then
                         self:_applyStyle(tabStyles.HOVERED)
                     end
                 end)
-                signals.new().connect(self.view.tab.MouseLeave, function()
+                signals.new(self.view.tab.MouseLeave, function()
                     if not self._selected then
                         self:_applyStyle(tabStyles.DEFAULT)
                     end

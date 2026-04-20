@@ -39,17 +39,17 @@ function Tab.new(props: tabTypes.Props, rootView: rootTypes.View, tabs: { Tab })
 		_section = Section(rootView.sections),
 	} :: Tab
 
-	signals.new().connect(self.view.tab.MouseButton1Click, function()
+	signals.new(self.view.tab.MouseButton1Click, function()
 		self:select()
 	end)
 
-	signals.new().connect(self.view.tab.MouseEnter, function()
+	signals.new(self.view.tab.MouseEnter, function()
 		if not self._selected then
 			self:_applyStyle(tabStyles.HOVERED)
 		end
 	end)
 
-	signals.new().connect(self.view.tab.MouseLeave, function()
+	signals.new(self.view.tab.MouseLeave, function()
 		if not self._selected then
 			self:_applyStyle(tabStyles.DEFAULT)
 		end

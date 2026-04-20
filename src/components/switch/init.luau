@@ -29,11 +29,11 @@ function Switch.new(props: switchTypes.Props, section: ScrollingFrame): Switch
 		_enabled = false,
 	} :: Switch
 
-	signals.new().connect(self.view.switch.MouseButton1Click, function()
+	signals.new(self.view.switch.MouseButton1Click, function()
 		self:changeState(not self._enabled)
 	end)
 
-	signals.new().connect(self.view.switch:GetPropertyChangedSignal("AbsoluteSize"), function()
+	signals.new(self.view.switch:GetPropertyChangedSignal("AbsoluteSize"), function()
 		scaling.scaleComponent(self.view.switch, self.view.description)
 	end)
 
