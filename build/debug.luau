@@ -3,21 +3,22 @@ type Props__DARKLUA_TYPE_b = {product: string, destroyed: () -> ()}
 type View__DARKLUA_TYPE_c = {tab: TextButton, stroke: UIStroke, title: TextLabel, icon: ImageLabel}
 type Style__DARKLUA_TYPE_d = {TAB_TRANSPARENCY: number, STROKE_TRANSPARENCY: number, ICON_COLOR: Color3, TEXT_COLOR: Color3}
 type Props__DARKLUA_TYPE_e = {title: string, icon: string?}
-type TypeMetadata__DARKLUA_TYPE_f<T> = {springType: (dampingRatio:number, frequency:number, pos:number, typedat:TypeMetadata__DARKLUA_TYPE_f<T>, rawTarget:T) -> LinearSpring__DARKLUA_TYPE_g<T>, toIntermediate: (T) -> {number}, fromIntermediate: ({number}) -> T}
-type LinearSpring__DARKLUA_TYPE_g<T> = typeof(setmetatable({}::{d: number, f: number, g: {number}, p: {number}, v: {number}, typedat: TypeMetadata__DARKLUA_TYPE_f<T>, rawTarget: T}, LinearSpring))
-type RotationSpring__DARKLUA_TYPE_h = typeof(setmetatable({}::{d: number, f: number, g: CFrame, p: CFrame, v: Vector3}, RotationSpring))
-type PropertyOverride__DARKLUA_TYPE_i = {[string]: {class: string, get: (any) -> (), set: (any, any) -> ()}}
-type Root__DARKLUA_TYPE_j = setmetatable<{view: View__DARKLUA_TYPE_a, _expanded: boolean, _lastSize: UDim2}, typeof(Root)>
-type View__DARKLUA_TYPE_k = {button: TextButton, title: TextLabel, description: {frame: Frame, text: TextLabel}}
-type Style__DARKLUA_TYPE_l = {BUTTON_COLOR: Color3}
-type Props__DARKLUA_TYPE_m = {title: string, description: string, activated: (() -> ())?}
-type View__DARKLUA_TYPE_n = {switch: TextButton, title: TextLabel, thumb: {frame: Frame, circle: Frame}, description: {frame: Frame, text: TextLabel}}
-type Style__DARKLUA_TYPE_o = {THUMB_COLOR: Color3, CIRCLE_COLOR: Color3, CIRCLE_POSITION: UDim2, CIRCLE_ANCHOR_POINT: Vector2}
-type Props__DARKLUA_TYPE_p = {flag: string, title: string, description: string, enabled: boolean?, changed: ((state:boolean) -> ())?}
-type Button__DARKLUA_TYPE_q = setmetatable<{view: View__DARKLUA_TYPE_k}, typeof(Button)>
-type Flags__DARKLUA_TYPE_r = setmetatable<{_path: string, _flags: {[string]: any}}, typeof(Flags)>
-type Switch__DARKLUA_TYPE_s = setmetatable<{props: Props__DARKLUA_TYPE_p, flags: Flags__DARKLUA_TYPE_r, view: View__DARKLUA_TYPE_n, _enabled: boolean}, typeof(Switch)>
-type Tab__DARKLUA_TYPE_t = setmetatable<{flags: Flags__DARKLUA_TYPE_r, view: View__DARKLUA_TYPE_c, _tabs: {Tab__DARKLUA_TYPE_t}, _selected: boolean, _section: ScrollingFrame}, typeof(Tab)>
+type Drag__DARKLUA_TYPE_f = setmetatable<{_dragging: boolean, _permission: boolean, _startInput: InputObject?, _startVector: Vector2?, _lastPosition: UDim2?, _inputChanged: ((...any) -> ())?}, typeof(Drag)>
+type TypeMetadata__DARKLUA_TYPE_g<T> = {springType: (dampingRatio:number, frequency:number, pos:number, typedat:TypeMetadata__DARKLUA_TYPE_g<T>, rawTarget:T) -> LinearSpring__DARKLUA_TYPE_h<T>, toIntermediate: (T) -> {number}, fromIntermediate: ({number}) -> T}
+type LinearSpring__DARKLUA_TYPE_h<T> = typeof(setmetatable({}::{d: number, f: number, g: {number}, p: {number}, v: {number}, typedat: TypeMetadata__DARKLUA_TYPE_g<T>, rawTarget: T}, LinearSpring))
+type RotationSpring__DARKLUA_TYPE_i = typeof(setmetatable({}::{d: number, f: number, g: CFrame, p: CFrame, v: Vector3}, RotationSpring))
+type PropertyOverride__DARKLUA_TYPE_j = {[string]: {class: string, get: (any) -> (), set: (any, any) -> ()}}
+type Root__DARKLUA_TYPE_k = setmetatable<{view: View__DARKLUA_TYPE_a, _drag: Drag__DARKLUA_TYPE_f, _expanded: boolean, _lastSize: UDim2}, typeof(Root)>
+type View__DARKLUA_TYPE_l = {button: TextButton, title: TextLabel, description: {frame: Frame, text: TextLabel}}
+type Style__DARKLUA_TYPE_m = {BUTTON_COLOR: Color3}
+type Props__DARKLUA_TYPE_n = {title: string, description: string, activated: (() -> ())?}
+type View__DARKLUA_TYPE_o = {switch: TextButton, title: TextLabel, thumb: {frame: Frame, circle: Frame}, description: {frame: Frame, text: TextLabel}}
+type Style__DARKLUA_TYPE_p = {THUMB_COLOR: Color3, CIRCLE_COLOR: Color3, CIRCLE_POSITION: UDim2, CIRCLE_ANCHOR_POINT: Vector2}
+type Props__DARKLUA_TYPE_q = {flag: string, title: string, description: string, enabled: boolean?, changed: ((state:boolean) -> ())?}
+type Button__DARKLUA_TYPE_r = setmetatable<{view: View__DARKLUA_TYPE_l}, typeof(Button)>
+type Flags__DARKLUA_TYPE_s = setmetatable<{_path: string, _flags: {[string]: any}}, typeof(Flags)>
+type Switch__DARKLUA_TYPE_t = setmetatable<{props: Props__DARKLUA_TYPE_q, flags: Flags__DARKLUA_TYPE_s, view: View__DARKLUA_TYPE_o, _enabled: boolean}, typeof(Switch)>
+type Tab__DARKLUA_TYPE_u = setmetatable<{flags: Flags__DARKLUA_TYPE_s, view: View__DARKLUA_TYPE_c, _tabs: {Tab__DARKLUA_TYPE_u}, _selected: boolean, _section: ScrollingFrame}, typeof(Tab)>
 
 local __DARKLUA_BUNDLE_MODULES = {
     cache = {}::any,
@@ -63,12 +64,9 @@ do
     do
         local function __modImpl()
             return {
-                DEF_POSITION = UDim2.fromScale(0.5, 0.5),
-                DEF_SIZE = UDim2.fromOffset(750, 500),
-                MIN_SIZE = UDim2.fromOffset(300, 255),
-                MAX_SIZE = UDim2.fromScale(1, 1),
-                MIN_CORNER = UDim.new(0, 0),
-                MAX_CORNER = UDim.new(0, 10),
+                END_INPUT = Enum.UserInputState.End,
+                MOUSE_INPUT = Enum.UserInputType.MouseButton1,
+                MOVE_INPUT = Enum.UserInputType.MouseMovement,
             }
         end
 
@@ -87,8 +85,217 @@ do
     end
     do
         local function __modImpl()
+            return {
+                DEF_POSITION = UDim2.fromScale(0.5, 0.5),
+                DEF_SIZE = UDim2.fromOffset(750, 500),
+                MIN_SIZE = UDim2.fromOffset(300, 255),
+                MAX_SIZE = UDim2.fromScale(1, 1),
+                MIN_CORNER = UDim.new(0, 0),
+                MAX_CORNER = UDim.new(0, 10),
+            }
+        end
+
+        function __DARKLUA_BUNDLE_MODULES.d(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.d
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.d = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
+            local connections: {RBXScriptConnection} = {}
+
+            local function new(signal: RBXScriptSignal, callback: (...any) -> ...any)
+                local connection = signal:Connect(callback)
+
+                table.insert(connections, connection)
+
+                return function()
+                    local index = table.find(connections, connection)
+
+                    if index then
+                        table.remove(connections, index)
+                    end
+
+                    connection:Disconnect()
+                end
+            end
+            local function clear()
+                for _, connection in connections do
+                    connection:Disconnect()
+                end
+
+                table.clear(connections)
+            end
+
+            return {
+                new = new,
+                clear = clear,
+            }
+        end
+
+        function __DARKLUA_BUNDLE_MODULES.e(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.e
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.e = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
+            local GuiService = game:GetService('GuiService')
+            local UserInputService = game:GetService('UserInputService')
+            local inputs = __DARKLUA_BUNDLE_MODULES.c()
+            local rootStyles = __DARKLUA_BUNDLE_MODULES.d()
+            local signals = __DARKLUA_BUNDLE_MODULES.e()
+            local currentCamera = workspace.CurrentCamera
+            local Drag = {}
+
+            Drag.__index = Drag
+
+            function Drag.new(root: GuiObject, target: GuiObject)
+                local self = setmetatable({
+                    _dragging = false,
+                    _permission = true,
+                    _startInput = nil,
+                    _startVector = nil,
+                    _lastPosition = nil,
+                    _inputChanged = nil,
+                }, Drag)::Drag__DARKLUA_TYPE_f
+
+                signals.new(target.InputBegan, function(inputObject: InputObject)
+                    self:_onInputBegan(inputObject, root)
+                end)
+                signals.new(target.InputEnded, function(inputObject: InputObject)
+                    self:_onInputEnded(inputObject)
+                end)
+
+                return self
+            end
+            function Drag._resetState(self: Drag__DARKLUA_TYPE_f)
+                self._dragging = false
+                self._startInput = nil
+                self._startVector = nil
+
+                if self._inputChanged then
+                    self._inputChanged()
+                end
+            end
+            function Drag.setPermission(self: Drag__DARKLUA_TYPE_f, state: boolean)
+                self._permission = state
+
+                if not state then
+                    self:_resetState()
+                end
+            end
+            function Drag.getLastPosition(self: Drag__DARKLUA_TYPE_f)
+                return self._lastPosition or rootStyles.DEF_POSITION
+            end
+            function Drag._onInputBegan(
+                self: Drag__DARKLUA_TYPE_f,
+                inputObject: InputObject,
+                guiObject: GuiObject
+            )
+                if not self._permission or inputObject.UserInputType ~= inputs.MOUSE_INPUT then
+                    return
+                end
+
+                local inputPosition = inputObject.Position
+                local guiPosition = guiObject.AbsolutePosition
+
+                self._dragging = true
+                self._startInput = inputObject
+                self._startVector = Vector2.new(inputPosition.X - guiPosition.X, inputPosition.Y - guiPosition.Y)
+                self._inputChanged = signals.new(UserInputService.InputChanged, function(
+                    inputObject: InputObject
+                )
+                    self:_onInputChanged(inputObject, guiObject)
+                end)
+            end
+            function Drag._onInputChanged(
+                self: Drag__DARKLUA_TYPE_f,
+                inputObject: InputObject,
+                guiObject: GuiObject
+            )
+                if not self._dragging or not self._permission then
+                    return
+                end
+                if not self._startInput or not self._startVector then
+                    return
+                end
+                if inputObject.UserInputState == inputs.END_INPUT or self._startInput.UserInputState == inputs.END_INPUT then
+                    self:_resetState()
+
+                    return
+                end
+                if inputObject.UserInputType == inputs.MOVE_INPUT then
+                    self:_moveObject(inputObject, guiObject)
+                end
+            end
+            function Drag._onInputEnded(self: Drag__DARKLUA_TYPE_f, inputObject: InputObject)
+                if inputObject.UserInputType == inputs.MOUSE_INPUT then
+                    self:_resetState()
+                end
+            end
+            function Drag._moveObject(
+                self: Drag__DARKLUA_TYPE_f,
+                inputObject: InputObject,
+                guiObject: GuiObject
+            )
+                if not self._startVector then
+                    return
+                end
+
+                local viewportSize = currentCamera.ViewportSize
+                local insetOffset = GuiService:GetGuiInset()
+                local inputPosition = inputObject.Position
+                local absoluteSize = guiObject.AbsoluteSize
+                local anchorPoint = guiObject.AnchorPoint
+                local deltaX = inputPosition.X - self._startVector.X
+                local deltaY = inputPosition.Y - self._startVector.Y + insetOffset.Y
+                local centerX = deltaX + (absoluteSize.X * anchorPoint.X)
+                local centerY = deltaY + (absoluteSize.Y * anchorPoint.Y)
+                local scaleX = centerX / viewportSize.X
+                local scaleY = centerY / viewportSize.Y
+                local scalePosition = UDim2.fromScale(scaleX, scaleY)
+
+                guiObject.Position = scalePosition
+                self._lastPosition = scalePosition
+            end
+
+            return Drag
+        end
+
+        function __DARKLUA_BUNDLE_MODULES.f(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.f
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.f = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
             local CoreGui = gethui() or cloneref(game:GetService('CoreGui'))
-            local rootStyles = __DARKLUA_BUNDLE_MODULES.c()
+            local rootStyles = __DARKLUA_BUNDLE_MODULES.d()
 
             __DARKLUA_BUNDLE_MODULES.a()
 
@@ -369,60 +576,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.d(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.d
+        function __DARKLUA_BUNDLE_MODULES.g(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.g
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.d = v
-            end
-
-            return v.c
-        end
-    end
-    do
-        local function __modImpl()
-            local connections: {RBXScriptConnection} = {}
-
-            local function new(signal: RBXScriptSignal, callback: (...any) -> ...any)
-                local connection = signal:Connect(callback)
-
-                table.insert(connections, connection)
-
-                return function()
-                    local index = table.find(connections, connection)
-
-                    if index then
-                        table.remove(connections, index)
-                    end
-
-                    connection:Disconnect()
-                end
-            end
-            local function clear()
-                for _, connection in connections do
-                    connection:Disconnect()
-                end
-
-                table.clear(connections)
-            end
-
-            return {
-                new = new,
-                clear = clear,
-            }
-        end
-
-        function __DARKLUA_BUNDLE_MODULES.e(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.e
-
-            if not v then
-                v = {
-                    c = __modImpl(),
-                }
-                __DARKLUA_BUNDLE_MODULES.cache.e = v
+                __DARKLUA_BUNDLE_MODULES.cache.g = v
             end
 
             return v.c
@@ -495,13 +656,13 @@ do
                     self.g = self.typedat.toIntermediate(goal)
                 end
                 function LinearSpring.setDampingRatio<T>(
-                    self: LinearSpring__DARKLUA_TYPE_g<T>,
+                    self: LinearSpring__DARKLUA_TYPE_h<T>,
                     dampingRatio: number
                 )
                     self.d = dampingRatio
                 end
                 function LinearSpring.setFrequency<T>(
-                    self: LinearSpring__DARKLUA_TYPE_g<T>,
+                    self: LinearSpring__DARKLUA_TYPE_h<T>,
                     frequency: number
                 )
                     self.f = frequency
@@ -516,7 +677,7 @@ do
 
                     return true
                 end
-                function LinearSpring.step<T>(self: LinearSpring__DARKLUA_TYPE_g<T>, dt: number)
+                function LinearSpring.step<T>(self: LinearSpring__DARKLUA_TYPE_h<T>, dt: number)
                     local d = self.d
                     local f = self.f * (2 * pi)
                     local g = self.g
@@ -608,19 +769,19 @@ do
                     }, RotationSpring)
                 end
                 function RotationSpring.setGoal(
-                    self: RotationSpring__DARKLUA_TYPE_h,
+                    self: RotationSpring__DARKLUA_TYPE_i,
                     value: CFrame
                 )
                     self.g = value:Orthonormalize()
                 end
                 function RotationSpring.setDampingRatio(
-                    self: RotationSpring__DARKLUA_TYPE_h,
+                    self: RotationSpring__DARKLUA_TYPE_i,
                     dampingRatio: number
                 )
                     self.d = dampingRatio
                 end
                 function RotationSpring.setFrequency(
-                    self: RotationSpring__DARKLUA_TYPE_h,
+                    self: RotationSpring__DARKLUA_TYPE_i,
                     frequency: number
                 )
                     self.f = frequency
@@ -675,13 +836,13 @@ do
                     return axis.Unit * angle
                 end
 
-                function RotationSpring.canSleep(self: RotationSpring__DARKLUA_TYPE_h)
+                function RotationSpring.canSleep(self: RotationSpring__DARKLUA_TYPE_i)
                     local sleepP = areRotationsClose(self.p, self.g)
                     local sleepV = self.v.Magnitude < SLEEP_ROTATION_VELOCITY
 
                     return sleepP and sleepV
                 end
-                function RotationSpring.step(self: RotationSpring__DARKLUA_TYPE_h, dt: number): CFrame
+                function RotationSpring.step(self: RotationSpring__DARKLUA_TYPE_i, dt: number): CFrame
                     local d = self.d
                     local f = self.f * (2 * pi)
                     local g = self.g
@@ -959,7 +1120,7 @@ do
                     fromIntermediate = error,
                 },
             }
-            local PSEUDO_PROPERTIES: PropertyOverride__DARKLUA_TYPE_i = {
+            local PSEUDO_PROPERTIES: PropertyOverride__DARKLUA_TYPE_j = {
                 Pivot = {
                     class = 'PVInstance',
                     get = function(inst: PVInstance)
@@ -1164,14 +1325,14 @@ do
             return table.freeze(spr)
         end
 
-        function __DARKLUA_BUNDLE_MODULES.f(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.f
+        function __DARKLUA_BUNDLE_MODULES.h(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.h
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.f = v
+                __DARKLUA_BUNDLE_MODULES.cache.h = v
             end
 
             return v.c
@@ -1187,14 +1348,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.g(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.g
+        function __DARKLUA_BUNDLE_MODULES.i(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.i
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.g = v
+                __DARKLUA_BUNDLE_MODULES.cache.i = v
             end
 
             return v.c
@@ -1202,14 +1363,15 @@ do
     end
     do
         local function __modImpl()
-            local rootStyles = __DARKLUA_BUNDLE_MODULES.c()
+            local Drag = __DARKLUA_BUNDLE_MODULES.f()
+            local rootStyles = __DARKLUA_BUNDLE_MODULES.d()
 
             __DARKLUA_BUNDLE_MODULES.a()
 
-            local rootView = __DARKLUA_BUNDLE_MODULES.d()
+            local rootView = __DARKLUA_BUNDLE_MODULES.g()
             local signals = __DARKLUA_BUNDLE_MODULES.e()
-            local spring = __DARKLUA_BUNDLE_MODULES.f()
-            local motions = __DARKLUA_BUNDLE_MODULES.g()
+            local spring = __DARKLUA_BUNDLE_MODULES.h()
+            local motions = __DARKLUA_BUNDLE_MODULES.i()
             local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
             local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Root = {}
@@ -1217,11 +1379,13 @@ do
             Root.__index = Root
 
             function Root.new(props: Props__DARKLUA_TYPE_b)
-                local self: Root__DARKLUA_TYPE_j = setmetatable({
+                local self = setmetatable({
                     view = rootView(props),
                     _expanded = false,
                     _lastSize = rootStyles.DEF_SIZE,
-                }, Root)
+                }, Root)::Root__DARKLUA_TYPE_k
+
+                self._drag = Drag.new(self.view.container, self.view.header)
 
                 signals.new(self.view.minimize.MouseButton1Click, function()
                     self:_minimize()
@@ -1241,13 +1405,15 @@ do
 
                 return self
             end
-            function Root._minimize(self: Root__DARKLUA_TYPE_j)
+            function Root._minimize(self: Root__DARKLUA_TYPE_k)
                 self.view.illumina.Enabled = not self.view.illumina.Enabled
             end
-            function Root._expand(self: Root__DARKLUA_TYPE_j, state: boolean?)
+            function Root._expand(self: Root__DARKLUA_TYPE_k, state: boolean?)
                 self._expanded = if state ~= nil then state else not self._expanded
 
-                local position = self._expanded and rootStyles.DEF_POSITION or rootStyles.DEF_POSITION
+                self._drag:setPermission(not self._expanded)
+
+                local position = self._expanded and rootStyles.DEF_POSITION or self._drag:getLastPosition() or rootStyles.DEF_POSITION
                 local size = self._expanded and rootStyles.MAX_SIZE or self._lastSize
                 local corner = self._expanded and rootStyles.MIN_CORNER or rootStyles.MAX_CORNER
 
@@ -1259,42 +1425,6 @@ do
             end
 
             return Root
-        end
-
-        function __DARKLUA_BUNDLE_MODULES.h(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.h
-
-            if not v then
-                v = {
-                    c = __modImpl(),
-                }
-                __DARKLUA_BUNDLE_MODULES.cache.h = v
-            end
-
-            return v.c
-        end
-    end
-    do
-        local function __modImpl()
-            return nil
-        end
-
-        function __DARKLUA_BUNDLE_MODULES.i(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.i
-
-            if not v then
-                v = {
-                    c = __modImpl(),
-                }
-                __DARKLUA_BUNDLE_MODULES.cache.i = v
-            end
-
-            return v.c
-        end
-    end
-    do
-        local function __modImpl()
-            return nil
         end
 
         function __DARKLUA_BUNDLE_MODULES.j(): typeof(__modImpl())
@@ -1312,14 +1442,7 @@ do
     end
     do
         local function __modImpl()
-            return {
-                DEFAULT = {
-                    BUTTON_COLOR = Color3.fromRGB(16, 16, 16),
-                },
-                HOVERED = {
-                    BUTTON_COLOR = Color3.fromRGB(20, 20, 20),
-                },
-            }
+            return nil
         end
 
         function __DARKLUA_BUNDLE_MODULES.k(): typeof(__modImpl())
@@ -1337,9 +1460,52 @@ do
     end
     do
         local function __modImpl()
-            __DARKLUA_BUNDLE_MODULES.i()
+            return nil
+        end
 
-            return function(props: Props__DARKLUA_TYPE_m, section: ScrollingFrame): View__DARKLUA_TYPE_k
+        function __DARKLUA_BUNDLE_MODULES.l(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.l
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.l = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
+            return {
+                DEFAULT = {
+                    BUTTON_COLOR = Color3.fromRGB(16, 16, 16),
+                },
+                HOVERED = {
+                    BUTTON_COLOR = Color3.fromRGB(20, 20, 20),
+                },
+            }
+        end
+
+        function __DARKLUA_BUNDLE_MODULES.m(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.m
+
+            if not v then
+                v = {
+                    c = __modImpl(),
+                }
+                __DARKLUA_BUNDLE_MODULES.cache.m = v
+            end
+
+            return v.c
+        end
+    end
+    do
+        local function __modImpl()
+            __DARKLUA_BUNDLE_MODULES.k()
+
+            return function(props: Props__DARKLUA_TYPE_n, section: ScrollingFrame): View__DARKLUA_TYPE_l
                 local button = Instance.new('TextButton')
 
                 button.Name = 'Button'
@@ -1482,14 +1648,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.l(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.l
+        function __DARKLUA_BUNDLE_MODULES.n(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.n
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.l = v
+                __DARKLUA_BUNDLE_MODULES.cache.n = v
             end
 
             return v.c
@@ -1503,14 +1669,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.m(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.m
+        function __DARKLUA_BUNDLE_MODULES.o(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.o
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.m = v
+                __DARKLUA_BUNDLE_MODULES.cache.o = v
             end
 
             return v.c
@@ -1519,7 +1685,7 @@ do
     do
         local function __modImpl()
             local TextService = game:GetService('TextService')
-            local spacing = __DARKLUA_BUNDLE_MODULES.m()
+            local spacing = __DARKLUA_BUNDLE_MODULES.o()
             local FONT_SIZE = 16
             local FONT_ENUM = Enum.Font.GothamMedium
 
@@ -1585,14 +1751,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.n(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.n
+        function __DARKLUA_BUNDLE_MODULES.p(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.p
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.n = v
+                __DARKLUA_BUNDLE_MODULES.cache.p = v
             end
 
             return v.c
@@ -1600,23 +1766,23 @@ do
     end
     do
         local function __modImpl()
-            local buttonStyles = __DARKLUA_BUNDLE_MODULES.k()
+            local buttonStyles = __DARKLUA_BUNDLE_MODULES.m()
 
-            __DARKLUA_BUNDLE_MODULES.i()
+            __DARKLUA_BUNDLE_MODULES.k()
 
-            local buttonView = __DARKLUA_BUNDLE_MODULES.l()
-            local scaling = __DARKLUA_BUNDLE_MODULES.n()
+            local buttonView = __DARKLUA_BUNDLE_MODULES.n()
+            local scaling = __DARKLUA_BUNDLE_MODULES.p()
             local signals = __DARKLUA_BUNDLE_MODULES.e()
-            local spring = __DARKLUA_BUNDLE_MODULES.f()
-            local motions = __DARKLUA_BUNDLE_MODULES.g()
+            local spring = __DARKLUA_BUNDLE_MODULES.h()
+            local motions = __DARKLUA_BUNDLE_MODULES.i()
             local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
             local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Button = {}
 
             Button.__index = Button
 
-            function Button.new(props: Props__DARKLUA_TYPE_m, section: ScrollingFrame)
-                local self: Button__DARKLUA_TYPE_q = setmetatable({
+            function Button.new(props: Props__DARKLUA_TYPE_n, section: ScrollingFrame)
+                local self: Button__DARKLUA_TYPE_r = setmetatable({
                     view = buttonView(props, section),
                 }, Button)
 
@@ -1639,7 +1805,7 @@ do
 
                 return self
             end
-            function Button._applyStyle(self: Button__DARKLUA_TYPE_q, style: Style__DARKLUA_TYPE_l)
+            function Button._applyStyle(self: Button__DARKLUA_TYPE_r, style: Style__DARKLUA_TYPE_m)
                 spring.target(self.view.button, DAMPING_RATIO, FREQUENCY, {
                     BackgroundColor3 = style.BUTTON_COLOR,
                 })
@@ -1648,14 +1814,14 @@ do
             return Button
         end
 
-        function __DARKLUA_BUNDLE_MODULES.o(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.o
+        function __DARKLUA_BUNDLE_MODULES.q(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.q
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.o = v
+                __DARKLUA_BUNDLE_MODULES.cache.q = v
             end
 
             return v.c
@@ -1684,14 +1850,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.p(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.p
+        function __DARKLUA_BUNDLE_MODULES.r(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.r
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.p = v
+                __DARKLUA_BUNDLE_MODULES.cache.r = v
             end
 
             return v.c
@@ -1742,14 +1908,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.q(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.q
+        function __DARKLUA_BUNDLE_MODULES.s(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.s
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.q = v
+                __DARKLUA_BUNDLE_MODULES.cache.s = v
             end
 
             return v.c
@@ -1797,14 +1963,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.r(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.r
+        function __DARKLUA_BUNDLE_MODULES.t(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.t
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.r = v
+                __DARKLUA_BUNDLE_MODULES.cache.t = v
             end
 
             return v.c
@@ -1812,7 +1978,7 @@ do
     end
     do
         local function __modImpl()
-            local file = __DARKLUA_BUNDLE_MODULES.r()
+            local file = __DARKLUA_BUNDLE_MODULES.t()
             local ROOT_PATH = 'illumina'
             local PRODUCTS_PATH = `{ROOT_PATH}/products`
             local FILE_TYPE = 'json'
@@ -1825,7 +1991,7 @@ do
 
                 file.ensureFolderExists(ROOT_PATH)
 
-                local self: Flags__DARKLUA_TYPE_r = setmetatable({
+                local self: Flags__DARKLUA_TYPE_s = setmetatable({
                     _path = path,
                     _flags = file.getContent(path),
                 }, Flags)
@@ -1833,7 +1999,7 @@ do
                 return self
             end
             function Flags.getFlag(
-                self: Flags__DARKLUA_TYPE_r,
+                self: Flags__DARKLUA_TYPE_s,
                 name: string,
                 defaultType: string
             ): any
@@ -1846,7 +2012,7 @@ do
                 return nil
             end
             function Flags.setFlag(
-                self: Flags__DARKLUA_TYPE_r,
+                self: Flags__DARKLUA_TYPE_s,
                 name: string,
                 value: any
             )
@@ -1858,14 +2024,14 @@ do
             return Flags
         end
 
-        function __DARKLUA_BUNDLE_MODULES.s(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.s
+        function __DARKLUA_BUNDLE_MODULES.u(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.u
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.s = v
+                __DARKLUA_BUNDLE_MODULES.cache.u = v
             end
 
             return v.c
@@ -1889,14 +2055,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.t(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.t
+        function __DARKLUA_BUNDLE_MODULES.v(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.v
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.t = v
+                __DARKLUA_BUNDLE_MODULES.cache.v = v
             end
 
             return v.c
@@ -1904,9 +2070,9 @@ do
     end
     do
         local function __modImpl()
-            __DARKLUA_BUNDLE_MODULES.j()
+            __DARKLUA_BUNDLE_MODULES.l()
 
-            return function(props: Props__DARKLUA_TYPE_p, section: ScrollingFrame): View__DARKLUA_TYPE_n
+            return function(props: Props__DARKLUA_TYPE_q, section: ScrollingFrame): View__DARKLUA_TYPE_o
                 local switch = Instance.new('TextButton')
 
                 switch.Name = 'Switch'
@@ -2079,14 +2245,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.u(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.u
+        function __DARKLUA_BUNDLE_MODULES.w(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.w
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.u = v
+                __DARKLUA_BUNDLE_MODULES.cache.w = v
             end
 
             return v.c
@@ -2094,17 +2260,17 @@ do
     end
     do
         local function __modImpl()
-            __DARKLUA_BUNDLE_MODULES.s()
+            __DARKLUA_BUNDLE_MODULES.u()
 
-            local switchStyles = __DARKLUA_BUNDLE_MODULES.t()
+            local switchStyles = __DARKLUA_BUNDLE_MODULES.v()
 
-            __DARKLUA_BUNDLE_MODULES.j()
+            __DARKLUA_BUNDLE_MODULES.l()
 
-            local switchView = __DARKLUA_BUNDLE_MODULES.u()
-            local scaling = __DARKLUA_BUNDLE_MODULES.n()
+            local switchView = __DARKLUA_BUNDLE_MODULES.w()
+            local scaling = __DARKLUA_BUNDLE_MODULES.p()
             local signals = __DARKLUA_BUNDLE_MODULES.e()
-            local spring = __DARKLUA_BUNDLE_MODULES.f()
-            local motions = __DARKLUA_BUNDLE_MODULES.g()
+            local spring = __DARKLUA_BUNDLE_MODULES.h()
+            local motions = __DARKLUA_BUNDLE_MODULES.i()
             local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
             local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Switch = {}
@@ -2112,11 +2278,11 @@ do
             Switch.__index = Switch
 
             function Switch.new(
-                props: Props__DARKLUA_TYPE_p,
-                flags: Flags__DARKLUA_TYPE_r,
+                props: Props__DARKLUA_TYPE_q,
+                flags: Flags__DARKLUA_TYPE_s,
                 section: ScrollingFrame
             )
-                local self: Switch__DARKLUA_TYPE_s = setmetatable({
+                local self: Switch__DARKLUA_TYPE_t = setmetatable({
                     props = props,
                     flags = flags,
                     view = switchView(props, section),
@@ -2141,7 +2307,7 @@ do
 
                 return self
             end
-            function Switch.changeState(self: Switch__DARKLUA_TYPE_s, state: boolean)
+            function Switch.changeState(self: Switch__DARKLUA_TYPE_t, state: boolean)
                 self._enabled = state
 
                 self:_applyStyle(state and switchStyles.ENABLED or switchStyles.DISABLED)
@@ -2151,7 +2317,7 @@ do
                     self.props.changed(state)
                 end
             end
-            function Switch._applyStyle(self: Switch__DARKLUA_TYPE_s, style: Style__DARKLUA_TYPE_o)
+            function Switch._applyStyle(self: Switch__DARKLUA_TYPE_t, style: Style__DARKLUA_TYPE_p)
                 spring.target(self.view.thumb.frame, DAMPING_RATIO, FREQUENCY, {
                     BackgroundColor3 = style.THUMB_COLOR,
                 })
@@ -2165,14 +2331,14 @@ do
             return Switch
         end
 
-        function __DARKLUA_BUNDLE_MODULES.v(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.v
+        function __DARKLUA_BUNDLE_MODULES.x(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.x
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.v = v
+                __DARKLUA_BUNDLE_MODULES.cache.x = v
             end
 
             return v.c
@@ -2202,14 +2368,14 @@ do
             }
         end
 
-        function __DARKLUA_BUNDLE_MODULES.w(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.w
+        function __DARKLUA_BUNDLE_MODULES.y(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.y
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.w = v
+                __DARKLUA_BUNDLE_MODULES.cache.y = v
             end
 
             return v.c
@@ -2308,14 +2474,14 @@ do
             end
         end
 
-        function __DARKLUA_BUNDLE_MODULES.x(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.x
+        function __DARKLUA_BUNDLE_MODULES.z(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.z
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.x = v
+                __DARKLUA_BUNDLE_MODULES.cache.z = v
             end
 
             return v.c
@@ -2323,23 +2489,23 @@ do
     end
     do
         local function __modImpl()
-            __DARKLUA_BUNDLE_MODULES.i()
+            __DARKLUA_BUNDLE_MODULES.k()
             __DARKLUA_BUNDLE_MODULES.a()
-            __DARKLUA_BUNDLE_MODULES.j()
+            __DARKLUA_BUNDLE_MODULES.l()
             __DARKLUA_BUNDLE_MODULES.b()
 
-            local Button = __DARKLUA_BUNDLE_MODULES.o()
-            local Label = __DARKLUA_BUNDLE_MODULES.p()
-            local Section = __DARKLUA_BUNDLE_MODULES.q()
-            local Switch = __DARKLUA_BUNDLE_MODULES.v()
+            local Button = __DARKLUA_BUNDLE_MODULES.q()
+            local Label = __DARKLUA_BUNDLE_MODULES.r()
+            local Section = __DARKLUA_BUNDLE_MODULES.s()
+            local Switch = __DARKLUA_BUNDLE_MODULES.x()
 
-            __DARKLUA_BUNDLE_MODULES.s()
+            __DARKLUA_BUNDLE_MODULES.u()
 
-            local tabStyles = __DARKLUA_BUNDLE_MODULES.w()
-            local tabView = __DARKLUA_BUNDLE_MODULES.x()
+            local tabStyles = __DARKLUA_BUNDLE_MODULES.y()
+            local tabView = __DARKLUA_BUNDLE_MODULES.z()
             local signals = __DARKLUA_BUNDLE_MODULES.e()
-            local spring = __DARKLUA_BUNDLE_MODULES.f()
-            local motions = __DARKLUA_BUNDLE_MODULES.g()
+            local spring = __DARKLUA_BUNDLE_MODULES.h()
+            local motions = __DARKLUA_BUNDLE_MODULES.i()
             local DAMPING_RATIO = motions.DEFAULT.DAMPING_RATIO
             local FREQUENCY = motions.DEFAULT.FREQUENCY
             local Tab = {}
@@ -2348,11 +2514,11 @@ do
 
             function Tab.new(
                 props: Props__DARKLUA_TYPE_e,
-                flags: Flags__DARKLUA_TYPE_r,
+                flags: Flags__DARKLUA_TYPE_s,
                 rootView: View__DARKLUA_TYPE_a,
-                tabs: {Tab__DARKLUA_TYPE_t}
+                tabs: {Tab__DARKLUA_TYPE_u}
             )
-                local self: Tab__DARKLUA_TYPE_t = setmetatable({
+                local self: Tab__DARKLUA_TYPE_u = setmetatable({
                     flags = flags,
                     view = tabView(props, rootView.tabs),
                     _tabs = tabs,
@@ -2376,7 +2542,7 @@ do
 
                 return self
             end
-            function Tab.select(self: Tab__DARKLUA_TYPE_t)
+            function Tab.select(self: Tab__DARKLUA_TYPE_u)
                 for _, tab in self._tabs do
                     local selected = tab.view == self.view
                     local style = selected and tabStyles.SELECTED or tabStyles.DEFAULT
@@ -2387,16 +2553,16 @@ do
                     tab._section.Visible = selected
                 end
             end
-            function Tab.createLabel(self: Tab__DARKLUA_TYPE_t, title: string)
+            function Tab.createLabel(self: Tab__DARKLUA_TYPE_u, title: string)
                 return Label(title, self._section)
             end
-            function Tab.createButton(self: Tab__DARKLUA_TYPE_t, props: Props__DARKLUA_TYPE_m)
+            function Tab.createButton(self: Tab__DARKLUA_TYPE_u, props: Props__DARKLUA_TYPE_n)
                 return Button.new(props, self._section)
             end
-            function Tab.createSwitch(self: Tab__DARKLUA_TYPE_t, props: Props__DARKLUA_TYPE_p)
+            function Tab.createSwitch(self: Tab__DARKLUA_TYPE_u, props: Props__DARKLUA_TYPE_q)
                 return Switch.new(props, self.flags, self._section)
             end
-            function Tab._applyStyle(self: Tab__DARKLUA_TYPE_t, style: Style__DARKLUA_TYPE_d)
+            function Tab._applyStyle(self: Tab__DARKLUA_TYPE_u, style: Style__DARKLUA_TYPE_d)
                 spring.target(self.view.tab, DAMPING_RATIO, FREQUENCY, {
                     BackgroundTransparency = style.TAB_TRANSPARENCY,
                 })
@@ -2414,14 +2580,14 @@ do
             return Tab
         end
 
-        function __DARKLUA_BUNDLE_MODULES.y(): typeof(__modImpl())
-            local v = __DARKLUA_BUNDLE_MODULES.cache.y
+        function __DARKLUA_BUNDLE_MODULES.A(): typeof(__modImpl())
+            local v = __DARKLUA_BUNDLE_MODULES.cache.A
 
             if not v then
                 v = {
                     c = __modImpl(),
                 }
-                __DARKLUA_BUNDLE_MODULES.cache.y = v
+                __DARKLUA_BUNDLE_MODULES.cache.A = v
             end
 
             return v.c
@@ -2432,14 +2598,14 @@ end
 __DARKLUA_BUNDLE_MODULES.a()
 __DARKLUA_BUNDLE_MODULES.b()
 
-local Root = __DARKLUA_BUNDLE_MODULES.h()
-local Tab = __DARKLUA_BUNDLE_MODULES.y()
-local Flags = __DARKLUA_BUNDLE_MODULES.s()
+local Root = __DARKLUA_BUNDLE_MODULES.j()
+local Tab = __DARKLUA_BUNDLE_MODULES.A()
+local Flags = __DARKLUA_BUNDLE_MODULES.u()
 local Library = {}
 
 Library.__index = Library
 
-type Library = setmetatable<{flags: Flags__DARKLUA_TYPE_r, root: Root__DARKLUA_TYPE_j, tabs: {Tab__DARKLUA_TYPE_t}}, typeof(Library)>
+type Library = setmetatable<{flags: Flags__DARKLUA_TYPE_s, root: Root__DARKLUA_TYPE_k, tabs: {Tab__DARKLUA_TYPE_u}}, typeof(Library)>
 
 function Library.new(props: Props__DARKLUA_TYPE_b)
     local self: Library = setmetatable({

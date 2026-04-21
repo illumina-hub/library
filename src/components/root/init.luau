@@ -1,5 +1,7 @@
 --!strict
 
+local Drag = require("@managers/drag")
+
 local rootStyles = require("@self/styles")
 local rootTypes = require("@types/root")
 local rootView = require("@self/view")
@@ -17,16 +19,19 @@ Root.__index = Root
 
 export type Root = setmetatable<{
 	view: rootTypes.View,
+	_drag: Drag.Drag,
 	_expanded: boolean,
 	_lastSize: UDim2,
 }, typeof(Root)>
 
 function Root.new(props: rootTypes.Props)
-	local self: Root = setmetatable({
+	local self = setmetatable({
 		view = rootView(props),
 		_expanded = false,
 		_lastSize = rootStyles.DEF_SIZE,
-	}, Root)
+	}, Root) :: Root
+
+	self._drag = Drag.new(self.view.container, self.view.header)
 
 	signals.new(self.view.minimize.MouseButton1Click, function()
 		self:_minimize()
@@ -56,9 +61,11 @@ end
 
 function Root._expand(self: Root, state: boolean?)
 	self._expanded = if state ~= nil then state else not self._expanded
-	-- self._drag:setPermission(not self._expanded)
+	self._drag:setPermission(not self._expanded)
 
-	local position = self._expanded and rootStyles.DEF_POSITION or rootStyles.DEF_POSITION -- or self._drag:getLastPosition()
+	local position = self._expanded and rootStyles.DEF_POSITION
+		or self._drag:getLastPosition()
+		or rootStyles.DEF_POSITION
 	local size = self._expanded and rootStyles.MAX_SIZE or self._lastSize
 	local corner = self._expanded and rootStyles.MIN_CORNER or rootStyles.MAX_CORNER
 
