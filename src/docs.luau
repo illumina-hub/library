@@ -57,6 +57,32 @@ preview:createSwitch({
 
 preview:createLabel("Slider")
 
+preview:createSlider({
+	flag = "slider-1",
+	title = TITLE,
+	description = DESCRIPTION,
+	division = 1,
+	value = 25,
+	min = 0,
+	max = 100,
+	changed = function(value: number)
+		print(`slider-1: {value}`)
+	end,
+})
+
+preview:createSlider({
+	flag = "slider-2",
+	title = TITLE,
+	description = DESCRIPTION,
+	division = 10,
+	value = 75,
+	min = 0,
+	max = 100,
+	changed = function(value: number)
+		print(`slider-2: {value}`)
+	end,
+})
+
 library:createTab({
 	title = "Preview",
 })

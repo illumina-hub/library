@@ -18,7 +18,7 @@ export type Drag = setmetatable<{
 	_startInput: InputObject?,
 	_startVector: Vector2?,
 	_lastPosition: UDim2?,
-	_inputChanged: ((...any) -> ())?,
+	_inputChanged: (() -> ())?,
 }, typeof(Drag)>
 
 function Drag.new(root: GuiObject, target: GuiObject)
