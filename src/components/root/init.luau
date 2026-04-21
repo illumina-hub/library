@@ -63,9 +63,7 @@ function Root._expand(self: Root, state: boolean?)
 	self._expanded = if state ~= nil then state else not self._expanded
 	self._drag:setPermission(not self._expanded)
 
-	local position = self._expanded and rootStyles.DEF_POSITION
-		or self._drag:getLastPosition()
-		or rootStyles.DEF_POSITION
+	local position = self._expanded and rootStyles.DEF_POSITION or self._drag:getLastPosition()
 	local size = self._expanded and rootStyles.MAX_SIZE or self._lastSize
 	local corner = self._expanded and rootStyles.MIN_CORNER or rootStyles.MAX_CORNER
 
